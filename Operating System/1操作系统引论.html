@@ -1,0 +1,842 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+	-webkit-appearance: button;
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+.export-detail, .light .export-detail, 
+.light .export-item.active, 
+.light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}
+
+
+</style><title>2进程的描述与控制</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>学习路径：</span>
+<a href="1操作系统引论.md"><span>第一章 操作系统引论</span></a>
+<font color="red"><span>第二章 进程的描述与控制</span></font>
+<a href="3处理机调度与死锁.md"><span>第三章 处理机调度与死锁</span></a>
+<a href="4进程同步.md"><span>第四章 进程同步</span></a>
+<a href="5存储器管理.md"><span>第五章 存储器管理</span></a>
+<a href="6虚拟存储器.md"><span>第六章 虚拟存储器</span></a>
+<a href="7输入/输出系统.md"><span>第七章 输入/输出系统</span></a>
+<a href="8文件管理.md"><span>第八章 文件管理</span></a>
+<a href="9磁盘存储器管理.md"><span>第九章 磁盘存储器管理</span></a></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"></p></div><h1 id='1-前驱图和程序执行'><span>1 前驱图和程序执行</span></h1><h2 id='11-前驱图'><span>1.1 前驱图</span></h2><p><span>有向无循环图</span></p><h2 id='12-程序执行'><span>1.2 程序执行</span></h2><h3 id='单道系统的顺序程序执行的特征'><span>单道系统的顺序程序执行的特征</span></h3><ul><li><span>运行过程的顺序性</span></li><li><span>运行环境的封闭性（独占资源，不受影响）</span></li><li><span>运行结果的可再现性：初始状态相同，结果相同</span></li></ul><h3 id='多道系统-程序的并发执行的特征'><span>多道系统-程序的并发执行的特征</span></h3><ul><li><span>运行环境失去封闭性：共享资源引起</span></li><li><span>运行过程间断性：并发程序之间形成了相互制约的关系“执行-暂停-执行”</span></li><li><span>运行结果不可再现性</span></li></ul><h1 id='2-进程的描述'><span>2 进程的描述</span></h1><p><span>引入进程的原因：为了程序的并发执行，并且对并发执行的程序加以描述和控制。</span></p><h2 id='21-进程的定义'><span>2.1 进程的定义</span></h2><p><span>进程是程序的一个运行过程，是系统进行资源分配和调度的一个独立单位。</span></p><h2 id='22-进程的特性'><span>2.2 进程的特性</span></h2><ul><li><span>动态性：由创建而产生，由调度而执行，由得不到资源而阻塞，由撤消而消亡。是进程最基本特性。</span></li><li><span>并发性：只有建立了进程，才能并发执行。</span></li><li><span>独立性：独立运行，独立获得资源，独立接受调度。</span></li><li><span>异步性：间断性，不可预知的速度向前推进。</span></li></ul><h2 id='23-程序和进程的联系与区别'><span>2.3 程序和进程的联系与区别</span></h2><figure><table><thead><tr><th><span>程序</span></th><th><span>进程</span></th></tr></thead><tbody><tr><td><span>一组有序指令的集合</span></td><td><span>由程序、数据和PCB构成</span></td></tr><tr><td><span>静态性，存放在介质中，没有运动的含义</span></td><td><span>动态性，是进程实体的一次执行过程，有一定的生命周期</span></td></tr><tr><td><span>不可以并发执行</span></td><td><span>并发执行</span></td></tr><tr><td><span>程序不是竞争资源的基本单位</span></td><td><span>进程是竞争资源的基本单位（运行，分配资源）</span></td></tr></tbody></table></figure><blockquote><p><span>进程和程序不是一一对应的，一个程序可以对应多个进程，一个进程可以执行一个或几个程序！</span></p></blockquote><h2 id='24-进程的三种基本状态'><span>2.4 </span><font color="red"><span>进程的三种基本状态</span></font></h2><ul><li><span>就绪态(ready)</span></li><li><span>执行态(running)：进程占据并运行在CPU上</span></li><li><span>阻塞态(blocked)：也称等待态(wait)，引起原因：I/O请求，申请缓冲空间等</span></li></ul><h3 id='241--进程三状态转换图重要）'><span>2.4.1  进程三状态转换图（重要）</span></h3><p><img src="Images/1引论/进程状态转换3.png" referrerpolicy="no-referrer"></p><h3 id='242-进程五状态转换图'><span>2.4.2 进程五状态转换图</span></h3><p><img src="Images/1引论/进程状态转换5.png" referrerpolicy="no-referrer"></p><h2 id='26-进程的结构'><span>2.6 进程的结构</span></h2><p><span> 进程=程序+数据+PCB</span></p><h3 id='261-pcb'><span>2.6.1 PCB</span></h3><p><span>PCB：进程控制块(process control block)是进程的一部分，是OS中最重要的记录型数据结构，</span><strong><span>是进程存在的唯一标志</span></strong><span>，</span><strong><span>常驻内存</span></strong><span>。PCB描述进程与其他进程、系统资源的关系以及进程在各个不同时期的状态。</span></p><p><span>PCB记录了OS所需的、用于描述进程情况及控制进程运行所需的全部信息，使一个在多道程序环境下不能独立运行的程序成为一个能与其他进程并发执行的进程。</span>
+<span>PCB结构类似于结构体。</span></p><h3 id='262-pcb的作用'><span>2.6.2 PCB的作用</span></h3><ol start='' ><li><span>作为独立运行基本单元的标志</span></li><li><span>能实现间断性运行方式</span></li><li><span>提供进程管理所需要的信息</span></li><li><span>提供进程调度所需要的信息</span></li><li><span>实现与其他进程的同步与通信</span></li></ol><h3 id='263-pcb的组织方式'><span>2.6.3 PCB的组织方式</span></h3><p><img src="./Images/1引论/PCB的组织方式.png" referrerpolicy="no-referrer"></p><ul><li><span>线性方式</span></li><li><span>链接方式（执行指针、就绪队列指针、阻塞队列指针、空闲队列指针）</span></li><li><span>索引方式（就绪索引表(就绪表指针)、阻塞索引表(阻塞表指针)、执行指针）</span></li></ul><blockquote><ol start='' ><li><span>进程和程序的一个本质区别是：前者是动态的，而后者为静态的。</span></li><li><span>进程所请求的一次打印输出结束后，将使进程状态从(D)</span>
+&emsp;<span>A.运行态变为就绪态</span>
+&emsp;<span>B.运行态变为等待态</span>
+&emsp;<span>C.就绪态变为运行态</span>
+&emsp;<span>D.等待态变为就绪态</span></li><li><span>下列进程状态的转换中，不正确的是(B)</span>
+&emsp;<span>A.运行态→就绪态</span>
+&emsp;<span>B.就绪态→等待态</span>
+&emsp;<span>C.就绪态→运行态</span>
+&emsp;<span>D.阻塞态→就绪态</span></li></ol></blockquote><h1 id='3-进程控制'><span>3 进程控制</span></h1><h2 id='31-概述'><span>3.1 概述</span></h2><p><span>进程控制是进程管理最基本的功能，一般由OS内核中的原语实现；</span>
+<span>进程控制包括：进程创建、进程终止、进程阻塞与唤醒、进程挂起与激活</span></p><h2 id='32-进程创建'><span>3.2 进程创建</span></h2><p><span>父进程(parent process)：创建进程的进程</span>
+<span>子进程(progeny process)：被创建的进程</span></p><p><span>父进程创建子进程，子进程可继承父资源，撤销时应归还给父进程，父的撤销会撤销所有子进程。</span></p><p><span>引起进程创建的事件：用户登录、作业调度、提供服务、应用请求</span></p><p><span>进程创建过程：申请空白PCB→分配所需资源→初始化PCB→插入就绪队列</span></p><p><img src="Images/2进程创建过程.png" referrerpolicy="no-referrer"></p><h2 id='33-进程终止'><span>3.3 进程终止</span></h2><p><span>引起进程终止的事件：正常结束、异常结束、外界干预</span></p><h2 id='34-进程阻塞等待'><span>3.4 进程阻塞(等待)</span></h2><p><span>引起进程阻塞的事件：</span></p><ul><li><span>向系统请求共享资源失败</span></li><li><span>等待某种操作的完成</span></li><li><span>新数据尚未到达</span></li><li><span>等待新任务的到达</span></li></ul><p><span>进程阻塞原语的形式：当进程需要等待某一事件完成时，它可以调用等待原语挂起自己。</span></p><p><img src="Images/2进程阻塞流程图.png" referrerpolicy="no-referrer"></p><p><code>block(chan)</code><span>:参数chan表示进程等待的原因。</span></p><h2 id='35-进程唤醒'><span>3.5 进程唤醒</span></h2><p><span>进程唤醒原语的形式：当处于等待状态的进程所期待的事件来到时，由发现者进程使用唤醒原语唤醒它。</span>
+<code>wakeup(chan)</code><span>：参数chan表示进程等待的原因。</span></p><p><img src="Images/2进程唤醒流程图.png" referrerpolicy="no-referrer"></p><h2 id='36-挂起的引入'><span>3.6 挂起的引入</span></h2><p><span>由于进程的不断创建，主存资源已不能满足所有进程运行的要求。OS将某些进程</span><strong><span>挂起</span></strong><span>，放到</span><strong><span>磁盘对换区</span></strong><span>，暂时不参加调度，以平衡系统负载。</span></p><p><strong><span>挂起</span></strong><span>(Suspend)：把一个进程从内存转到外存，有以下三种情况：</span></p><ul><li><strong><span>阻塞→阻塞挂起</span></strong><span>：当</span><strong><span>就绪进程</span></strong><span>要求更多内存资源时，将阻塞进程移至外存，以提交新进程或运行就绪进程。</span></li><li><strong><span>就绪→就绪挂起</span></strong><span>：当有</span><strong><span>高优先级阻塞</span></strong><span>（系统认为会很快就绪的）进程和低优先级就绪进程时，系统会将低优先级就绪进程移至外存。</span></li><li><strong><span>运行→就绪挂起</span></strong><span>：对</span><strong><span>抢占式</span></strong><span>系统，当有</span><strong><span>高优先级</span></strong><span>阻塞挂起进程因事件发生而进入就绪挂起时，系统可能会把运行进程转到就绪挂起状态。</span></li></ul><p><strong><span>激活</span></strong><span>(Activate)：把一个进程从外存转到内存，可能有以下几种情况：</span></p><ul><li><strong><span>就绪挂起→就绪</span></strong><span>：</span><strong><span>没有就绪进程</span></strong><span>，或</span><strong><span>挂起就绪进程优先级高</span></strong><span>于就绪进程时，将就绪挂起进程移至内存。</span></li><li><strong><span>阻塞挂起→阻塞</span></strong><span>：当一个进程</span><strong><span>释放足够内存</span></strong><span>时，系统会把一个高优先级阻塞挂起（系统认为会很快出现所等待的事件）进程移至内存等待。</span></li></ul><blockquote><p><span>注意：阻塞、挂起一般由OS实现，而唤醒与激活可由用户干预。</span></p></blockquote><h2 id='37-进程七状态转换图'><span>3.7 进程七状态转换图</span></h2><p><img src="Images/2进程七状态转换图.png" referrerpolicy="no-referrer"></p><h1 id='4-进程通信'><span>4 进程通信</span></h1><h2 id='41-概念'><span>4.1 概念</span></h2><p><strong><span>进程通信</span></strong><span>：进程间的信息交换。</span>
+<strong><span>低级进程通信</span></strong><span>：进程的同步和互斥，效率低（每次只能操作一个消息），通信对用户不透明（程序员干预）。</span>
+<strong><span>高级进程通信</span></strong><span>：效率高（可传递大量信息）、对用户透明</span></p><h2 id='42-进程通信类型'><span>4.2 进程通信类型</span></h2><h3 id='421-共享存储器系统shared-memory-system'><span>4.2.1 共享存储器系统(shared-memory system)</span></h3><ul><li><span>基于</span><strong><span>共享数据结构</span></strong><span>的通信方式（少量传送数据，效率低，属于低级进程通信）</span></li><li><span>基于</span><strong><span>共享存储区</span></strong><span>的通信方式（大量传送数据，效率高，属于高级进程通信）。基于共享内存的通信方式，向系统申请一个或多个分区，获得分区后即可读/写。特点：高效、适于大量传输。</span></li></ul><h3 id='422-消息传递系统'><span>4.2.2 消息传递系统</span></h3><p><span>消息传递系统是当前应用最广的一种进程间的通信机制。信息单位是消息Message（报文）。</span></p><p><strong><span>通信方式</span></strong><span>：</span></p><ul><li><span>直接消息传递通信</span>
+<img src="Images/2直接消息传递通信.png" referrerpolicy="no-referrer"></li><li><span>信箱通信（间接通信）</span>
+<img src="Images/2信箱通信（间接通信）.png" referrerpolicy="no-referrer"></li></ul><h3 id='423-管道通信系统'><span>4.2.3 管道通信系统</span></h3><p><span>管道（pipe）：用于连接一个读进程和一个写进程以实现它们之间通信的一个</span><strong><span>共享文件</span></strong><span>，又名pipe文件。</span>
+<span>管道机制的协调能力：对方是否存在、互斥、同步</span></p><h3 id='424-客户机-服务器系统'><span>4.2.4 客户机-服务器系统</span></h3><p><span>套接字（Socket）</span>
+<span>远程过程调用（RPC）</span>
+<span>远程方法调用（RMI，Java）</span></p><blockquote><p><span>Linux进程通信方式：管道、信号、信号量、共享内存、消息队列、套接字。</span></p></blockquote><h1 id='5-线程的基本概念'><span>5 线程的基本概念</span></h1><p><span>引入进程的目的：使多个程序并发执行，提高资源利用率及系统吞吐量</span>
+<span>引入线程的目的：减少程序在并发执行时所付出的时空开销，使OS具有更好的并发性，适用于SMP结构的计算机系统。</span></p><blockquote><p><span>对称多处理（Symmetrical Multi-Processing）技术，是指在一个计算机上汇集了一组多处理器（多CPU），各CPU之间共享内存子系统以及总线结构。</span></p></blockquote><h2 id='51-线程的定义'><span>5.1 线程的定义</span></h2><p><img src="Images/2线程的引入.png" referrerpolicy="no-referrer"></p><p><span>线程是进程内的一个相对独立的可调度的执行单元，一个进程可包含多个线程，它们可并发执行，共享进程的全部资源。</span></p><h2 id='52-线程的属性'><span>5.2 线程的属性</span></h2><p><span>（1）轻型实体</span>
+<span>（2）独立调度和分派的基本单位</span>
+<span>（3）可并发实体</span>
+<span>（4）共享进程资源</span></p><h2 id='53-线程控制块'><span>5.3 线程控制块</span></h2><p><span>线程控制块TCB(thread control block)：线程标识符、一组寄存器、线程运行状态、优先级、线程专有存储区、信号屏蔽、堆栈指针</span>
+<img src="Images/2线程控制块TCB.png" referrerpolicy="no-referrer"></p><h2 id='54-进程与线程比较'><span>5.4 进程与线程比较</span></h2><figure><table><thead><tr><th>&emsp;</th><th><span>进程</span></th><th><span>线程</span></th></tr></thead><tbody><tr><td><span>调度性</span></td><td><strong><span>资源拥有</span></strong><span>的基本单位</span></td><td><strong><span>调度和分派</span></strong><span>的基本单位</span></td></tr><tr><td><span>并发性</span></td><td><span>有并发性</span></td><td><span>更好的并发性</span></td></tr><tr><td><span>拥有资源</span></td><td><span>拥有系统资源</span></td><td><span>只有少量必要的寄存器等资源</span></td></tr><tr><td><span>独立性</span></td><td><span>高</span></td><td><span>低</span></td></tr><tr><td><span>系统开销</span></td><td><span>大</span></td><td><span>小</span></td></tr><tr><td><span>支持多处理机</span></td><td><span>一个进程运行在一个处理机</span></td><td><span>多线程分配到多个处理机上</span></td></tr></tbody></table></figure><h2 id='55-多线程中的进程'><span>5.5 多线程中的进程</span></h2><p><span>引入线程后，进程作为资源分配的单位，可包括多个线程，但不再是一个可执行的实体。</span></p><h2 id='54-线程的状态变迁'><span>5.4 线程的状态变迁</span></h2><p><span>线程状态：执行态、就绪态、阻塞态；线程状态转换与进程状态转换一样。</span></p><p><img src="Images/2线程的状态变迁.png" referrerpolicy="no-referrer"></p><h1 id='6-线程的实现'><span>6 线程的实现</span></h1><h2 id='61-线程的类型kstult组合方式'><span>6.1 线程的类型：KST、ULT、组合方式</span></h2><h2 id='62-内核支持线程kstkernel-support-threads'><span>6.2 内核支持线程KST(kernel support threads)</span></h2><p><span>需要内核的参与，由内核完成线程的调度。其依赖于操作系统核心，由内核的内部需求进行创建和撤销。</span></p><h3 id='621-kst优点'><span>6.2.1 KST优点</span></h3><p><span>线程切换不需要转换到内核空间；调度算法可以是进程专用的</span>
+<span>线程的实现与OS平台无关</span></p><h3 id='622-kst缺点'><span>6.2.2 KST缺点</span></h3><p><span>系统调用的阻塞问题</span>
+<span>多线程应用不能利用多处理机进行多重处理的优点。</span></p><h2 id='63-用户级线程ultuser-level-threads'><span>6.3 用户级线程ULT(User Level threads)</span></h2><p><span>指不需要内核支持而在用户程序中实现的线程，其不依赖于操作系统核心，应用进程利用线程库提供创建、同步、调度和管理线程的函数来控制用户线程。</span></p><h3 id='631-ult优点'><span>6.3.1 ULT优点</span></h3><p><span>在多处理机系统中，内核可同时调度同一进程的多个线程；</span>
+<span>如一个线程阻塞了，内核可调度其他线程（同一或其他进程）；</span>
+<span>线程的切换比较快，开销小；</span>
+<span>内核本身可采用多线程技术，提高执行速度和效率。</span></p><h3 id='632-ult缺点'><span>6.3.2 ULT缺点</span></h3><p><span>对用户线程切换，开销较大</span></p><h2 id='64-组合方式'><span>6.4 组合方式</span></h2></div></div>
+</body>
+</html>
