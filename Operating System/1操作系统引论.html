@@ -752,7 +752,7 @@ input {
 }
 
 .megamenu-menu-header #megamenu-menu-header-title,
-.megamenu-menu-header:hover, 
+.megamenu-menu-header:hover,
 .megamenu-menu-header:focus {
 	color: inherit;
 }
@@ -786,8 +786,8 @@ input {
 	color: white;
 }
 
-.export-detail, .light .export-detail, 
-.light .export-item.active, 
+.export-detail, .light .export-detail,
+.light .export-item.active,
 .light .export-items-list-control {
 	background: #e0e0e0;
 	border-radius: 2px;
@@ -800,15 +800,15 @@ input {
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
 <div id='write'  class=''><p><span>学习路径：</span>
-<a href="1操作系统引论.md"><span>第一章 操作系统引论</span></a>
+<a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
 <font color="red"><span>第二章 进程的描述与控制</span></font>
-<a href="3处理机调度与死锁.md"><span>第三章 处理机调度与死锁</span></a>
-<a href="4进程同步.md"><span>第四章 进程同步</span></a>
-<a href="5存储器管理.md"><span>第五章 存储器管理</span></a>
-<a href="6虚拟存储器.md"><span>第六章 虚拟存储器</span></a>
-<a href="7输入/输出系统.md"><span>第七章 输入/输出系统</span></a>
-<a href="8文件管理.md"><span>第八章 文件管理</span></a>
-<a href="9磁盘存储器管理.md"><span>第九章 磁盘存储器管理</span></a></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"></p></div><h1 id='1-前驱图和程序执行'><span>1 前驱图和程序执行</span></h1><h2 id='11-前驱图'><span>1.1 前驱图</span></h2><p><span>有向无循环图</span></p><h2 id='12-程序执行'><span>1.2 程序执行</span></h2><h3 id='单道系统的顺序程序执行的特征'><span>单道系统的顺序程序执行的特征</span></h3><ul><li><span>运行过程的顺序性</span></li><li><span>运行环境的封闭性（独占资源，不受影响）</span></li><li><span>运行结果的可再现性：初始状态相同，结果相同</span></li></ul><h3 id='多道系统-程序的并发执行的特征'><span>多道系统-程序的并发执行的特征</span></h3><ul><li><span>运行环境失去封闭性：共享资源引起</span></li><li><span>运行过程间断性：并发程序之间形成了相互制约的关系“执行-暂停-执行”</span></li><li><span>运行结果不可再现性</span></li></ul><h1 id='2-进程的描述'><span>2 进程的描述</span></h1><p><span>引入进程的原因：为了程序的并发执行，并且对并发执行的程序加以描述和控制。</span></p><h2 id='21-进程的定义'><span>2.1 进程的定义</span></h2><p><span>进程是程序的一个运行过程，是系统进行资源分配和调度的一个独立单位。</span></p><h2 id='22-进程的特性'><span>2.2 进程的特性</span></h2><ul><li><span>动态性：由创建而产生，由调度而执行，由得不到资源而阻塞，由撤消而消亡。是进程最基本特性。</span></li><li><span>并发性：只有建立了进程，才能并发执行。</span></li><li><span>独立性：独立运行，独立获得资源，独立接受调度。</span></li><li><span>异步性：间断性，不可预知的速度向前推进。</span></li></ul><h2 id='23-程序和进程的联系与区别'><span>2.3 程序和进程的联系与区别</span></h2><figure><table><thead><tr><th><span>程序</span></th><th><span>进程</span></th></tr></thead><tbody><tr><td><span>一组有序指令的集合</span></td><td><span>由程序、数据和PCB构成</span></td></tr><tr><td><span>静态性，存放在介质中，没有运动的含义</span></td><td><span>动态性，是进程实体的一次执行过程，有一定的生命周期</span></td></tr><tr><td><span>不可以并发执行</span></td><td><span>并发执行</span></td></tr><tr><td><span>程序不是竞争资源的基本单位</span></td><td><span>进程是竞争资源的基本单位（运行，分配资源）</span></td></tr></tbody></table></figure><blockquote><p><span>进程和程序不是一一对应的，一个程序可以对应多个进程，一个进程可以执行一个或几个程序！</span></p></blockquote><h2 id='24-进程的三种基本状态'><span>2.4 </span><font color="red"><span>进程的三种基本状态</span></font></h2><ul><li><span>就绪态(ready)</span></li><li><span>执行态(running)：进程占据并运行在CPU上</span></li><li><span>阻塞态(blocked)：也称等待态(wait)，引起原因：I/O请求，申请缓冲空间等</span></li></ul><h3 id='241--进程三状态转换图重要）'><span>2.4.1  进程三状态转换图（重要）</span></h3><p><img src="Images/1引论/进程状态转换3.png" referrerpolicy="no-referrer"></p><h3 id='242-进程五状态转换图'><span>2.4.2 进程五状态转换图</span></h3><p><img src="Images/1引论/进程状态转换5.png" referrerpolicy="no-referrer"></p><h2 id='26-进程的结构'><span>2.6 进程的结构</span></h2><p><span> 进程=程序+数据+PCB</span></p><h3 id='261-pcb'><span>2.6.1 PCB</span></h3><p><span>PCB：进程控制块(process control block)是进程的一部分，是OS中最重要的记录型数据结构，</span><strong><span>是进程存在的唯一标志</span></strong><span>，</span><strong><span>常驻内存</span></strong><span>。PCB描述进程与其他进程、系统资源的关系以及进程在各个不同时期的状态。</span></p><p><span>PCB记录了OS所需的、用于描述进程情况及控制进程运行所需的全部信息，使一个在多道程序环境下不能独立运行的程序成为一个能与其他进程并发执行的进程。</span>
+<a href="3处理机调度与死锁.html"><span>第三章 处理机调度与死锁</span></a>
+<a href="4进程同步.html"><span>第四章 进程同步</span></a>
+<a href="5存储器管理.html"><span>第五章 存储器管理</span></a>
+<a href="6虚拟存储器.html"><span>第六章 虚拟存储器</span></a>
+<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
+<a href="8文件管理.html"><span>第八章 文件管理</span></a>
+<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"></p></div><h1 id='1-前驱图和程序执行'><span>1 前驱图和程序执行</span></h1><h2 id='11-前驱图'><span>1.1 前驱图</span></h2><p><span>有向无循环图</span></p><h2 id='12-程序执行'><span>1.2 程序执行</span></h2><h3 id='单道系统的顺序程序执行的特征'><span>单道系统的顺序程序执行的特征</span></h3><ul><li><span>运行过程的顺序性</span></li><li><span>运行环境的封闭性（独占资源，不受影响）</span></li><li><span>运行结果的可再现性：初始状态相同，结果相同</span></li></ul><h3 id='多道系统-程序的并发执行的特征'><span>多道系统-程序的并发执行的特征</span></h3><ul><li><span>运行环境失去封闭性：共享资源引起</span></li><li><span>运行过程间断性：并发程序之间形成了相互制约的关系“执行-暂停-执行”</span></li><li><span>运行结果不可再现性</span></li></ul><h1 id='2-进程的描述'><span>2 进程的描述</span></h1><p><span>引入进程的原因：为了程序的并发执行，并且对并发执行的程序加以描述和控制。</span></p><h2 id='21-进程的定义'><span>2.1 进程的定义</span></h2><p><span>进程是程序的一个运行过程，是系统进行资源分配和调度的一个独立单位。</span></p><h2 id='22-进程的特性'><span>2.2 进程的特性</span></h2><ul><li><span>动态性：由创建而产生，由调度而执行，由得不到资源而阻塞，由撤消而消亡。是进程最基本特性。</span></li><li><span>并发性：只有建立了进程，才能并发执行。</span></li><li><span>独立性：独立运行，独立获得资源，独立接受调度。</span></li><li><span>异步性：间断性，不可预知的速度向前推进。</span></li></ul><h2 id='23-程序和进程的联系与区别'><span>2.3 程序和进程的联系与区别</span></h2><figure><table><thead><tr><th><span>程序</span></th><th><span>进程</span></th></tr></thead><tbody><tr><td><span>一组有序指令的集合</span></td><td><span>由程序、数据和PCB构成</span></td></tr><tr><td><span>静态性，存放在介质中，没有运动的含义</span></td><td><span>动态性，是进程实体的一次执行过程，有一定的生命周期</span></td></tr><tr><td><span>不可以并发执行</span></td><td><span>并发执行</span></td></tr><tr><td><span>程序不是竞争资源的基本单位</span></td><td><span>进程是竞争资源的基本单位（运行，分配资源）</span></td></tr></tbody></table></figure><blockquote><p><span>进程和程序不是一一对应的，一个程序可以对应多个进程，一个进程可以执行一个或几个程序！</span></p></blockquote><h2 id='24-进程的三种基本状态'><span>2.4 </span><font color="red"><span>进程的三种基本状态</span></font></h2><ul><li><span>就绪态(ready)</span></li><li><span>执行态(running)：进程占据并运行在CPU上</span></li><li><span>阻塞态(blocked)：也称等待态(wait)，引起原因：I/O请求，申请缓冲空间等</span></li></ul><h3 id='241--进程三状态转换图重要）'><span>2.4.1  进程三状态转换图（重要）</span></h3><p><img src="Images/1引论/进程状态转换3.png" referrerpolicy="no-referrer"></p><h3 id='242-进程五状态转换图'><span>2.4.2 进程五状态转换图</span></h3><p><img src="Images/1引论/进程状态转换5.png" referrerpolicy="no-referrer"></p><h2 id='26-进程的结构'><span>2.6 进程的结构</span></h2><p><span> 进程=程序+数据+PCB</span></p><h3 id='261-pcb'><span>2.6.1 PCB</span></h3><p><span>PCB：进程控制块(process control block)是进程的一部分，是OS中最重要的记录型数据结构，</span><strong><span>是进程存在的唯一标志</span></strong><span>，</span><strong><span>常驻内存</span></strong><span>。PCB描述进程与其他进程、系统资源的关系以及进程在各个不同时期的状态。</span></p><p><span>PCB记录了OS所需的、用于描述进程情况及控制进程运行所需的全部信息，使一个在多道程序环境下不能独立运行的程序成为一个能与其他进程并发执行的进程。</span>
 <span>PCB结构类似于结构体。</span></p><h3 id='262-pcb的作用'><span>2.6.2 PCB的作用</span></h3><ol start='' ><li><span>作为独立运行基本单元的标志</span></li><li><span>能实现间断性运行方式</span></li><li><span>提供进程管理所需要的信息</span></li><li><span>提供进程调度所需要的信息</span></li><li><span>实现与其他进程的同步与通信</span></li></ol><h3 id='263-pcb的组织方式'><span>2.6.3 PCB的组织方式</span></h3><p><img src="./Images/1引论/PCB的组织方式.png" referrerpolicy="no-referrer"></p><ul><li><span>线性方式</span></li><li><span>链接方式（执行指针、就绪队列指针、阻塞队列指针、空闲队列指针）</span></li><li><span>索引方式（就绪索引表(就绪表指针)、阻塞索引表(阻塞表指针)、执行指针）</span></li></ul><blockquote><ol start='' ><li><span>进程和程序的一个本质区别是：前者是动态的，而后者为静态的。</span></li><li><span>进程所请求的一次打印输出结束后，将使进程状态从(D)</span>
 &emsp;<span>A.运行态变为就绪态</span>
 &emsp;<span>B.运行态变为等待态</span>
