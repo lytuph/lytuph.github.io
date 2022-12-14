@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width initial-scale=1'>
@@ -1672,192 +1671,316 @@
 				color: inherit
 			}
 		</style>
-		<title>8文件管理</title>
+		<title>7输入输出系统(设备管理)</title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+		</script>
+		<link rel="stylesheet" href="../assets/css/left_catalogue.css">
+		<script src="../assets/js/left_catalogue.js"></script>
+		
+		<!--返回顶部-->
+		<button onclick="topFunction()" id="topButton">TOP↑</button>
+		<button onclick="showOrCloseCategory()" id="foldOrUnfold">目录</button>
+		
+		<!--文章主体部分-->
+		<div class="book-body" id="book_body"> </div>
+		<!--目录栏-->
+		<div class="book-summary" id="category" style="display:none"></div>
+		
 	</head>
-
 	<body class='typora-export os-windows'>
 		<div class='typora-export-content'>
 			<div id='write' class=''>
-				<p><a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
+				<p>
+					<a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
 					<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
 					<a href="3处理机调度与死锁.html"><span>第三章 处理机调度与死锁</span></a>
 					<a href="4进程同步.html"><span>第四章 进程同步</span></a>
 					<a href="5存储器管理.html"><span>第五章 存储器管理</span></a>
 					<a href="6虚拟存储器.html"><span>第六章 虚拟存储器</span></a>
-					<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
+					<a href="7输入/输出系统.html"><span style="color: red;">第七章 输入/输出系统</span></a>
 					<a href="8文件管理.html"><span>第八章 文件管理</span></a>
 					<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a>
 				</p>
 				<div class='md-toc' mdtype='toc'>
 					<p class="md-toc-content" role="list"></p>
 				</div>
-				<h1 id='1-文件和文件系统'><span>1 文件和文件系统</span></h1>
-				<h2 id='11-文件的概念'><span>1.1 文件的概念</span></h2>
-				<p><span>文件：一组带标识的在</span><strong><span>逻辑上有完整意义</span></strong><span>的信息项的序列，这个标识为文件名。主要属性：文件类型、文件长度、文件的物理位置、文件的建立时间</span>
-				</p>
-				<p><span>命名形式：</span><code>文件名.扩展名</code><span>，扩展名代表文件的类型</span>
-					<img src="Images/8-1文件扩展名.png" referrerpolicy="no-referrer" alt="8-1文件扩展名">
-				</p>
-				<h2 id='12-文件类型'><span>1.2 文件类型</span></h2>
+				<h1 id='1-io系统的功能模型和接口'><span>1 I/O系统的功能、模型和接口</span></h1>
+				<h2 id='11-设备的分类'><span>1.1 设备的分类</span></h2>
+				<p><span>根据设备</span><strong><span>传输处理单位</span></strong><span>分类：</span></p>
 				<ol start=''>
-					<li><span>按性质和用途分：系统文件、库文件、用户文件。</span></li>
-					<li><span>按组织形式分：</span></li>
+					<li><span>块设备(Block device)</span></li>
 				</ol>
 				<ul>
-					<li><span>普通文件：一般格式文件</span></li>
-					<li><span>目录文件：由文件的目录构成的特殊文件，是管理文件系统的系统文件。主要用于检索文件的目录信息</span></li>
-					<li><span>特殊文件（设备文件）：与设备驱动程序紧密相连，OS会把其操作转成为设备的操作。分为</span><strong><span>字符设备文件</span></strong><span>：例如模仿终端、打印机和网络等；</span><strong><span>块设备文件</span></strong><span>：例如模仿磁盘</span>
-					</li>
-				</ul>
-				<ol start='3'>
-					<li><span>按数据的形式分：源文件、目标文件、可执行文件</span></li>
-					<li><span>按存取控制属性分：只执行文件、只读文件、读写文件</span></li>
-				</ol>
-				<h2 id='13-文件系统'><span>1.3 文件系统</span></h2>
-				<p><span>文件系统是操作系统中负责管理和存取文件信息的软件机构。</span></p>
-				<p><span>文件系统的组成：</span></p>
-				<ul>
-					<li><span>管理文件所需的数据结构：如目录表、文件控制块、存储分配表</span></li>
-					<li><span>管理程序</span></li>
-					<li><span>一组操作</span></li>
-				</ul>
-				<p><span>文件系统的功能：对文件存储空间的管理、对文件目录的管理、用于将文件的逻辑地址转换为物理地址的机制、对文件读和写的管理、对文件的共享和保护</span></p>
-				<p><span>文件系统模型</span>
-					<img src="Images/8-2文件系统模型.png" referrerpolicy="no-referrer" alt="8-2文件系统模型">
-				</p>
-				<blockquote>
-					<p><span>命令接口：指作为用户与文件系统直接交互的接口，用户可通过键盘终端键入命令取得文件系统的服务。</span>
-						<span>程序接口：指作为用户程序与文件系统的接口，用户程序可通过系统调用取得文件系统的服务</span>
-					</p>
-				</blockquote>
-				<p><span>文件系统的层次结构</span>
-					<img src="Images/8-3文件系统的层次结构.png" referrerpolicy="no-referrer" alt="8-3文件系统的层次结构">
-				</p>
-				<h2 id='14-文件操作'><span>1.4 文件操作</span></h2>
-				<ol start=''>
-					<li><span>最基本的文件操作</span></li>
-				</ol>
-				<ul>
-					<li><span>创建文件(create)</span></li>
-					<li><span>删除文件(delete)</span></li>
-					<li><span>读文件(read)</span></li>
-					<li><span>写文件(write)</span></li>
-					<li><span>设置文件读/写位置(set)</span></li>
+					<li><span>块设备将信息存储在固定大小的块中，每个块都有自己的地址</span></li>
+					<li><span>基本特征是每个块都能独立于其它块而读写</span></li>
+					<li><span>磁盘是最常见的块设备</span></li>
 				</ul>
 				<ol start='2'>
-					<li><span>文件的打开和关闭操作</span></li>
+					<li><span>字符设备(Character device)</span></li>
 				</ol>
 				<ul>
-					<li><span>打开(open)</span></li>
-					<li><span>关闭(close)</span></li>
+					<li><span>在I/O传输过程中以字符为单位进行传输的设备</span></li>
+					<li><span>例如磁盘，打印机等</span></li>
 				</ul>
 				<ol start='3'>
-					<li><span>其他操作</span></li>
+					<li><span>根据设备的</span><strong><span>功能特性</span></strong><span>分类：</span></li>
 				</ol>
 				<ul>
-					<li><span>设置/获得文件属性，如改变文件名、改变文件拥有者等</span></li>
-					<li><span>有关目录的操作，如创建、删除目录等</span></li>
+					<li><span>存储设备 例如磁盘等</span></li>
+					<li><span>I/O设备 输入输出设备、交互式设备</span></li>
+					<li><span>数据通信设备 例如网卡等</span></li>
 				</ul>
-				<h1 id='2-文件的逻辑结构'><span>2 文件的逻辑结构</span></h1>
-				<h2 id='21-按文件是否有结构分类'><span>2.1 按文件是否有结构分类</span></h2>
-				<ol start=''>
-					<li><span>有结构文件：变长记录、定长记录</span></li>
-					<li><span>无结构文件，又称流式文件。文件长度是以</span><strong><span>字节</span></strong><span>为单位，利用</span><strong><span>读、写指针</span></strong><span>来指出下一个要访问的字符。例如源程序、可执行文件、库函数等。</span>
-					</li>
+				<ol start='4'>
+					<li><span>根据设备</span><strong><span>可否共享</span></strong><span>分类：</span></li>
 				</ol>
-				<h2 id='22-按文件的组织方式分类'><span>2.2 按文件的组织方式分类</span></h2>
-				<h3 id='顺序文件'><span>顺序文件</span></h3>
-				<p><span>顺序文件的排列方式：串结构（记录按存入先后顺序排列）、顺序结构（按关键字排列）。</span></p>
-				<p><span>优点是批量存取效率高；缺点是查找费时删除困难</span></p>
-				<h3 id='索引文件'><span>索引文件</span></h3>
-				<p><span>按</span><strong><span>关键字</span></strong><span>建立索引，即为变长记录文件建立一张索引表，索引表按关键字排序，实现了直接存取。也可为顺序文件建立</span><strong><span>多个索引表</span></strong><span>，为每一个可能成为检索条件的域配置一张索引表。</span>
-				</p>
-				<h3 id='索引顺序文件'><span>索引顺序文件</span></h3>
-				<p><span>索引顺序文件的特征：是对顺序文件的一种改进，基本上克服了变长记录的顺序文件不能随机访问，以及不便于记录的删除和插入的缺点。</span></p>
-				<p><span>保留了顺序文件的关键特征，即记录是按关键字的顺序组织起来的。增加了两个新特征：</span><strong><span>引入了索引表</span></strong><span>，通过该表可以实现对索引顺序文件随机访问；</span><strong><span>增加了溢出文件</span></strong><span>，用它来记录新增加的、删除的和修改的记录。</span>
-				</p>
-				<p><span>一级索引顺序文件</span>
-					<img src="Images/8-4一级索引顺序文件.png" referrerpolicy="no-referrer" alt="8-4一级索引顺序文件">
-				</p>
-				<blockquote>
-					<p><span>如果在一个顺序文件中所含有的记录数为</span><span
-							class='math-in-toc'>$N$</span><span>，则为检索到具有指定关键字的记录，平均须查找</span><span
-							class='math-in-toc'>$N/2$</span><span>个记录；对于索引顺序文件，则为能检索到具有指定关键字的记录，平均只要查找</span><span
-							class='math-in-toc'>$sqrt(N)$</span><span>个记录数，因而其检索效率比顺序文件提高约</span><span
-							class='math-in-toc'>$sqrt(N)/2$</span><span>倍。</span></p>
-				</blockquote>
-				<p><span>两级索引顺序文件：对于一个非常大的文件，为进一步提高检索效率，可以为顺序文件建立多级索引，即为索引文件再建立一张索引表，从而形成两级索引表。</span></p>
-				<p><span>直接文件：根据</span><strong><span>关键字</span></strong><span>直接获得指定记录的物理地址。即，关键字本身就决定了记录的物理地址。</span>
-				</p>
-				<h1 id='3-文件目录'><span>3 文件目录</span></h1>
-				<p><span>目录管理四大基本功能：按名存取、检索速度、文件重名、文件共享</span></p>
-				<h2 id='31-文件控制块'><span>3.1 文件控制块</span></h2>
-				<p><span>文件控制块(FCB)：文件控制块是OS为管理文件而设置的数据结构，存放了为管理文件所需的所有有关信息（文件属性）。</span><strong><span>FCB是文件存在的标志</span></strong><span>。</span>
-				</p>
-				<p><span>FCB的内容：</span></p>
 				<ul>
-					<li><span>基本信息：文件名、物理位置、逻辑结构、物理结构</span></li>
-					<li><span>存取控制信息：文件主/核准用户/一般用户存取权限</span></li>
-					<li><span>使用信息：文件建立时间、最近修改日期等使用信息</span></li>
+					<li><span>独占设备--进程互斥访问 例如打印机、磁带机</span></li>
+					<li><span>共享设备--进程并发访问 例如磁盘</span></li>
+					<li><span>虚拟设备--虚拟技术 例如Spooling技术</span></li>
 				</ul>
-				<h2 id='32-几个基本概念'><span>3.2 几个基本概念</span></h2>
-				<p><strong><span>文件目录</span></strong><span>：把所有文件的FCB组织在一起，就构成了文件目录，即文件控制块的有序集合。</span>
-					<strong><span>目录项</span></strong><span>：构成文件目录的项目（目录项就是FCB）</span>
-					<strong><span>目录文件</span></strong><span>：为实现对文件目录的管理，通常将文件目录以文件的形式保存在外存，这个文件就叫目录文件。</span>
-				</p>
-				<h2 id='33-目录结构'><span>3.3 目录结构</span></h2>
-				<p><span>目录结构类型：单级文件目录、二级文件目录、多级文件目录（树形目录）</span></p>
-				<p><span>树形结构目录几个概念：根目录、父目录、子目录、树叶（文件）</span>
-					<img src="Images/8-5树形目录结构.png" referrerpolicy="no-referrer" alt="8-5树形目录结构">
-				</p>
-				<blockquote>
-					<p><span>路径名(path name)：从树的根（主目录）开始，把各级目录名与数据文件名依次地用 “/”
-							连接起来，即构成该数据文件唯一的路径名。绝对路径名：从树根直到树叶（数据文件）为止，包括各中间节点（目录）名的全部路径名；相对路径名：当前目录（工作目录）。</span></p>
-				</blockquote>
-				<p><span>多级目录结构的特点：</span></p>
-				<ul>
-					<li><span>层次清晰</span></li>
-					<li><span>不同层次、不同用户的文件可以被赋予不同的存取权限，有利于文件的保护</span></li>
-					<li><span>解决了文件重名问题</span></li>
-					<li><span>查找搜索速度快</span></li>
-				</ul>
-				<p><span>目录查询技术：</span></p>
-				<ol start=''>
-					<li><span>线性检索法：顺序检索法。例如查找</span><code>/usr/ast/mbox</code><span>的过程</span>
-						<img src="Images/8-6线性检索法.png" referrerpolicy="no-referrer" alt="8-6线性检索法">
-					</li>
-					<li><span>Hash法：将文件名变换为索引值，再利用该索引值到目录中去查找。</span></li>
+				<ol start='5'>
+					<li><span>按</span><strong><span>传输速率</span></strong><span>分类：</span></li>
 				</ol>
-				<h1 id='4-文件共享'><span>4 文件共享</span></h1>
-				<h2 id='41-基于有向无环图实现共享'><span>4.1 基于有向无环图实现共享</span></h2>
-				<p><span>有向无环图：树形目录中，允许一个文件有多个父目录。</span></p>
-				<p><span>利用索引节点实现共享，设置链接技术变量count</span>
-					<img src="Images/8-7基于有向无环图实现共享.png" referrerpolicy="no-referrer" alt="8-7基于有向无环图实现共享">
+				<ul>
+					<li><span>低俗设备 几~数百B/S，键盘、鼠标等</span></li>
+					<li><span>中速设备 数千~数十万B/S，打印机</span></li>
+					<li><span>高速设备 数百KB~千MB/S，磁带机、磁盘机、光盘等</span></li>
+				</ul>
+				<h2 id='12-硬件系统--外设'><span>1.2 硬件系统--外设</span></h2>
+				<p><img src="Images/7-1硬件系统-外设.png" referrerpolicy="no-referrer" alt="硬件系统-外设"></p>
+				<h2 id='13-io系统基本功能'><span>1.3 I/O系统基本功能</span></h2>
+				<ul>
+					<li><span>隐藏物理设备细节</span></li>
+					<li><span>控制I/O设备</span></li>
+					<li><span>保证OS与设备无关</span></li>
+					<li><span>提高CPU和I/O设备利用率</span></li>
+					<li><span>设备共享</span></li>
+					<li><span>处理错误</span></li>
+				</ul>
+				<h2 id='14-io软件的层次结构'><span>1.4 I/O软件的层次结构</span></h2>
+				<p><img src="Images/7-2IO软件的层次结构.png" referrerpolicy="no-referrer" alt="7-2I/O软件的层次结构"></p>
+				<p><span>I/O模块之间的层次视图</span>
+					<img src="Images/7-3IO%E6%A8%A1%E5%9D%97%E4%B9%8B%E9%97%B4%E7%9A%84%E5%B1%82%E6%AC%A1%E8%A7%86%E5%9B%BE.png"
+						referrerpolicy="no-referrer" alt="7-3I/O模块之间的层次视图">
 				</p>
-				<h2 id='42-利用符号链接实现共享'><span>4.2 利用符号链接实现共享</span></h2>
-				<p><span>基本思想：允许一个文件有多个父目录，但其中</span><strong><span>仅有一个作为主父目录</span></strong><span>，其他父目录都是通过符号链接方式与之链接的(简称链接父目录)。</span>
+				<h1 id='2-io设备和设备控制器'><span>2 I/O设备和设备控制器</span></h1>
+				<h2 id='21-设备与控制器之间的接口'><span>2.1 设备与控制器之间的接口</span></h2>
+				<p><span>执行I/O操作的机械部件--一般I/O设备</span>
+					<span>执行控制I/O的电子部件--设备控制器（适配器）</span>
+					<img src="Images/7-4设备与控制器之间的接口.png" referrerpolicy="no-referrer" alt="7-4设备与控制器之间的接口">
 				</p>
-				<p><img src="Images/8-7利用符号链接实现共享.png" referrerpolicy="no-referrer" alt="8-7利用符号链接实现共享"></p>
 				<blockquote>
-					<p><span>系统创建一个</span><code>LINK</code><span>类型的新文件，取名为F8_link，并将F8_link写入链接父目录D5中，以实现D5与文件F8的链接。在新文件F8_link中包含被链接文件F8的路径名。这样的链接方法被称为符号链接，新文件F8_link中的路径名则只被看做是符号链接。当用户通过D5访问F8且正要读LINK类新文件F8_link时，此要求被OS截断，OS根据新文件中的路径名去找到文件F8，实现共享。</span>
+					<p><span>通常，设备并不是直接与CPU进行通信，而是与设备控制器通信，因此，在I/O设备中应含有与设备控制器间的接口，在该接口中有三种类型的信号，各对应一条信号线。数据信号线用于在设备和设备控制器之间传送数据信号。对于输入设备，由外界输入的信号经转换器转换后所形成的数据，先送入缓冲器中，当数据量达到一定的比特(字符)数后，再从缓冲器通过一组数据信号线传送给设备控制器；对输出设备而言，则是将从设备控制器经过数据信号线传送来的一批数据先暂存于缓冲区中，经转换器作适当转换后，再逐个字符地输出。状态信号线用于传送指示设备当前状态的信号：正在读（或写），设备已读（写）完成，并准备好新的数据传送。控制信号线是由设备控制器向I/O设备发送控制信号时的通路。该信号规定了设备将要执行的操作，如读操作（由设备-&gt;控制器传送数据）或写操作（从控制器接受数据），或执行磁头移动等操作。</span>
 					</p>
 				</blockquote>
-				<h1 id='5-文件保护'><span>5 文件保护</span></h1>
-				<p><span>影响文件安全性的主要因素：</span></p>
+				<h2 id='22-设备控制器'><span>2.2 设备控制器</span></h2>
+				<h3 id='221-基本功能'><span>2.2.1 基本功能</span></h3>
+				<ol start=''>
+					<li><span>接受和识别指令</span></li>
+					<li><span>地址识别</span></li>
+					<li><span>数据交换</span></li>
+					<li><span>数据缓冲</span></li>
+					<li><span>标识和报告设备的状态</span></li>
+					<li><span>差错控制</span></li>
+				</ol>
+				<h3 id='222-设备控制器的组成'><span>2.2.2 设备控制器的组成</span></h3>
+				<p><img src="Images/7-5设备控制器的组成.png" referrerpolicy="no-referrer" alt="7-5设备控制器的组成"></p>
+				<blockquote>
+					<p><span>设备控制器与CPU接口：实现CPU与设备控制器之间的通信，包括数据线、地址线和控制线。一个设备控制器可以连接一个或多个设备。</span>
+						<span>I/O逻辑：实现对设备的控制，通过一组控制线与CPU交互，CPU利用该逻辑向控制器发送I/O命令，I/O逻辑对收到的命令进行译码。</span>
+					</p>
+				</blockquote>
+				<h2 id='23-内存映像io'><span>2.3 内存映像I/O</span></h2>
+				<p><span>驱动程序将抽象I/O命令转换为具体命令和参数等，并装入设备控制器的相应寄存器，由控制器执行这些命令，具体实施对I/O设备控制。具体方法：</span></p>
 				<ul>
-					<li><span>人为因素（采取存取控制机制）</span></li>
-					<li><span>系统因素（采取系统容错技术）</span></li>
-					<li><span>自然因素（建立后备系统）</span></li>
+					<li><span>采用特定I/O指令 访问内存和设备需要两种不同的指令</span></li>
+					<li><span>采用内存映像I/O形式</span>
+						<span>对内存单元和设备控制器中寄存器统一编址k。k在0~n-1 范围时，表示内存地址；若k≥n时，为某控制器的寄存器地址。统一了访问方法，简化了I/O编程。</span>
+						<img src="Images/7-6内存映像IO.png" referrerpolicy="no-referrer" alt="7-6内存映像I/O">
+					</li>
 				</ul>
-				<p><span> 一个进程能对某对象执行操作的权力，称为</span><strong><span>访问权</span></strong><span>(Access right)。</span></p>
-				<p><strong><span>保护域</span></strong><span>简称为“域”，“域”是进程对一组对象访问权的集合，进程只能在指定域内执行操作。即</span><strong><span>规定了进程所能访问的对象和能执行的操作。</span></strong>
+				<h2 id='24-io通道'><span>2.4 I/O通道</span></h2>
+				<h3 id='241-概述'><span>2.4.1 概述</span></h3>
+				<p><span>引入I/O通道的目的：</span><strong><span>把CPU从繁忙的I/O任务中解脱出来，建立独立的I/O操作</span></strong><span>。</span></p>
+				<p><span>在设置了通道后，CPU只需向通道发送一条I/O指令。通道在收到该指令后，便从内存中取出本次要执行的通道程序，然后执行该通道程序，仅当通道完成了规定的I/O任务后，才向CPU发中断信号。</span>
 				</p>
-				<p><span>访问矩阵：用矩阵来描述系统的访问控制，行代表域，列代表对象，每一项为访问权</span></p>
-				<p><span>具有域切换权的访问控制矩阵：能够将进程从</span><strong><span>一个保护域切换为另一个域</span></strong><span>。如，由于域D1和D2所对应的项中有一个S（即切换权），则允许在域D1中进程切换到域D2中。</span>
-					<img src="Images/8-8具有域切换权的访问控制矩阵.png" referrerpolicy="no-referrer" alt="8-8具有域切换权的访问控制矩阵">
+				<p><strong><span>I/O通道是一种特殊的处理机</span></strong><span>，它具有执行I/O指令的能力，并通过执行通道（I/O）程序来控制I/O操作，但是通道没有自己的内存。</span>
 				</p>
+				<p><span>通道是通过执行</span><strong><span>通道程序并与设备控制器共同实现对I/O设备的控制的</span></strong><span>。通道程序是由一系列通道指令（或通道命令）所构成的。</span>
+				</p>
+				<h3 id='242-io通道的类型'><span>2.4.2 I/O通道的类型</span></h3>
+				<ol start=''>
+					<li><span>字节多路通道(Byte Multiplexor Channel)</span></li>
+					<li><span>数组选择通道(Block Selector
+							Channel)：以数据块为单位成批传送数据，用来连接高速设备，每个通道一次只能为一台设备服务（一次只能执行一个通道指令程序）</span></li>
+					<li><span>数组多路通道(Block Multiplexor
+							Channel)：以数据块为单位传送数据，主要用来连接中速块设备，每个通道可同时为多台设备服务（可同时执行多个通道指令程序）</span>
+						<img src="Images/7-6IO通道.png" referrerpolicy="no-referrer" alt="7-6IO通道">
+					</li>
+				</ol>
+				<h3 id='243-多通路io系统'><span>2.4.3 多通路I/O系统</span></h3>
+				<p><span>“瓶颈”问题：通道价格昂贵，数量较少，成为I/O瓶颈，造成整个系统吞吐量下降。</span></p>
+				<p><span>解决该问题的最有效方法，便是</span><strong><span>增加设备到主机间通路而不增加通道</span></strong><span>，即把一个设备连接到多个控制器上，而一个控制器又连接到多个通道上。</span>
+				</p>
+				<p><img src="Images/7-7多通路IO系统.png" referrerpolicy="no-referrer" alt="7-7多通路IO系统"></p>
+				<h2 id='25-io设备的控制方式'><span>2.5 I/O设备的控制方式</span></h2>
+				<ul>
+					<li><span>使用轮询的可编程I/O方式</span></li>
+					<li><span>使用中断的可编程I/O方式</span></li>
+					<li><span>直接存储器访问方式（DMA）</span></li>
+					<li><span>I/O通道控制方式</span></li>
+				</ul>
+				<p><img src="Images/7-8%E7%A8%8B%E5%BA%8FIO%E5%92%8C%E4%B8%AD%E6%96%AD%E9%A9%B1%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E6%B5%81%E7%A8%8B.png"
+						referrerpolicy="no-referrer" alt="7-8程序I/O和中断驱动方式的流程"></p>
+				<center>程序I/O和中断驱动方式的流程</center><br>
+				<p><img src="Images/7-9DMA控制器的组成图和流程图.png" referrerpolicy="no-referrer" alt="7-9DMA控制器的组成图和流程图"></p>
+				<center>DMA控制器的组成图和流程图</center>
+				<blockquote>
+					<p><span>DMA方式数据传输的基本单位是数据块，所传输的数据是从I/O设备直接送入内存的，或者相反，CPU仅在传送一个或多个数据块的开始和结束时才进行干预。</span></p>
+				</blockquote>
+				<h1 id='3-中断和中断处理程序'><span>3 中断和中断处理程序</span></h1>
+				<h2 id='31-中断简介'><span>3.1 中断简介</span></h2>
+				<ol start=''>
+					<li><span>中断和陷入</span></li>
+				</ol>
+				<ul>
+					<li><span>中断(Interrupt)是指CPU对I/O设备发来的中断信号的一种响应</span></li>
+					<li><span>陷入(Trap)是指CPU内部事件所引起的中断</span></li>
+				</ul>
+				<ol start='2'>
+					<li><span>中断向量表</span>
+						<span>中断向量表存放每个设备的中断处理程序入口地址，并为每个设备的中断请求分配一个中断号，对应于中断向量表中的一个表项。</span>
+					</li>
+					<li><span>中断优先级</span>
+						<span>系统为每个中断源规定不同的优先级</span>
+					</li>
+				</ol>
+				<h2 id='32-对多中断源的处理方式'><span>3.2 对多中断源的处理方式</span></h2>
+				<p><span>引起中断的事件叫中断源。中断处理时，又来新中断请求，此时有两种选择：屏蔽(禁止)中断、嵌套中断</span></p>
+				<p><img src="Images/7-10对多中断源的处理方式.png" referrerpolicy="no-referrer" alt="7-10对多中断源的处理方式"></p>
+				<p><span>中断处理过程：</span></p>
+				<ol start=''>
+					<li><span>测定是否有未响应的中断信号</span></li>
+					<li><span>保护被中断进程的CPU现场</span></li>
+					<li><span>转入相应的设备处理程序</span></li>
+					<li><span>处理中断</span></li>
+					<li><span>恢复CPU现场并退出中断</span></li>
+				</ol>
+				<p><img src="Images/7-10中断处理过程.png" referrerpolicy="no-referrer" alt="7-10中断处理过程"></p>
+				<h1 id='4-设备驱动程序'><span>4 设备驱动程序</span></h1>
+				<p><span>设备驱动程序是</span><strong><span>操作系统内核与机器硬件之间的接口</span></strong><span>。设备驱动程序为应用程序屏蔽了硬件的细节。在应用程序看来，</span><strong><span>硬件设备只是一个设备文件</span></strong><span>，可以像操作普通文件一样对硬件设备进行操作。</span>
+				</p>
+				<p><span>处理过程：</span></p>
+				<ol start=''>
+					<li><span>将抽象要求转换为具体要求</span></li>
+					<li><span>为服务请求进行校验</span></li>
+					<li><span>检查设备的状态</span></li>
+					<li><span>传送必要的参数</span></li>
+					<li><span>启动I/O设备</span></li>
+				</ol>
+				<p><span>设备驱动程序与外界的接口：与OS内核的接口、与系统引导的接口、与设备的接口。</span></p>
+				<p><span>设备驱动程序的组成：</span></p>
+				<ul>
+					<li><span>设备驱动程序的注册与注销</span></li>
+					<li><span>设备的打开与释放</span></li>
+					<li><span>设备的读/写操作</span></li>
+					<li><span>设备的控制操作</span></li>
+					<li><span>设备的中断与轮询</span></li>
+				</ul>
+				<h1 id='5-与设备无关的io软件'><span>5 与设备无关的I/O软件</span></h1>
+				<ol start=''>
+					<li><span>基本概念</span>
+						<strong><span>设备独立性/无关性(Device
+								Independence)</span></strong><span>：应用程序所用设备，不应局限于某一具体的物理设备。为实现设备独立性，须在设备驱动程序上设置一层软件，称为</span><strong><span>与设备无关的I/O软件，或设备独立性软件。</span></strong><span>
+							以此方便用户和提高OS的可适应性与可扩展性。</span>
+					</li>
+					<li><span>设备分配</span></li>
+				</ol>
+				<p><span>数据结构：</span></p>
+				<ul>
+					<li><span>设备控制表DCT - 记录设备的情况</span></li>
+					<li><span>控制器控制表COCT、通道控制表CHCT和系统设备表SDT</span></li>
+				</ul>
+				<p><span>设备分配时应考虑的因素：</span></p>
+				<ul>
+					<li><span>独占设备、共享设备、虚拟设备的分配策略</span></li>
+					<li><span>分配算法：先来先服务、优先级高者优先</span></li>
+					<li><span>安全性考虑：安全分配、不安全分配</span></li>
+				</ul>
+				<p><span>独占设备的分配程序：分配设备、分配控制器、分配通道</span></p>
+				<ol start='3'>
+					<li><span>逻辑设备表</span>
+						<span>在应用程序中使用的是逻辑设备名，而系统只识别物理设备名。逻辑设备表(LUT)用于将逻辑设备名映射为物理设备名。</span>
+					</li>
+					<li><span>I/O调度</span>
+						<span>调度一组I/O请求就是按照确定好的顺序来执行I/O操作，提高计算机效率。通过I/O调度可以改善系统整体性能，在进程间公平共享设备访问，减少完成I/O调度所需的平均等待时间。实现方法是为每个设备维护一个请求等待队列。</span>
+					</li>
+				</ol>
+				<h1 id='6-用户层的io软件'><span>6 用户层的I/O软件</span></h1>
+				<ol start=''>
+					<li><span>系统调用与库函数</span>
+						<span>系统调用：应用程序通过系统调用间接调用OS中的I/O过程，对I/O设备进行操作。</span>
+					</li>
+				</ol>
+				<p><span>库函数：C语言或UNIX中，系统调用与库函数几乎一一对应。</span></p>
+				<p><img src="Images/7-11系统调用.png" referrerpolicy="no-referrer" alt="7-11系统调用"></p>
+				<ol start='2'>
+					<li><span>假脱机技术</span>
+						<span>假脱机技术(Spooling)，即</span><strong><span>外部设备联机并行操作</span></strong><span>，外围操作与CPU数据处理同时进行。</span>
+					</li>
+				</ol>
+				<p><span>优点：提高I/O速度，将独占设备改造为共享设备，实现了虚拟设备功能。</span></p>
+				<h1 id='7-缓冲区管理'><span>7 缓冲区管理</span></h1>
+				<ol start=''>
+					<li><span>引入缓冲的主要原因</span>
+						<span>（1）缓和CPU与I/O设备间速度不匹配的矛盾</span>
+						<span>（2）减少对CPU中断频率，放宽对CPU中断响应时间的限制</span>
+						<span>（3）解决数据粒度不匹配的问题</span>
+						<span>（4）提高CPU与I/O设备之间并行性</span>
+					</li>
+					<li><span>缓存是保存数据副本的高速内存区域：CPU缓存、磁盘缓存、光驱缓存等。CPU缓存：为了缓和CPU与内存读/写速率不匹配的矛盾。</span></li>
+				</ol>
+				<p><span>缓存和缓冲：缓冲可以保存数据项的唯一的现有版本；缓存只是提供一个位于其他地方的数据项的更快存储副本；有时，同一个内存区，既可以是缓存，也可以是缓冲。</span></p>
+				<h1 id='8-磁盘性能概述和磁盘调度'><span>8 磁盘性能概述和磁盘调度</span></h1>
+				<h2 id='81-磁盘结构'><span>8.1 磁盘结构</span></h2>
+				<p><img src="Images/7-12磁盘结构.png" referrerpolicy="no-referrer" alt="7-12磁盘结构"></p>
+				<ul>
+					<li><span>盘面（磁头）：磁盘设备可包含一或多个盘片，每个盘片分为一个或两个盘面，每个盘面上有一个读写磁头。</span></li>
+					<li><span>磁道（柱面）：每个盘面可分为若干条磁道，每个磁道上可存储相同数目的二进制位。</span></li>
+					<li><span>扇区：每条磁道逻辑上分为若干个大小相同的扇区，每个扇区的大小相当于一个盘块（数据块）。</span></li>
+					<li><span>磁盘密度即每英寸中所存储的位数，显然是内层磁道的密度较外层磁道的密度高。</span></li>
+				</ul>
+				<h2 id='82-磁盘容量计算'><span>8.2 磁盘容量计算</span></h2>
+				<p><span>容量 = 柱面 x 磁头 x 扇区，每扇区存放512B数据。</span></p>
+				<h2 id='83-磁盘访问时间'><span>8.3 磁盘访问时间</span></h2>
+				<p><span>寻道时间：是指系统把磁头移到相应的磁道或柱面上所用时间</span>
+					<span>旋转延迟时间：是指一旦磁头到达指定磁道、必须等待所需要的扇区转到读/写磁头下所用的延迟时间。</span>
+					<span>传输时间：指信息实际在盘和内存之间进行传送所花费的时间。</span>
+				</p>
+				<p><span>一次磁盘服务的总时间就是这三者之和，即：</span>
+					<span>访问时间=寻道时间+旋转延迟时间+传输时间</span>
+				</p>
+				<h2 id='84-磁盘调度算法'><span>8.4 磁盘调度算法</span></h2>
+				<p><span>磁盘调度算法的目的是尽可能减少操作中的</span><strong><span>寻道时间</span></strong><span>。</span></p>
+				<h3 id='先来先服务fcfs'><span>先来先服务FCFS</span></h3>
+				<p><img src="Images/7-131先来先服务.png" referrerpolicy="no-referrer" alt="7-131先来先服务">
+					<span>最简单的磁盘调度算法，根据进程请求访问磁盘的先后次序进行调度。仅适于请求磁盘I/O的进程数目较少的场合。</span>
+					<span>优点：公平简单，每个进程的请求都能一次得到处理，不会出现某一进程的请求长期得不到满足的情况。</span>
+					<span>缺点：由于未对寻道进行优化，致使平均寻道时间较长。</span>
+				</p>
+				<h3 id='最短寻道时间有限sstf'><span>最短寻道时间有限SSTF</span></h3>
+				<p><span>优先选择距当前磁头最近的访问请求进行服务。</span>
+					<img src="Images/7-132最短寻道时间有限SSTF.png" referrerpolicy="no-referrer" alt="7-132最短寻道时间有限SSTF">
+					<span>选择这样的进程，其要求访问的磁道与当前磁头所在的磁道距离最近，以使每次的寻道时间最短，但不保证平均寻道时间最短</span>
+				</p>
+				<h3 id='扫描算法scan'><span>扫描算法SCAN</span></h3>
+				<p><img src="Images/7-133扫描算法SCAN.png" referrerpolicy="no-referrer" alt="7-133扫描算法SCAN"></p>
+				<h3 id='循环扫描算法cscan'><span>循环扫描算法CSCAN</span></h3>
+				<p><img src="Images/7-134循环扫描算法CSCAN.png" referrerpolicy="no-referrer" alt="7-134循环扫描算法CSCAN"></p>
 			</div>
 		</div>
 	</body>
-
 </html>

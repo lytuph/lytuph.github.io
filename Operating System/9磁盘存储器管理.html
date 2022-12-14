@@ -1830,12 +1830,29 @@
 			}
 		</style>
 		<title>9磁盘存储器管理</title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+		</script>
+		<link rel="stylesheet" href="../assets/css/left_catalogue.css">
+		<script src="../assets/js/left_catalogue.js"></script>
+		
+		<!--返回顶部-->
+		<button onclick="topFunction()" id="topButton">TOP↑</button>
+		<button onclick="showOrCloseCategory()" id="foldOrUnfold">目录</button>
+		
+		<!--文章主体部分-->
+		<div class="book-body" id="book_body"> </div>
+		<!--目录栏-->
+		<div class="book-summary" id="category" style="display:none"></div>
 	</head>
 
 	<body class='typora-export os-windows'>
 		<div class='typora-export-content'>
 			<div id='write' class=''>
-				<p><a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
+				<p>
+					<a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
 					<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
 					<a href="3处理机调度与死锁.html"><span>第三章 处理机调度与死锁</span></a>
 					<a href="4进程同步.html"><span>第四章 进程同步</span></a>
@@ -1843,28 +1860,9 @@
 					<a href="6虚拟存储器.html"><span>第六章 虚拟存储器</span></a>
 					<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
 					<a href="8文件管理.html"><span>第八章 文件管理</span></a>
-					<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a>
+					<a href="9磁盘存储器管理.html"><span style="color: red;">第九章 磁盘存储器管理</span></a>
 				</p>
-				<div class='md-toc' mdtype='toc'>
-					<p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1"
-							data-ref="n3"><a class="md-toc-inner" href="#1-外存的组织方式">1 外存的组织方式</a></span><span
-							role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner"
-								href="#11-概述">1.1 概述</a></span><span role="listitem" class="md-toc-item md-toc-h2"
-							data-ref="n13"><a class="md-toc-inner" href="#12-连续组织方式">1.2 连续组织方式</a></span><span
-							role="listitem" class="md-toc-item md-toc-h2" data-ref="n16"><a class="md-toc-inner"
-								href="#13-链接组织方式">1.3 链接组织方式</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n18"><a class="md-toc-inner" href="#14-索引组织方式">1.4
-								索引组织方式</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n22"><a
-								class="md-toc-inner" href="#2-文件存储空间的管理">2 文件存储空间的管理</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n23"><a class="md-toc-inner" href="#21-概述">2.1
-								概述</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n26"><a
-								class="md-toc-inner" href="#22-空闲区表法">2.2 空闲区表法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n30"><a class="md-toc-inner" href="#23-空闲链表法">2.3
-								空闲链表法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n33"><a
-								class="md-toc-inner" href="#24-位示图法">2.4 位示图法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n37"><a class="md-toc-inner" href="#24-成组链接法">2.4
-								成组链接法</a></span></p>
-				</div>
+				
 				<h1 id='1-外存的组织方式'><span>1 外存的组织方式</span></h1>
 				<h2 id='11-概述'><span>1.1 概述</span></h2>
 				<p><span>文件的物理结构直接与外存的组织方式有关，不同的外存组织方式，将形成不同的文件物理结构。</span></p>

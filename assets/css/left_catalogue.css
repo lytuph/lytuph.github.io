@@ -1,0 +1,190 @@
+#category a {
+	text-decoration: none;
+	color: black;
+}
+
+/* #category {line-height: 2em;} */
+.newh {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.newh:hover {
+	background-color: #f3f2ee;
+}
+
+@media (max-width: 1600px) {
+	.book-body {
+		/* padding-left: 200px; */
+		padding-right: 0px;
+	}
+}
+
+@media (max-width: 1400px) {
+	.book-body {
+		/* padding-left: 200px; */
+		padding-right: 0px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.book-body {
+		/* padding-left: 300px; */
+		padding-left: 0px;
+	}
+}
+
+@media (max-width: 700px) {
+	.book-body {
+		padding-left: 0px;
+	}
+}
+
+@media (min-width: 600px) {
+	#category {
+		/* 绝对定位 */
+		position: fixed;
+		/* 目录显示的位置 */
+		float: left;
+		margin-right: 2em;
+		/* right: 0px; */
+		top: 0;
+		/* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+		height: 99%;
+		/* 设置边框这样和正文对比比较明显 */
+		border: 1 solid #614b45;
+		/* 开启垂直滚动条 */
+		overflow-y: scroll;
+		width: 25%;
+		display: block;
+		/* z-index: 99;; */
+		background: #e6e5e1;
+
+	}
+
+	/* 正文的样式 */
+	#write {
+		width: 100%;
+		display: block;
+		/* float:right; */
+	}
+
+	img {
+		display: block;
+	}
+
+	code,
+	tt {
+		color: #c7254e;
+		background-color: #f9f2f4;
+	}
+
+	/* 返回顶部按钮样式 */
+	#topButton {
+		position: fixed;
+		float: right;
+		right: 20px;
+		top: 95%;
+		z-index: 99;
+		border-radius: 8px;
+		border: 0 solid black;
+	}
+
+	/* 展开或者折叠 */
+	#foldOrUnfold {
+		position: fixed;
+		float: right;
+		right: 20px;
+		top: 89%;
+		z-index: 99;
+		border-radius: 8px;
+	}
+}
+
+@media (-webkit-max-device-pixel-ratio: 1) {
+	::-webkit-scrollbar-track-piece {
+		background-color: #FFF
+	}
+
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 6px
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: #c2c2c2;
+		background-clip: padding-box;
+		min-height: 28px
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background-color: #A0A0A0
+	}
+}
+
+@media (max-width: 599px) {
+	#category {
+		/* 绝对定位 */
+		position: fixed;
+		/* 目录显示的位置 */
+		float: left;
+		/* right: 0px; */
+		top: 0;
+		width: 85%;
+		/* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+		height: 99%;
+		/* 设置边框这样和正文对比比较明显 */
+		border: 1px solid #614b45;
+		/* 开启垂直滚动条 */
+		overflow-y: scroll;
+		z-index: 99;
+		display: none;
+		font-size: 20px;
+		/* line-height: 2em; */
+		width: 25%;
+		background: #e6e5e1;
+	}
+
+	/* 正文的样式 */
+	#book_body {
+		width: 100%;
+		display: block;
+	}
+
+	img {
+		display: block;
+	}
+
+	code,
+	tt {
+		color: #c7254e;
+		background-color: #f9f2f4;
+	}
+
+	/* 返回顶部按钮样式 */
+	#topButton {
+		position: fixed;
+		float: right;
+		right: 2%;
+		top: 95%;
+		z-index: 99;
+		border: 0 solid black;
+	}
+
+	/* 目录展开或者折叠 */
+	#foldOrUnfold {
+		position: fixed;
+		float: left;
+		right: 4%;
+		top: 90%;
+		z-index: 99;
+		border-radius: 8px;
+	}
+}
+
+img {
+	width: 70% !important;
+	/* height: 200px !important; */
+	display: block !important;
+	margin: 0 auto !important;
+}
