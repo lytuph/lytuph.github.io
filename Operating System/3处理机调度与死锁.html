@@ -1830,12 +1830,29 @@
 			}
 		</style>
 		<title>3处理机调度与死锁</title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+		</script>
+		<link rel="stylesheet" href="../assets/css/left_catalogue.css">
+		<script src="../assets/js/left_catalogue.js"></script>
+		
+		<!--返回顶部-->
+		<button onclick="topFunction()" id="topButton">TOP↑</button>
+		<button onclick="showOrCloseCategory()" id="foldOrUnfold">目录</button>
+		
+		<!--文章主体部分-->
+		<div class="book-body" id="book_body"> </div>
+		<!--目录栏-->
+		<div class="book-summary" id="category" style="display:none"></div>
 	</head>
 
 	<body class='typora-export os-windows'>
 		<div class='typora-export-content'>
 			<div id='write' class=''>
-				<p><a href="1操作系统引论.md"><span>第一章 操作系统引论</span></a>
+				<p>
+					<a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
 					<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
 					<font color="red"><span>第三章 处理机调度与死锁</span></font>
 					<a href="4进程同步.html"><span>第四章 进程同步</span></a>
@@ -1845,88 +1862,7 @@
 					<a href="8文件管理.html"><span>第八章 文件管理</span></a>
 					<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a>
 				</p>
-				<div class='md-toc' mdtype='toc'>
-					<p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1"
-							data-ref="n3"><a class="md-toc-inner" href="#1-处理机调度概述">1 处理机调度概述</a></span><span
-							role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner"
-								href="#11-调度层次">1.1 调度层次</a></span><span role="listitem" class="md-toc-item md-toc-h2"
-							data-ref="n7"><a class="md-toc-inner" href="#12-作业">1.2 作业</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n13"><a class="md-toc-inner" href="#13-进程调度">1.3
-								进程调度</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n14"><a
-								class="md-toc-inner" href="#131-进程的调度任务">1.3.1 进程的调度任务</a></span><span role="listitem"
-							class="md-toc-item md-toc-h3" data-ref="n16"><a class="md-toc-inner"
-								href="#132-进程调度机制">1.3.2 进程调度机制</a></span><span role="listitem"
-							class="md-toc-item md-toc-h3" data-ref="n24"><a class="md-toc-inner"
-								href="#133-进程调度方式">1.3.3 进程调度方式</a></span><span role="listitem"
-							class="md-toc-item md-toc-h3" data-ref="n30"><a class="md-toc-inner"
-								href="#134-调度队列模型">1.3.4 调度队列模型</a></span><span role="listitem"
-							class="md-toc-item md-toc-h3" data-ref="n32"><a class="md-toc-inner"
-								href="#135-对调度算法的分析">1.3.5 对调度算法的分析</a></span><span role="listitem"
-							class="md-toc-item md-toc-h1" data-ref="n39"><a class="md-toc-inner" href="#2-调度算法">2
-								调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n40"><a
-								class="md-toc-inner" href="#21-概述">2.1 概述</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n43"><a class="md-toc-inner"
-								href="#22-先来先服务调度算法fcfs">2.2 先来先服务调度算法FCFS</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n55"><a class="md-toc-inner"
-								href="#23-最短作业优先sjf">2.3 最短作业优先SJF</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n62"><a class="md-toc-inner"
-								href="#24-优先级调度算法pr">2.4 优先级调度算法PR</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n67"><a class="md-toc-inner"
-								href="#25-高响应比优先调度算法hrrn">2.5 高响应比优先调度算法HRRN</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n71"><a class="md-toc-inner"
-								href="#作业调度算法实例1">作业调度算法实例1</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n95"><a class="md-toc-inner"
-								href="#作业调度算法实例2">作业调度算法实例2</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n98"><a class="md-toc-inner"
-								href="#26-时间片轮转调度算法">2.6 时间片轮转调度算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n105"><a class="md-toc-inner"
-								href="#27-多级反馈队列调度算法">2.7 多级反馈队列调度算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h1" data-ref="n110"><a class="md-toc-inner" href="#3-实时调度">3
-								实时调度</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n111"><a
-								class="md-toc-inner" href="#31-实时调度算法分类">3.1 实时调度算法分类</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n113"><a class="md-toc-inner" href="#32-调度算法">3.2
-								调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n114"><a
-								class="md-toc-inner" href="#321-非抢占式">3.2.1 非抢占式</a></span><span role="listitem"
-							class="md-toc-item md-toc-h4" data-ref="n115"><a class="md-toc-inner"
-								href="#非抢占式轮转调度算法">非抢占式轮转调度算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h4" data-ref="n117"><a class="md-toc-inner"
-								href="#非抢占式优先调度算法">非抢占式优先调度算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h3" data-ref="n119"><a class="md-toc-inner" href="#322-抢占式">3.2.2
-								抢占式</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n120"><a
-								class="md-toc-inner" href="#基于时钟中断的抢占式优先级调度">基于时钟中断的抢占式优先级调度</a></span><span
-							role="listitem" class="md-toc-item md-toc-h4" data-ref="n122"><a class="md-toc-inner"
-								href="#立即抢占的优先级调度">立即抢占的优先级调度</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n124"><a class="md-toc-inner"
-								href="#33-最早截止时间优先edf）调度算法">3.3 最早截止时间优先（EDF）调度算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n126"><a class="md-toc-inner"
-								href="#34-最低松弛度优先llf算法">3.4 最低松弛度优先LLF算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n129"><a class="md-toc-inner"
-								href="#优先级倒置现象">优先级倒置现象</a></span><span role="listitem" class="md-toc-item md-toc-h1"
-							data-ref="n132"><a class="md-toc-inner" href="#4-linux进程调度">4 Linux进程调度</a></span><span
-							role="listitem" class="md-toc-item md-toc-h1" data-ref="n158"><a class="md-toc-inner"
-								href="#5-死锁概述">5 死锁概述</a></span><span role="listitem" class="md-toc-item md-toc-h2"
-							data-ref="n167"><a class="md-toc-inner" href="#51-死锁的定义">5.1 死锁的定义</a></span><span
-							role="listitem" class="md-toc-item md-toc-h2" data-ref="n179"><a class="md-toc-inner"
-								href="#52-产生死锁的四个必要条件">5.2 产生死锁的四个必要条件</a></span><span role="listitem"
-							class="md-toc-item md-toc-h2" data-ref="n190"><a class="md-toc-inner"
-								href="#53-处理死锁的基本方法">5.3 处理死锁的基本方法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h3" data-ref="n198"><a class="md-toc-inner" href="#531-预防死锁">5.3.1
-								预防死锁</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n226"><a
-								class="md-toc-inner" href="#532-避免死锁">5.3.2 避免死锁</a></span><span role="listitem"
-							class="md-toc-item md-toc-h4" data-ref="n229"><a class="md-toc-inner"
-								href="#系统的安全状态">系统的安全状态</a></span><span role="listitem" class="md-toc-item md-toc-h4"
-							data-ref="n231"><a class="md-toc-inner"
-								href="#著名避免死锁算法-银行家算法">著名避免死锁算法-银行家算法</a></span><span role="listitem"
-							class="md-toc-item md-toc-h4" data-ref="n249"><a class="md-toc-inner"
-								href="#实例">实例</a></span><span role="listitem" class="md-toc-item md-toc-h3"
-							data-ref="n251"><a class="md-toc-inner" href="#533-死锁的检测与解除">5.3.3 死锁的检测与解除</a></span><span
-							role="listitem" class="md-toc-item md-toc-h4" data-ref="n254"><a class="md-toc-inner"
-								href="#资源分配图">资源分配图</a></span><span role="listitem" class="md-toc-item md-toc-h4"
-							data-ref="n269"><a class="md-toc-inner" href="#资源分配图化简">资源分配图化简</a></span><span
-							role="listitem" class="md-toc-item md-toc-h4" data-ref="n272"><a class="md-toc-inner"
-								href="#死锁定理">死锁定理</a></span><span role="listitem" class="md-toc-item md-toc-h4"
-							data-ref="n275"><a class="md-toc-inner" href="#死锁解除">死锁解除</a></span></p>
-				</div>
+				
 				<h1 id='1-处理机调度概述'><span>1 处理机调度概述</span></h1>
 				<p><span>处理机调度问题就是对处理机如何分配的问题</span></p>
 				<h2 id='11-调度层次'><span>1.1 调度层次</span></h2>

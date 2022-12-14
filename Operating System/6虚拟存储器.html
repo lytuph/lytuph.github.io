@@ -1,247 +1,1081 @@
 <!doctype html>
 <html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+	<head>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
-.mac-os-11 { --title-bar-height:28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-.typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li blockquote { margin: 1rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
-@media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  .typora-export #write { break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  .is-mac table { break-inside: avoid; }
-  .typora-export-show-outline .typora-export-sidebar { display: none; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-.MathJax_ref { fill: currentcolor; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-.md-expand mark .md-meta { opacity: 0.3 !important; }
-mark .md-meta { color: rgb(0, 0, 0); }
-@media print {
-  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
-}
-.md-diagram-panel .messageText { stroke: none !important; }
-.md-diagram-panel .start-state { fill: var(--node-fill); }
-.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-fences.md-fences-math { font-size: 1em; }
-.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background: inherit; }
-.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
-@media screen and (max-width: 1024px) {
-  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
-}
-@media screen and (max-width: 800px) {
-  .typora-export-sidebar { display: none; }
-}
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
-.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
-.outline-content strong { font-weight: 400; }
-.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
-.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ""; }
-.outline-h1 > .outline-item { padding-left: 0px; }
-.outline-h2 > .outline-item { padding-left: 1em; }
-.outline-h3 > .outline-item { padding-left: 2em; }
-.outline-h4 > .outline-item { padding-left: 3em; }
-.outline-h5 > .outline-item { padding-left: 4em; }
-.outline-h6 > .outline-item { padding-left: 5em; }
-.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
-.outline-label:hover { text-decoration: underline; }
-.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
-.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
-.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
-.outline-children { display: none; }
-.info-panel-tab-wrapper { display: none; }
-.outline-item-open > .outline-children { display: block; }
-.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
-.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
-.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
-.typora-export-collapse-outline .outline-children { display: none; }
-.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
-.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
-.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
-.md-inline-math-container mjx-container { zoom: 0.95; }
+		<link
+			href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext'
+			rel='stylesheet' type='text/css' />
+		<style type='text/css'>
+			html {
+				overflow-x: initial !important;
+			}
+
+			:root {
+				--bg-color: #ffffff;
+				--text-color: #333333;
+				--select-text-bg-color: #B5D6FC;
+				--select-text-font-color: auto;
+				--monospace: "Lucida Console", Consolas, "Courier", monospace;
+				--title-bar-height: 20px;
+			}
+
+			.mac-os-11 {
+				--title-bar-height: 28px;
+			}
+
+			html {
+				font-size: 14px;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			body {
+				margin: 0px;
+				padding: 0px;
+				height: auto;
+				inset: 0px;
+				font-size: 1rem;
+				line-height: 1.42857;
+				overflow-x: hidden;
+				background: inherit;
+				tab-size: 4;
+			}
+
+			iframe {
+				margin: auto;
+			}
+
+			a.url {
+				word-break: break-all;
+			}
+
+			a:active,
+			a:hover {
+				outline: 0px;
+			}
+
+			.in-text-selection,
+			::selection {
+				text-shadow: none;
+				background: var(--select-text-bg-color);
+				color: var(--select-text-font-color);
+			}
+
+			#write {
+				margin: 0px auto;
+				height: auto;
+				width: inherit;
+				word-break: normal;
+				overflow-wrap: break-word;
+				position: relative;
+				white-space: normal;
+				overflow-x: visible;
+				padding-top: 36px;
+			}
+
+			#write.first-line-indent p {
+				text-indent: 2em;
+			}
+
+			#write.first-line-indent li p,
+			#write.first-line-indent p * {
+				text-indent: 0px;
+			}
+
+			#write.first-line-indent li {
+				margin-left: 2em;
+			}
+
+			.for-image #write {
+				padding-left: 8px;
+				padding-right: 8px;
+			}
+
+			body.typora-export {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			.typora-export .footnote-line,
+			.typora-export li,
+			.typora-export p {
+				white-space: pre-wrap;
+			}
+
+			.typora-export .task-list-item input {
+				pointer-events: none;
+			}
+
+			@media screen and (max-width: 500px) {
+				body.typora-export {
+					padding-left: 0px;
+					padding-right: 0px;
+				}
+
+				#write {
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+
+				.CodeMirror-sizer {
+					margin-left: 0px !important;
+				}
+
+				.CodeMirror-gutters {
+					display: none !important;
+				}
+			}
+
+			#write li>figure:last-child {
+				margin-bottom: 0.5rem;
+			}
+
+			#write ol,
+			#write ul {
+				position: relative;
+			}
+
+			img {
+				max-width: 100%;
+				vertical-align: middle;
+				image-orientation: from-image;
+			}
+
+			button,
+			input,
+			select,
+			textarea {
+				color: inherit;
+				font: inherit;
+			}
+
+			input[type="checkbox"],
+			input[type="radio"] {
+				line-height: normal;
+				padding: 0px;
+			}
+
+			*,
+			::after,
+			::before {
+				box-sizing: border-box;
+			}
+
+			#write h1,
+			#write h2,
+			#write h3,
+			#write h4,
+			#write h5,
+			#write h6,
+			#write p,
+			#write pre {
+				width: inherit;
+			}
+
+			#write h1,
+			#write h2,
+			#write h3,
+			#write h4,
+			#write h5,
+			#write h6,
+			#write p {
+				position: relative;
+			}
+
+			p {
+				line-height: inherit;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				break-after: avoid-page;
+				break-inside: avoid;
+				orphans: 4;
+			}
+
+			p {
+				orphans: 4;
+			}
+
+			h1 {
+				font-size: 2rem;
+			}
+
+			h2 {
+				font-size: 1.8rem;
+			}
+
+			h3 {
+				font-size: 1.6rem;
+			}
+
+			h4 {
+				font-size: 1.4rem;
+			}
+
+			h5 {
+				font-size: 1.2rem;
+			}
+
+			h6 {
+				font-size: 1rem;
+			}
+
+			.md-math-block,
+			.md-rawblock,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p {
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+			}
+
+			.hidden {
+				display: none;
+			}
+
+			.md-blockmeta {
+				color: rgb(204, 204, 204);
+				font-weight: 700;
+				font-style: italic;
+			}
+
+			a {
+				cursor: pointer;
+			}
+
+			sup.md-footnote {
+				padding: 2px 4px;
+				background-color: rgba(238, 238, 238, 0.7);
+				color: rgb(85, 85, 85);
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			sup.md-footnote a,
+			sup.md-footnote a:hover {
+				color: inherit;
+				text-transform: inherit;
+				text-decoration: inherit;
+			}
+
+			#write input[type="checkbox"] {
+				cursor: pointer;
+				width: inherit;
+				height: inherit;
+			}
+
+			figure {
+				overflow-x: auto;
+				margin: 1.2em 0px;
+				max-width: calc(100% + 16px);
+				padding: 0px;
+			}
+
+			figure>table {
+				margin: 0px;
+			}
+
+			tr {
+				break-inside: avoid;
+				break-after: auto;
+			}
+
+			thead {
+				display: table-header-group;
+			}
+
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				width: 100%;
+				overflow: auto;
+				break-inside: auto;
+				text-align: left;
+			}
+
+			table.md-table td {
+				min-width: 32px;
+			}
+
+			.CodeMirror-gutters {
+				border-right: 0px;
+				background-color: inherit;
+			}
+
+			.CodeMirror-linenumber {
+				user-select: none;
+			}
+
+			.CodeMirror {
+				text-align: left;
+			}
+
+			.CodeMirror-placeholder {
+				opacity: 0.3;
+			}
+
+			.CodeMirror pre {
+				padding: 0px 4px;
+			}
+
+			.CodeMirror-lines {
+				padding: 0px;
+			}
+
+			div.hr:focus {
+				cursor: none;
+			}
+
+			#write pre {
+				white-space: pre-wrap;
+			}
+
+			#write.fences-no-line-wrapping pre {
+				white-space: pre;
+			}
+
+			#write pre.ty-contain-cm {
+				white-space: normal;
+			}
+
+			.CodeMirror-gutters {
+				margin-right: 4px;
+			}
+
+			.md-fences {
+				font-size: 0.9rem;
+				display: block;
+				break-inside: avoid;
+				text-align: left;
+				overflow: visible;
+				white-space: pre;
+				background: inherit;
+				position: relative !important;
+			}
+
+			.md-fences-adv-panel {
+				width: 100%;
+				margin-top: 10px;
+				text-align: center;
+				padding-top: 0px;
+				padding-bottom: 8px;
+				overflow-x: auto;
+			}
+
+			#write .md-fences.mock-cm {
+				white-space: pre-wrap;
+			}
+
+			.md-fences.md-fences-with-lineno {
+				padding-left: 0px;
+			}
+
+			#write.fences-no-line-wrapping .md-fences.mock-cm {
+				white-space: pre;
+				overflow-x: auto;
+			}
+
+			.md-fences.mock-cm.md-fences-with-lineno {
+				padding-left: 8px;
+			}
+
+			.CodeMirror-line,
+			twitterwidget {
+				break-inside: avoid;
+			}
+
+			.footnotes {
+				opacity: 0.8;
+				font-size: 0.9rem;
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+
+			.footnotes+.footnotes {
+				margin-top: 0px;
+			}
+
+			.md-reset {
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				outline: 0px;
+				vertical-align: top;
+				background: 0px 0px;
+				text-decoration: none;
+				text-shadow: none;
+				float: none;
+				position: static;
+				width: auto;
+				height: auto;
+				white-space: nowrap;
+				cursor: inherit;
+				-webkit-tap-highlight-color: transparent;
+				line-height: normal;
+				font-weight: 400;
+				text-align: left;
+				box-sizing: content-box;
+				direction: ltr;
+			}
+
+			li div {
+				padding-top: 0px;
+			}
+
+			blockquote {
+				margin: 1rem 0px;
+			}
+
+			li .mathjax-block,
+			li p {
+				margin: 0.5rem 0px;
+			}
+
+			li blockquote {
+				margin: 1rem 0px;
+			}
+
+			li {
+				margin: 0px;
+				position: relative;
+			}
+
+			blockquote> :last-child {
+				margin-bottom: 0px;
+			}
+
+			blockquote> :first-child,
+			li> :first-child {
+				margin-top: 0px;
+			}
+
+			.footnotes-area {
+				color: rgb(136, 136, 136);
+				margin-top: 0.714rem;
+				padding-bottom: 0.143rem;
+				white-space: normal;
+			}
+
+			#write .footnote-line {
+				white-space: pre-wrap;
+			}
+
+			@media print {
+
+				body,
+				html {
+					border: 1px solid transparent;
+					height: 99%;
+					break-after: avoid;
+					break-before: avoid;
+					font-variant-ligatures: no-common-ligatures;
+				}
+
+				#write {
+					margin-top: 0px;
+					padding-top: 0px;
+					border-color: transparent !important;
+				}
+
+				.typora-export * {
+					-webkit-print-color-adjust: exact;
+				}
+
+				.typora-export #write {
+					break-after: avoid;
+				}
+
+				.typora-export #write::after {
+					height: 0px;
+				}
+
+				.is-mac table {
+					break-inside: avoid;
+				}
+
+				.typora-export-show-outline .typora-export-sidebar {
+					display: none;
+				}
+			}
+
+			.footnote-line {
+				margin-top: 0.714em;
+				font-size: 0.7em;
+			}
+
+			a img,
+			img a {
+				cursor: pointer;
+			}
+
+			pre.md-meta-block {
+				font-size: 0.8rem;
+				min-height: 0.8rem;
+				white-space: pre-wrap;
+				background: rgb(204, 204, 204);
+				display: block;
+				overflow-x: hidden;
+			}
+
+			p>.md-image:only-child:not(.md-img-error) img,
+			p>img:only-child {
+				display: block;
+				margin: auto;
+			}
+
+			#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+				left: -2em;
+				position: relative;
+			}
+
+			p>.md-image:only-child {
+				display: inline-block;
+				width: 100%;
+			}
+
+			#write .MathJax_Display {
+				margin: 0.8em 0px 0px;
+			}
+
+			.md-math-block {
+				width: 100%;
+			}
+
+			.md-math-block:not(:empty)::after {
+				display: none;
+			}
+
+			.MathJax_ref {
+				fill: currentcolor;
+			}
+
+			[contenteditable="true"]:active,
+			[contenteditable="true"]:focus,
+			[contenteditable="false"]:active,
+			[contenteditable="false"]:focus {
+				outline: 0px;
+				box-shadow: none;
+			}
+
+			.md-task-list-item {
+				position: relative;
+				list-style-type: none;
+			}
+
+			.task-list-item.md-task-list-item {
+				padding-left: 0px;
+			}
+
+			.md-task-list-item>input {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				margin-left: -1.2em;
+				margin-top: calc(1em - 10px);
+				border: none;
+			}
+
+			.math {
+				font-size: 1rem;
+			}
+
+			.md-toc {
+				min-height: 3.58rem;
+				position: relative;
+				font-size: 0.9rem;
+				border-radius: 10px;
+			}
+
+			.md-toc-content {
+				position: relative;
+				margin-left: 0px;
+			}
+
+			.md-toc-content::after,
+			.md-toc::after {
+				display: none;
+			}
+
+			.md-toc-item {
+				display: block;
+				color: rgb(65, 131, 196);
+			}
+
+			.md-toc-item a {
+				text-decoration: none;
+			}
+
+			.md-toc-inner:hover {
+				text-decoration: underline;
+			}
+
+			.md-toc-inner {
+				display: inline-block;
+				cursor: pointer;
+			}
+
+			.md-toc-h1 .md-toc-inner {
+				margin-left: 0px;
+				font-weight: 700;
+			}
+
+			.md-toc-h2 .md-toc-inner {
+				margin-left: 2em;
+			}
+
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 4em;
+			}
+
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 6em;
+			}
+
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 8em;
+			}
+
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 10em;
+			}
+
+			@media screen and (max-width: 48em) {
+				.md-toc-h3 .md-toc-inner {
+					margin-left: 3.5em;
+				}
+
+				.md-toc-h4 .md-toc-inner {
+					margin-left: 5em;
+				}
+
+				.md-toc-h5 .md-toc-inner {
+					margin-left: 6.5em;
+				}
+
+				.md-toc-h6 .md-toc-inner {
+					margin-left: 8em;
+				}
+			}
+
+			a.md-toc-inner {
+				font-size: inherit;
+				font-style: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+			}
+
+			.footnote-line a:not(.reversefootnote) {
+				color: inherit;
+			}
+
+			.md-attr {
+				display: none;
+			}
+
+			.md-fn-count::after {
+				content: ".";
+			}
+
+			code,
+			pre,
+			samp,
+			tt {
+				font-family: var(--monospace);
+			}
+
+			kbd {
+				margin: 0px 0.1em;
+				padding: 0.1em 0.6em;
+				font-size: 0.8em;
+				color: rgb(36, 39, 41);
+				background: rgb(255, 255, 255);
+				border: 1px solid rgb(173, 179, 185);
+				border-radius: 3px;
+				box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+				white-space: nowrap;
+				vertical-align: middle;
+			}
+
+			.md-comment {
+				color: rgb(162, 127, 3);
+				opacity: 0.6;
+				font-family: var(--monospace);
+			}
+
+			code {
+				text-align: left;
+				vertical-align: initial;
+			}
+
+			a.md-print-anchor {
+				white-space: pre !important;
+				border-width: initial !important;
+				border-style: none !important;
+				border-color: initial !important;
+				display: inline-block !important;
+				position: absolute !important;
+				width: 1px !important;
+				right: 0px !important;
+				outline: 0px !important;
+				background: 0px 0px !important;
+				text-decoration: initial !important;
+				text-shadow: initial !important;
+			}
+
+			.os-windows.monocolor-emoji .md-emoji {
+				font-family: "Segoe UI Symbol", sans-serif;
+			}
+
+			.md-diagram-panel>svg {
+				max-width: 100%;
+			}
+
+			[lang="flow"] svg,
+			[lang="mermaid"] svg {
+				max-width: 100%;
+				height: auto;
+			}
+
+			[lang="mermaid"] .node text {
+				font-size: 1rem;
+			}
+
+			table tr th {
+				border-bottom: 0px;
+			}
+
+			video {
+				max-width: 100%;
+				display: block;
+				margin: 0px auto;
+			}
+
+			iframe {
+				max-width: 100%;
+				width: 100%;
+				border: none;
+			}
+
+			.highlight td,
+			.highlight tr {
+				border: 0px;
+			}
+
+			mark {
+				background: rgb(255, 255, 0);
+				color: rgb(0, 0, 0);
+			}
+
+			.md-html-inline .md-plain,
+			.md-html-inline strong,
+			mark .md-inline-math,
+			mark strong {
+				color: inherit;
+			}
+
+			.md-expand mark .md-meta {
+				opacity: 0.3 !important;
+			}
+
+			mark .md-meta {
+				color: rgb(0, 0, 0);
+			}
+
+			@media print {
+
+				.typora-export h1,
+				.typora-export h2,
+				.typora-export h3,
+				.typora-export h4,
+				.typora-export h5,
+				.typora-export h6 {
+					break-inside: avoid;
+				}
+			}
+
+			.md-diagram-panel .messageText {
+				stroke: none !important;
+			}
+
+			.md-diagram-panel .start-state {
+				fill: var(--node-fill);
+			}
+
+			.md-diagram-panel .edgeLabel rect {
+				opacity: 1 !important;
+			}
+
+			.md-fences.md-fences-math {
+				font-size: 1em;
+			}
+
+			.md-fences-advanced:not(.md-focus) {
+				padding: 0px;
+				white-space: nowrap;
+				border: 0px;
+			}
+
+			.md-fences-advanced:not(.md-focus) {
+				background: inherit;
+			}
+
+			.typora-export-show-outline .typora-export-content {
+				max-width: 1440px;
+				margin: auto;
+				display: flex;
+				flex-direction: row;
+			}
+
+			.typora-export-sidebar {
+				width: 300px;
+				font-size: 0.8rem;
+				margin-top: 80px;
+				margin-right: 18px;
+			}
+
+			.typora-export-show-outline #write {
+				--webkit-flex: 2;
+				flex: 2 1 0%;
+			}
+
+			.typora-export-sidebar .outline-content {
+				position: fixed;
+				top: 0px;
+				max-height: 100%;
+				overflow: hidden auto;
+				padding-bottom: 30px;
+				padding-top: 60px;
+				width: 300px;
+			}
+
+			@media screen and (max-width: 1024px) {
+
+				.typora-export-sidebar,
+				.typora-export-sidebar .outline-content {
+					width: 240px;
+				}
+			}
+
+			@media screen and (max-width: 800px) {
+				.typora-export-sidebar {
+					display: none;
+				}
+			}
+
+			.outline-content li,
+			.outline-content ul {
+				margin-left: 0px;
+				margin-right: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				list-style: none;
+			}
+
+			.outline-content ul {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+
+			.outline-content strong {
+				font-weight: 400;
+			}
+
+			.outline-expander {
+				width: 1rem;
+				height: 1.42857rem;
+				position: relative;
+				display: table-cell;
+				vertical-align: middle;
+				cursor: pointer;
+				padding-left: 4px;
+			}
+
+			.outline-expander::before {
+				content: "";
+				position: relative;
+				font-family: Ionicons;
+				display: inline-block;
+				font-size: 8px;
+				vertical-align: middle;
+			}
+
+			.outline-item {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				cursor: pointer;
+			}
+
+			.outline-expander:hover::before {
+				content: "";
+			}
+
+			.outline-h1>.outline-item {
+				padding-left: 0px;
+			}
+
+			.outline-h2>.outline-item {
+				padding-left: 1em;
+			}
+
+			.outline-h3>.outline-item {
+				padding-left: 2em;
+			}
+
+			.outline-h4>.outline-item {
+				padding-left: 3em;
+			}
+
+			.outline-h5>.outline-item {
+				padding-left: 4em;
+			}
+
+			.outline-h6>.outline-item {
+				padding-left: 5em;
+			}
+
+			.outline-label {
+				cursor: pointer;
+				display: table-cell;
+				vertical-align: middle;
+				text-decoration: none;
+				color: inherit;
+			}
+
+			.outline-label:hover {
+				text-decoration: underline;
+			}
+
+			.outline-item:hover {
+				border-color: rgb(245, 245, 245);
+				background-color: var(--item-hover-bg-color);
+			}
+
+			.outline-item:hover {
+				margin-left: -28px;
+				margin-right: -28px;
+				border-left: 28px solid transparent;
+				border-right: 28px solid transparent;
+			}
+
+			.outline-item-single .outline-expander::before,
+			.outline-item-single .outline-expander:hover::before {
+				display: none;
+			}
+
+			.outline-item-open>.outline-item>.outline-expander::before {
+				content: "";
+			}
+
+			.outline-children {
+				display: none;
+			}
+
+			.info-panel-tab-wrapper {
+				display: none;
+			}
+
+			.outline-item-open>.outline-children {
+				display: block;
+			}
+
+			.typora-export .outline-item {
+				padding-top: 1px;
+				padding-bottom: 1px;
+			}
+
+			.typora-export .outline-item:hover {
+				margin-right: -8px;
+				border-right: 8px solid transparent;
+			}
+
+			.typora-export .outline-expander::before {
+				content: "+";
+				font-family: inherit;
+				top: -1px;
+			}
+
+			.typora-export .outline-expander:hover::before,
+			.typora-export .outline-item-open>.outline-item>.outline-expander::before {
+				content: "−";
+			}
+
+			.typora-export-collapse-outline .outline-children {
+				display: none;
+			}
+
+			.typora-export-collapse-outline .outline-item-open>.outline-children,
+			.typora-export-no-collapse-outline .outline-children {
+				display: block;
+			}
+
+			.typora-export-no-collapse-outline .outline-expander::before {
+				content: "" !important;
+			}
+
+			.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+				font-weight: 700;
+			}
+
+			.md-inline-math-container mjx-container {
+				zoom: 0.95;
+			}
 
 
-/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+			/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
 
-@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+			@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
 
-/* =========== */
+			/* =========== */
 
-/* pt-serif-regular - latin */
-/* pt-serif-italic - latin */
-/* pt-serif-700 - latin */
-/* pt-serif-700italic - latin */
-:root {
-	--active-file-bg-color: #dadada;
-	--active-file-bg-color: rgba(32, 43, 51, 0.63);
-	--active-file-text-color: white;
-	--bg-color: #f3f2ee;
-	--text-color: #1f0909;
-	--control-text-color: #444;
-	--rawblock-edit-panel-bd: #e5e5e5;
+			/* pt-serif-regular - latin */
+			/* pt-serif-italic - latin */
+			/* pt-serif-700 - latin */
+			/* pt-serif-700italic - latin */
+			:root {
+				--active-file-bg-color: #dadada;
+				--active-file-bg-color: rgba(32, 43, 51, 0.63);
+				--active-file-text-color: white;
+				--bg-color: #f3f2ee;
+				--text-color: #1f0909;
+				--control-text-color: #444;
+				--rawblock-edit-panel-bd: #e5e5e5;
 
-	--select-text-bg-color: rgba(32, 43, 51, 0.63);
-  --select-text-font-color: white;
-}
+				--select-text-bg-color: rgba(32, 43, 51, 0.63);
+				--select-text-font-color: white;
+			}
 
-pre {
-	--select-text-bg-color: #36284e;
-	--select-text-font-color: #fff;
-}
+			pre {
+				--select-text-bg-color: #36284e;
+				--select-text-font-color: #fff;
+			}
 
-html {
-	font-size: 16px;
-	-webkit-font-smoothing: antialiased;
-}
+			html {
+				font-size: 16px;
+				-webkit-font-smoothing: antialiased;
+			}
 
-html, body {
-	background-color: #f3f2ee;
-	font-family: "PT Serif", 'Times New Roman', Times, serif;
-	color: #1f0909;
-	line-height: 1.5em;
-}
+			html,
+			body {
+				background-color: #f3f2ee;
+				font-family: "PT Serif", 'Times New Roman', Times, serif;
+				color: #1f0909;
+				line-height: 1.5em;
+			}
 
-/*#write {
+			/*#write {
 	overflow-x: auto;
     max-width: initial;
 	padding-left: calc(50% - 17em);
@@ -255,584 +1089,1341 @@ html, body {
  	}
 }*/
 
-#write {
-	max-width: 40em;
-}
-
-@media only screen and (min-width: 1400px) {
-	#write {
-			max-width: 914px;
-	}
-}
-
-ol li {
-	list-style-type: decimal;
-	list-style-position: outside;
-}
-ul li {
-	list-style-type: disc;
-	list-style-position: outside;
-}
-
-ol,
-ul {
-	list-style: none;
-}
-
-blockquote,
-q {
-	quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* styles */
-
-/* ====== */
-
-/* headings */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: bold;
-}
-h1 {
-	font-size: 1.875em;
-	/*30 / 16*/
-	line-height: 1.6em;
-	/* 48 / 30*/
-	margin-top: 2em;
-}
-h2,
-h3 {
-	font-size: 1.3125em;
-	/*21 / 16*/
-	line-height: 1.15;
-	/*24 / 21*/
-	margin-top: 2.285714em;
-	/*48 / 21*/
-	margin-bottom: 1.15em;
-	/*24 / 21*/
-}
-h3 {
-	font-weight: normal;
-}
-h4 {
-	font-size: 1.125em;
-	/*18 / 16*/
-	margin-top: 2.67em;
-	/*48 / 18*/
-}
-h5,
-h6 {
-	font-size: 1em;
-	/*16*/
-}
-h1 {
-	border-bottom: 1px solid;
-	margin-bottom: 1.875em;
-	padding-bottom: 0.8125em;
-}
-/* links */
-
-a {
-	text-decoration: none;
-	color: #065588;
-}
-a:hover,
-a:active {
-	text-decoration: underline;
-}
-/* block spacing */
-
-p,
-blockquote,
-.md-fences {
-	margin-bottom: 1.5em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: 1.5em;
-}
-/* blockquote */
-
-blockquote {
-	font-style: italic;
-	border-left: 5px solid;
-	margin-left: 2em;
-	padding-left: 1em;
-}
-/* lists */
-
-ul,
-ol {
-	margin: 0 0 1.5em 1.5em;
-}
-/* tables */
-.md-meta,.md-before, .md-after {
-	color:#999;
-}
-
-table {
-	margin-bottom: 1.5em;
-	/*24 / 16*/
-	font-size: 1em;
-	/* width: 100%; */
-}
-thead th,
-tfoot th {
-	padding: .25em .25em .25em .4em;
-	text-transform: uppercase;
-}
-th {
-	text-align: left;
-}
-td {
-	vertical-align: top;
-	padding: .25em .25em .25em .4em;
-}
-
-code,
-.md-fences {
-	background-color: #dadada;
-}
-
-code {
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.md-fences {
-	margin-left: 2em;
-	margin-bottom: 3em;
-	padding-left: 1ch;
-	padding-right: 1ch;
-}
-
-pre,
-code,
-tt {
-	font-size: .875em;
-	line-height: 1.714285em;
-}
-/* some fixes */
-
-h1 {
-	line-height: 1.3em;
-	font-weight: normal;
-	margin-bottom: 0.5em;
-}
-
-p + ul,
-p + ol{
-	margin-top: .5em;
-}
-
-h3 + ul,
-h4 + ul,
-h5 + ul,
-h6 + ul,
-h3 + ol,
-h4 + ol,
-h5 + ol,
-h6 + ol {
-	margin-top: .5em;
-}
-
-li > ul,
-li > ol {
-	margin-top: inherit;
-	margin-bottom: 0;
-}
-
-li ol>li {
-	list-style-type: lower-alpha;
-}
-
-li li ol>li{
-	list-style-type: lower-roman;
-}
-
-h2,
-h3 {
-	margin-bottom: .75em;
-}
-hr {
-	border-top: none;
-	border-right: none;
-	border-bottom: 1px solid;
-	border-left: none;
-}
-h1 {
-	border-color: #c5c5c5;
-}
-blockquote {
-	border-color: #bababa;
-	color: #656565;
-}
-
-blockquote ul,
-blockquote ol {
-	margin-left:0;
-}
-
-.ty-table-edit {
-	background-color: transparent;
-}
-thead {
-	background-color: #dadada;
-}
-tr:nth-child(even) {
-	background: #e8e7e7;
-}
-hr {
-	border-color: #c5c5c5;
-}
-.task-list{
-	padding-left: 1rem;
-}
-
-.md-task-list-item {
-	padding-left: 1.5rem;
-	list-style-type: none;
-}
-
-.md-task-list-item > input:before {
-	content: '\221A';
-	display: inline-block;
-	width: 1.25rem;
-  	height: 1.6rem;
-	vertical-align: middle;
-	text-align: center;
-	color: #ddd;
-	background-color: #F3F2EE;
-}
-
-.md-task-list-item > input:checked:before,
-.md-task-list-item > input[checked]:before{
-	color: inherit;
-}
-
-#write pre.md-meta-block {
-	min-height: 1.875rem;
-	color: #555;
-	border: 0px;
-	background: transparent;
-	margin-top: -4px;
-	margin-left: 1em;
-	margin-top: 1em;
-}
-
-.md-image>.md-meta {
-	color: #9B5146;
-}
-
-.md-image>.md-meta{
-	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
-}
-
-
-#write>h3.md-focus:before{
-	left: -1.5rem;
-	color:#999;
-	border-color:#999;
-}
-#write>h4.md-focus:before{
-	left: -1.5rem;
-	top: .25rem;
-	color:#999;
-	border-color:#999;
-}
-#write>h5.md-focus:before{
-	left: -1.5rem;
-	top: .0.3125rem;
-	color:#999;
-	border-color:#999;
-}
-#write>h6.md-focus:before{
-	left: -1.5rem;
-	top: 0.3125rem;
-	color:#999;
-	border-color:#999;
-}
-
-.md-toc:focus .md-toc-content{
-	margin-top: 19px;
-}
-
-.md-toc-content:empty:before{
-	color: #065588;
-}
-.md-toc-item {
-	color: #065588;
-}
-#write div.md-toc-tooltip {
-	background-color: #f3f2ee;
-}
-
-#typora-sidebar {
-	background-color: #f3f2ee;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
-  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
-}
-
-.pin-outline #typora-sidebar {
-	background: inherit;
-	box-shadow: none;
-	border-right: 1px dashed;
-}
-
-.pin-outline #typora-sidebar:hover .outline-title-wrapper {
-	border-left:1px dashed;
-}
-
-.outline-item:hover {
-  background-color: #dadada;
-  border-left: 28px solid #dadada;
-  border-right: 18px solid #dadada;
-}
-
-.typora-node .outline-item:hover {
-  	border-right: 28px solid #dadada;
-}
-
-.outline-expander:before {
-  content: "\f0da";
-  font-family: FontAwesome;
-  font-size:14px;
-  top: 1px;
-}
-
-.outline-expander:hover:before,
-.outline-item-open>.outline-item>.outline-expander:before {
-  content: "\f0d7";
-}
-
-.modal-content {
-	background-color: #f3f2ee;
-}
-
-.auto-suggest-container ul li {
-	list-style-type: none;
-}
-
-/** UI for electron */
-
-.megamenu-menu,
-#top-titlebar, #top-titlebar *,
-.megamenu-content {
-	background: #f3f2ee;
-	color: #1f0909;
-}
-
-.megamenu-menu-header {
-	border-bottom: 1px dashed #202B33;
-}
-
-.megamenu-menu {
-	box-shadow: none;
-	border-right: 1px dashed;
-}
-
-header, .context-menu, .megamenu-content, footer {
-	font-family: "PT Serif", 'Times New Roman', Times, serif;
-    color: #1f0909;
-}
-
-#megamenu-back-btn {
-	color: #1f0909;
-	border-color: #1f0909;
-}
-
-.megamenu-menu-header #megamenu-menu-header-title:before {
-	color: #1f0909;
-}
-
-.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
-	color: inherit;
-	background-color: #e8e7df;
-}
-
-.long-btn:hover {
-	background-color: #e8e7df;
-}
-
-#recent-file-panel tbody tr:nth-child(2n-1) {
-    background-color: transparent !important;
-}
-
-.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
-    color: inherit;
-}
-
-.megamenu-menu-panel .btn {
-	background-color: #D2D1D1;
-}
-
-.btn-default {
-	background-color: transparent;
-}
-
-.typora-sourceview-on #toggle-sourceview-btn,
-.ty-show-word-count #footer-word-count {
-	background: #c7c5c5;
-}
-
-#typora-quick-open {
-    background-color: inherit;
-}
-
-.md-diagram-panel {
-	margin-top: 8px;
-}
-
-.file-list-item-file-name {
-	font-weight: initial;
-}
-
-.file-list-item-summary {
-	opacity: 1;
-}
-
-.file-list-item {
-	color: #777;
-}
-
-.file-list-item.active {
-	background-color: inherit;
-	color: black;
-}
-
-.ty-side-sort-btn.active {
-	background-color: inherit;
-}
-
-.file-list-item.active .file-list-item-file-name  {
-	font-weight: bold;
-}
-
-.file-list-item{
-    opacity:1 !important;
-}
-
-.file-library-node.active>.file-node-background{
-	background-color: rgba(32, 43, 51, 0.63);
-	background-color: var(--active-file-bg-color);
-}
-
-.file-tree-node.active>.file-node-content{
-	color: white;
-	color: var(--active-file-text-color);
-}
-
-.md-task-list-item>input {
-	margin-left: -1.7em;
-	margin-top: calc(1rem - 12px);
-	-webkit-appearance: button;
-}
-
-input {
-	border: 1px solid #aaa;
-}
-
-.megamenu-menu-header #megamenu-menu-header-title,
-.megamenu-menu-header:hover,
-.megamenu-menu-header:focus {
-	color: inherit;
-}
-
-.dropdown-menu .divider {
-	border-color: #e5e5e5;
-	opacity: 1;
-}
-
-/* https://github.com/typora/typora-issues/issues/2046 */
-.os-windows-7 strong,
-.os-windows-7 strong  {
-	font-weight: 760;
-}
-
-.ty-preferences .btn-default {
-	background: transparent;
-}
-
-.ty-preferences .window-header {
-	border-bottom: 1px dashed #202B33;
-	box-shadow: none;
-}
-
-#sidebar-loading-template, #sidebar-loading-template.file-list-item {
-	color: #777;
-}
-
-.searchpanel-search-option-btn.active {
-	background: #777;
-	color: white;
-}
-
-.export-detail, .light .export-detail,
-.light .export-item.active,
-.light .export-items-list-control {
-	background: #e0e0e0;
-	border-radius: 2px;
-	font-weight: 700;
-	color: inherit
-}
-
-
-</style><title>7输入输出系统(设备管理)</title>
-</head>
-<body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><p><a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
-<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
-<a href="3处理机调度与死锁.html"><span>第三章 处理机调度与死锁</span></a>
-<a href="4进程同步.html"><span>第四章 进程同步</span></a>
-<a href="5存储器管理.html"><span>第五章 存储器管理</span></a>
-<a href="6虚拟存储器.html"><span>第六章 虚拟存储器</span></a>
-<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
-<a href="8文件管理.html"><span>第八章 文件管理</span></a>
-<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"></p></div><h1 id='1-io系统的功能模型和接口'><span>1 I/O系统的功能、模型和接口</span></h1><h2 id='11-设备的分类'><span>1.1 设备的分类</span></h2><p><span>根据设备</span><strong><span>传输处理单位</span></strong><span>分类：</span></p><ol start='' ><li><span>块设备(Block device)</span></li></ol><ul><li><span>块设备将信息存储在固定大小的块中，每个块都有自己的地址</span></li><li><span>基本特征是每个块都能独立于其它块而读写</span></li><li><span>磁盘是最常见的块设备</span></li></ul><ol start='2' ><li><span>字符设备(Character device)</span></li></ol><ul><li><span>在I/O传输过程中以字符为单位进行传输的设备</span></li><li><span>例如磁盘，打印机等</span></li></ul><ol start='3' ><li><span>根据设备的</span><strong><span>功能特性</span></strong><span>分类：</span></li></ol><ul><li><span>存储设备 例如磁盘等</span></li><li><span>I/O设备 输入输出设备、交互式设备</span></li><li><span>数据通信设备 例如网卡等</span></li></ul><ol start='4' ><li><span>根据设备</span><strong><span>可否共享</span></strong><span>分类：</span></li></ol><ul><li><span>独占设备--进程互斥访问 例如打印机、磁带机</span></li><li><span>共享设备--进程并发访问 例如磁盘</span></li><li><span>虚拟设备--虚拟技术 例如Spooling技术</span></li></ul><ol start='5' ><li><span>按</span><strong><span>传输速率</span></strong><span>分类：</span></li></ol><ul><li><span>低俗设备 几~数百B/S，键盘、鼠标等</span></li><li><span>中速设备 数千~数十万B/S，打印机</span></li><li><span>高速设备 数百KB~千MB/S，磁带机、磁盘机、光盘等</span></li></ul><h2 id='12-硬件系统--外设'><span>1.2 硬件系统--外设</span></h2><p><img src="Images/7-1硬件系统-外设.png" referrerpolicy="no-referrer" alt="硬件系统-外设"></p><h2 id='13-io系统基本功能'><span>1.3 I/O系统基本功能</span></h2><ul><li><span>隐藏物理设备细节</span></li><li><span>控制I/O设备</span></li><li><span>保证OS与设备无关</span></li><li><span>提高CPU和I/O设备利用率</span></li><li><span>设备共享</span></li><li><span>处理错误</span></li></ul><h2 id='14-io软件的层次结构'><span>1.4 I/O软件的层次结构</span></h2><p><img src="Images/7-2IO软件的层次结构.png" referrerpolicy="no-referrer" alt="7-2I/O软件的层次结构"></p><p><span>I/O模块之间的层次视图</span>
-<img src="Images/7-3IO%E6%A8%A1%E5%9D%97%E4%B9%8B%E9%97%B4%E7%9A%84%E5%B1%82%E6%AC%A1%E8%A7%86%E5%9B%BE.png" referrerpolicy="no-referrer" alt="7-3I/O模块之间的层次视图"></p><h1 id='2-io设备和设备控制器'><span>2 I/O设备和设备控制器</span></h1><h2 id='21-设备与控制器之间的接口'><span>2.1 设备与控制器之间的接口</span></h2><p><span>执行I/O操作的机械部件--一般I/O设备</span>
-<span>执行控制I/O的电子部件--设备控制器（适配器）</span>
-<img src="Images/7-4设备与控制器之间的接口.png" referrerpolicy="no-referrer" alt="7-4设备与控制器之间的接口"></p><blockquote><p><span>通常，设备并不是直接与CPU进行通信，而是与设备控制器通信，因此，在I/O设备中应含有与设备控制器间的接口，在该接口中有三种类型的信号，各对应一条信号线。数据信号线用于在设备和设备控制器之间传送数据信号。对于输入设备，由外界输入的信号经转换器转换后所形成的数据，先送入缓冲器中，当数据量达到一定的比特(字符)数后，再从缓冲器通过一组数据信号线传送给设备控制器；对输出设备而言，则是将从设备控制器经过数据信号线传送来的一批数据先暂存于缓冲区中，经转换器作适当转换后，再逐个字符地输出。状态信号线用于传送指示设备当前状态的信号：正在读（或写），设备已读（写）完成，并准备好新的数据传送。控制信号线是由设备控制器向I/O设备发送控制信号时的通路。该信号规定了设备将要执行的操作，如读操作（由设备-&gt;控制器传送数据）或写操作（从控制器接受数据），或执行磁头移动等操作。</span></p></blockquote><h2 id='22-设备控制器'><span>2.2 设备控制器</span></h2><h3 id='221-基本功能'><span>2.2.1 基本功能</span></h3><ol start='' ><li><span>接受和识别指令</span></li><li><span>地址识别</span></li><li><span>数据交换</span></li><li><span>数据缓冲</span></li><li><span>标识和报告设备的状态</span></li><li><span>差错控制</span></li></ol><h3 id='222-设备控制器的组成'><span>2.2.2 设备控制器的组成</span></h3><p><img src="Images/7-5设备控制器的组成.png" referrerpolicy="no-referrer" alt="7-5设备控制器的组成"></p><blockquote><p><span>设备控制器与CPU接口：实现CPU与设备控制器之间的通信，包括数据线、地址线和控制线。一个设备控制器可以连接一个或多个设备。</span>
-<span>I/O逻辑：实现对设备的控制，通过一组控制线与CPU交互，CPU利用该逻辑向控制器发送I/O命令，I/O逻辑对收到的命令进行译码。</span></p></blockquote><h2 id='23-内存映像io'><span>2.3 内存映像I/O</span></h2><p><span>驱动程序将抽象I/O命令转换为具体命令和参数等，并装入设备控制器的相应寄存器，由控制器执行这些命令，具体实施对I/O设备控制。具体方法：</span></p><ul><li><span>采用特定I/O指令 访问内存和设备需要两种不同的指令</span></li><li><span>采用内存映像I/O形式</span>
-<span>对内存单元和设备控制器中寄存器统一编址k。k在0~n-1 范围时，表示内存地址；若k≥n时，为某控制器的寄存器地址。统一了访问方法，简化了I/O编程。</span>
-<img src="Images/7-6内存映像IO.png" referrerpolicy="no-referrer" alt="7-6内存映像I/O"></li></ul><h2 id='24-io通道'><span>2.4 I/O通道</span></h2><h3 id='241-概述'><span>2.4.1 概述</span></h3><p><span>引入I/O通道的目的：</span><strong><span>把CPU从繁忙的I/O任务中解脱出来，建立独立的I/O操作</span></strong><span>。</span></p><p><span>在设置了通道后，CPU只需向通道发送一条I/O指令。通道在收到该指令后，便从内存中取出本次要执行的通道程序，然后执行该通道程序，仅当通道完成了规定的I/O任务后，才向CPU发中断信号。</span></p><p><strong><span>I/O通道是一种特殊的处理机</span></strong><span>，它具有执行I/O指令的能力，并通过执行通道（I/O）程序来控制I/O操作，但是通道没有自己的内存。</span></p><p><span>通道是通过执行</span><strong><span>通道程序并与设备控制器共同实现对I/O设备的控制的</span></strong><span>。通道程序是由一系列通道指令（或通道命令）所构成的。</span></p><h3 id='242-io通道的类型'><span>2.4.2 I/O通道的类型</span></h3><ol start='' ><li><span>字节多路通道(Byte Multiplexor Channel)</span></li><li><span>数组选择通道(Block Selector Channel)：以数据块为单位成批传送数据，用来连接高速设备，每个通道一次只能为一台设备服务（一次只能执行一个通道指令程序）</span></li><li><span>数组多路通道(Block Multiplexor Channel)：以数据块为单位传送数据，主要用来连接中速块设备，每个通道可同时为多台设备服务（可同时执行多个通道指令程序）</span>
-<img src="Images/7-6IO通道.png" referrerpolicy="no-referrer" alt="7-6IO通道"></li></ol><h3 id='243-多通路io系统'><span>2.4.3 多通路I/O系统</span></h3><p><span>“瓶颈”问题：通道价格昂贵，数量较少，成为I/O瓶颈，造成整个系统吞吐量下降。</span></p><p><span>解决该问题的最有效方法，便是</span><strong><span>增加设备到主机间通路而不增加通道</span></strong><span>，即把一个设备连接到多个控制器上，而一个控制器又连接到多个通道上。</span></p><p><img src="Images/7-7多通路IO系统.png" referrerpolicy="no-referrer" alt="7-7多通路IO系统"></p><h2 id='25-io设备的控制方式'><span>2.5 I/O设备的控制方式</span></h2><ul><li><span>使用轮询的可编程I/O方式</span></li><li><span>使用中断的可编程I/O方式</span></li><li><span>直接存储器访问方式（DMA）</span></li><li><span>I/O通道控制方式</span></li></ul><p><img src="Images/7-8%E7%A8%8B%E5%BA%8FIO%E5%92%8C%E4%B8%AD%E6%96%AD%E9%A9%B1%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E6%B5%81%E7%A8%8B.png" referrerpolicy="no-referrer" alt="7-8程序I/O和中断驱动方式的流程"></p><center>程序I/O和中断驱动方式的流程</center><br><p><img src="Images/7-9DMA控制器的组成图和流程图.png" referrerpolicy="no-referrer" alt="7-9DMA控制器的组成图和流程图"></p><center>DMA控制器的组成图和流程图</center><blockquote><p><span>DMA方式数据传输的基本单位是数据块，所传输的数据是从I/O设备直接送入内存的，或者相反，CPU仅在传送一个或多个数据块的开始和结束时才进行干预。</span></p></blockquote><h1 id='3-中断和中断处理程序'><span>3 中断和中断处理程序</span></h1><h2 id='31-中断简介'><span>3.1 中断简介</span></h2><ol start='' ><li><span>中断和陷入</span></li></ol><ul><li><span>中断(Interrupt)是指CPU对I/O设备发来的中断信号的一种响应</span></li><li><span>陷入(Trap)是指CPU内部事件所引起的中断</span></li></ul><ol start='2' ><li><span>中断向量表</span>
-<span>中断向量表存放每个设备的中断处理程序入口地址，并为每个设备的中断请求分配一个中断号，对应于中断向量表中的一个表项。</span></li><li><span>中断优先级</span>
-<span>系统为每个中断源规定不同的优先级</span></li></ol><h2 id='32-对多中断源的处理方式'><span>3.2 对多中断源的处理方式</span></h2><p><span>引起中断的事件叫中断源。中断处理时，又来新中断请求，此时有两种选择：屏蔽(禁止)中断、嵌套中断</span></p><p><img src="Images/7-10对多中断源的处理方式.png" referrerpolicy="no-referrer" alt="7-10对多中断源的处理方式"></p><p><span>中断处理过程：</span></p><ol start='' ><li><span>测定是否有未响应的中断信号</span></li><li><span>保护被中断进程的CPU现场</span></li><li><span>转入相应的设备处理程序</span></li><li><span>处理中断</span></li><li><span>恢复CPU现场并退出中断</span></li></ol><p><img src="Images/7-10中断处理过程.png" referrerpolicy="no-referrer" alt="7-10中断处理过程"></p><h1 id='4-设备驱动程序'><span>4 设备驱动程序</span></h1><p><span>设备驱动程序是</span><strong><span>操作系统内核与机器硬件之间的接口</span></strong><span>。设备驱动程序为应用程序屏蔽了硬件的细节。在应用程序看来，</span><strong><span>硬件设备只是一个设备文件</span></strong><span>，可以像操作普通文件一样对硬件设备进行操作。</span></p><p><span>处理过程：</span></p><ol start='' ><li><span>将抽象要求转换为具体要求</span></li><li><span>为服务请求进行校验</span></li><li><span>检查设备的状态</span></li><li><span>传送必要的参数</span></li><li><span>启动I/O设备</span></li></ol><p><span>设备驱动程序与外界的接口：与OS内核的接口、与系统引导的接口、与设备的接口。</span></p><p><span>设备驱动程序的组成：</span></p><ul><li><span>设备驱动程序的注册与注销</span></li><li><span>设备的打开与释放</span></li><li><span>设备的读/写操作</span></li><li><span>设备的控制操作</span></li><li><span>设备的中断与轮询</span></li></ul><h1 id='5-与设备无关的io软件'><span>5 与设备无关的I/O软件</span></h1><ol start='' ><li><span>基本概念</span>
-<strong><span>设备独立性/无关性(Device Independence)</span></strong><span>：应用程序所用设备，不应局限于某一具体的物理设备。为实现设备独立性，须在设备驱动程序上设置一层软件，称为</span><strong><span>与设备无关的I/O软件，或设备独立性软件。</span></strong><span> 以此方便用户和提高OS的可适应性与可扩展性。</span></li><li><span>设备分配</span></li></ol><p><span>数据结构：</span></p><ul><li><span>设备控制表DCT - 记录设备的情况</span></li><li><span>控制器控制表COCT、通道控制表CHCT和系统设备表SDT</span></li></ul><p><span>设备分配时应考虑的因素：</span></p><ul><li><span>独占设备、共享设备、虚拟设备的分配策略</span></li><li><span>分配算法：先来先服务、优先级高者优先</span></li><li><span>安全性考虑：安全分配、不安全分配</span></li></ul><p><span>独占设备的分配程序：分配设备、分配控制器、分配通道</span></p><ol start='3' ><li><span>逻辑设备表</span>
-<span>在应用程序中使用的是逻辑设备名，而系统只识别物理设备名。逻辑设备表(LUT)用于将逻辑设备名映射为物理设备名。</span></li><li><span>I/O调度</span>
-<span>调度一组I/O请求就是按照确定好的顺序来执行I/O操作，提高计算机效率。通过I/O调度可以改善系统整体性能，在进程间公平共享设备访问，减少完成I/O调度所需的平均等待时间。实现方法是为每个设备维护一个请求等待队列。</span></li></ol><h1 id='6-用户层的io软件'><span>6 用户层的I/O软件</span></h1><ol start='' ><li><span>系统调用与库函数</span>
-<span>系统调用：应用程序通过系统调用间接调用OS中的I/O过程，对I/O设备进行操作。</span></li></ol><p><span>库函数：C语言或UNIX中，系统调用与库函数几乎一一对应。</span></p><p><img src="Images/7-11系统调用.png" referrerpolicy="no-referrer" alt="7-11系统调用"></p><ol start='2' ><li><span>假脱机技术</span>
-<span>假脱机技术(Spooling)，即</span><strong><span>外部设备联机并行操作</span></strong><span>，外围操作与CPU数据处理同时进行。</span></li></ol><p><span>优点：提高I/O速度，将独占设备改造为共享设备，实现了虚拟设备功能。</span></p><h1 id='7-缓冲区管理'><span>7 缓冲区管理</span></h1><ol start='' ><li><span>引入缓冲的主要原因</span>
-<span>（1）缓和CPU与I/O设备间速度不匹配的矛盾</span>
-<span>（2）减少对CPU中断频率，放宽对CPU中断响应时间的限制</span>
-<span>（3）解决数据粒度不匹配的问题</span>
-<span>（4）提高CPU与I/O设备之间并行性</span></li><li><span>缓存是保存数据副本的高速内存区域：CPU缓存、磁盘缓存、光驱缓存等。CPU缓存：为了缓和CPU与内存读/写速率不匹配的矛盾。</span></li></ol><p><span>缓存和缓冲：缓冲可以保存数据项的唯一的现有版本；缓存只是提供一个位于其他地方的数据项的更快存储副本；有时，同一个内存区，既可以是缓存，也可以是缓冲。</span></p><h1 id='8-磁盘性能概述和磁盘调度'><span>8 磁盘性能概述和磁盘调度</span></h1><h2 id='81-磁盘结构'><span>8.1 磁盘结构</span></h2><p><img src="Images/7-12磁盘结构.png" referrerpolicy="no-referrer" alt="7-12磁盘结构"></p><ul><li><span>盘面（磁头）：磁盘设备可包含一或多个盘片，每个盘片分为一个或两个盘面，每个盘面上有一个读写磁头。</span></li><li><span>磁道（柱面）：每个盘面可分为若干条磁道，每个磁道上可存储相同数目的二进制位。</span></li><li><span>扇区：每条磁道逻辑上分为若干个大小相同的扇区，每个扇区的大小相当于一个盘块（数据块）。</span></li><li><span>磁盘密度即每英寸中所存储的位数，显然是内层磁道的密度较外层磁道的密度高。</span></li></ul><h2 id='82-磁盘容量计算'><span>8.2 磁盘容量计算</span></h2><p><span>容量 = 柱面 x 磁头 x 扇区，每扇区存放512B数据。</span></p><h2 id='83-磁盘访问时间'><span>8.3 磁盘访问时间</span></h2><p><span>寻道时间：是指系统把磁头移到相应的磁道或柱面上所用时间</span>
-<span>旋转延迟时间：是指一旦磁头到达指定磁道、必须等待所需要的扇区转到读/写磁头下所用的延迟时间。</span>
-<span>传输时间：指信息实际在盘和内存之间进行传送所花费的时间。</span></p><p><span>一次磁盘服务的总时间就是这三者之和，即：</span>
-<span>访问时间=寻道时间+旋转延迟时间+传输时间</span></p><h2 id='84-磁盘调度算法'><span>8.4 磁盘调度算法</span></h2><p><span>磁盘调度算法的目的是尽可能减少操作中的</span><strong><span>寻道时间</span></strong><span>。</span></p><h3 id='先来先服务fcfs'><span>先来先服务FCFS</span></h3><p><img src="Images/7-131先来先服务.png" referrerpolicy="no-referrer" alt="7-131先来先服务">
-<span>最简单的磁盘调度算法，根据进程请求访问磁盘的先后次序进行调度。仅适于请求磁盘I/O的进程数目较少的场合。</span>
-<span>优点：公平简单，每个进程的请求都能一次得到处理，不会出现某一进程的请求长期得不到满足的情况。</span>
-<span>缺点：由于未对寻道进行优化，致使平均寻道时间较长。</span></p><h3 id='最短寻道时间有限sstf'><span>最短寻道时间有限SSTF</span></h3><p><span>优先选择距当前磁头最近的访问请求进行服务。</span>
-<img src="Images/7-132最短寻道时间有限SSTF.png" referrerpolicy="no-referrer" alt="7-132最短寻道时间有限SSTF">
-<span>选择这样的进程，其要求访问的磁道与当前磁头所在的磁道距离最近，以使每次的寻道时间最短，但不保证平均寻道时间最短</span></p><h3 id='扫描算法scan'><span>扫描算法SCAN</span></h3><p><img src="Images/7-133扫描算法SCAN.png" referrerpolicy="no-referrer" alt="7-133扫描算法SCAN"></p><h3 id='循环扫描算法cscan'><span>循环扫描算法CSCAN</span></h3><p><img src="Images/7-134循环扫描算法CSCAN.png" referrerpolicy="no-referrer" alt="7-134循环扫描算法CSCAN"></p></div></div>
-</body>
+			#write {
+				max-width: 40em;
+			}
+
+			@media only screen and (min-width: 1400px) {
+				#write {
+					max-width: 914px;
+				}
+			}
+
+			ol li {
+				list-style-type: decimal;
+				list-style-position: outside;
+			}
+
+			ul li {
+				list-style-type: disc;
+				list-style-position: outside;
+			}
+
+			ol,
+			ul {
+				list-style: none;
+			}
+
+			blockquote,
+			q {
+				quotes: none;
+			}
+
+			blockquote:before,
+			blockquote:after,
+			q:before,
+			q:after {
+				content: '';
+				content: none;
+			}
+
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+
+			/* styles */
+
+			/* ====== */
+
+			/* headings */
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-weight: bold;
+			}
+
+			h1 {
+				font-size: 1.875em;
+				/*30 / 16*/
+				line-height: 1.6em;
+				/* 48 / 30*/
+				margin-top: 2em;
+			}
+
+			h2,
+			h3 {
+				font-size: 1.3125em;
+				/*21 / 16*/
+				line-height: 1.15;
+				/*24 / 21*/
+				margin-top: 2.285714em;
+				/*48 / 21*/
+				margin-bottom: 1.15em;
+				/*24 / 21*/
+			}
+
+			h3 {
+				font-weight: normal;
+			}
+
+			h4 {
+				font-size: 1.125em;
+				/*18 / 16*/
+				margin-top: 2.67em;
+				/*48 / 18*/
+			}
+
+			h5,
+			h6 {
+				font-size: 1em;
+				/*16*/
+			}
+
+			h1 {
+				border-bottom: 1px solid;
+				margin-bottom: 1.875em;
+				padding-bottom: 0.8125em;
+			}
+
+			/* links */
+
+			a {
+				text-decoration: none;
+				color: #065588;
+			}
+
+			a:hover,
+			a:active {
+				text-decoration: underline;
+			}
+
+			/* block spacing */
+
+			p,
+			blockquote,
+			.md-fences {
+				margin-bottom: 1.5em;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin-bottom: 1.5em;
+			}
+
+			/* blockquote */
+
+			blockquote {
+				font-style: italic;
+				border-left: 5px solid;
+				margin-left: 2em;
+				padding-left: 1em;
+			}
+
+			/* lists */
+
+			ul,
+			ol {
+				margin: 0 0 1.5em 1.5em;
+			}
+
+			/* tables */
+			.md-meta,
+			.md-before,
+			.md-after {
+				color: #999;
+			}
+
+			table {
+				margin-bottom: 1.5em;
+				/*24 / 16*/
+				font-size: 1em;
+				/* width: 100%; */
+			}
+
+			thead th,
+			tfoot th {
+				padding: .25em .25em .25em .4em;
+				text-transform: uppercase;
+			}
+
+			th {
+				text-align: left;
+			}
+
+			td {
+				vertical-align: top;
+				padding: .25em .25em .25em .4em;
+			}
+
+			code,
+			.md-fences {
+				background-color: #dadada;
+			}
+
+			code {
+				padding-left: 2px;
+				padding-right: 2px;
+			}
+
+			.md-fences {
+				margin-left: 2em;
+				margin-bottom: 3em;
+				padding-left: 1ch;
+				padding-right: 1ch;
+			}
+
+			pre,
+			code,
+			tt {
+				font-size: .875em;
+				line-height: 1.714285em;
+			}
+
+			/* some fixes */
+
+			h1 {
+				line-height: 1.3em;
+				font-weight: normal;
+				margin-bottom: 0.5em;
+			}
+
+			p+ul,
+			p+ol {
+				margin-top: .5em;
+			}
+
+			h3+ul,
+			h4+ul,
+			h5+ul,
+			h6+ul,
+			h3+ol,
+			h4+ol,
+			h5+ol,
+			h6+ol {
+				margin-top: .5em;
+			}
+
+			li>ul,
+			li>ol {
+				margin-top: inherit;
+				margin-bottom: 0;
+			}
+
+			li ol>li {
+				list-style-type: lower-alpha;
+			}
+
+			li li ol>li {
+				list-style-type: lower-roman;
+			}
+
+			h2,
+			h3 {
+				margin-bottom: .75em;
+			}
+
+			hr {
+				border-top: none;
+				border-right: none;
+				border-bottom: 1px solid;
+				border-left: none;
+			}
+
+			h1 {
+				border-color: #c5c5c5;
+			}
+
+			blockquote {
+				border-color: #bababa;
+				color: #656565;
+			}
+
+			blockquote ul,
+			blockquote ol {
+				margin-left: 0;
+			}
+
+			.ty-table-edit {
+				background-color: transparent;
+			}
+
+			thead {
+				background-color: #dadada;
+			}
+
+			tr:nth-child(even) {
+				background: #e8e7e7;
+			}
+
+			hr {
+				border-color: #c5c5c5;
+			}
+
+			.task-list {
+				padding-left: 1rem;
+			}
+
+			.md-task-list-item {
+				padding-left: 1.5rem;
+				list-style-type: none;
+			}
+
+			.md-task-list-item>input:before {
+				content: '\221A';
+				display: inline-block;
+				width: 1.25rem;
+				height: 1.6rem;
+				vertical-align: middle;
+				text-align: center;
+				color: #ddd;
+				background-color: #F3F2EE;
+			}
+
+			.md-task-list-item>input:checked:before,
+			.md-task-list-item>input[checked]:before {
+				color: inherit;
+			}
+
+			#write pre.md-meta-block {
+				min-height: 1.875rem;
+				color: #555;
+				border: 0px;
+				background: transparent;
+				margin-top: -4px;
+				margin-left: 1em;
+				margin-top: 1em;
+			}
+
+			.md-image>.md-meta {
+				color: #9B5146;
+			}
+
+			.md-image>.md-meta {
+				font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+			}
+
+
+			#write>h3.md-focus:before {
+				left: -1.5rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			#write>h4.md-focus:before {
+				left: -1.5rem;
+				top: .25rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			#write>h5.md-focus:before {
+				left: -1.5rem;
+				top: .0.3125rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			#write>h6.md-focus:before {
+				left: -1.5rem;
+				top: 0.3125rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			.md-toc:focus .md-toc-content {
+				margin-top: 19px;
+			}
+
+			.md-toc-content:empty:before {
+				color: #065588;
+			}
+
+			.md-toc-item {
+				color: #065588;
+			}
+
+			#write div.md-toc-tooltip {
+				background-color: #f3f2ee;
+			}
+
+			#typora-sidebar {
+				background-color: #f3f2ee;
+				-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+			}
+
+			.pin-outline #typora-sidebar {
+				background: inherit;
+				box-shadow: none;
+				border-right: 1px dashed;
+			}
+
+			.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+				border-left: 1px dashed;
+			}
+
+			.outline-item:hover {
+				background-color: #dadada;
+				border-left: 28px solid #dadada;
+				border-right: 18px solid #dadada;
+			}
+
+			.typora-node .outline-item:hover {
+				border-right: 28px solid #dadada;
+			}
+
+			.outline-expander:before {
+				content: "\f0da";
+				font-family: FontAwesome;
+				font-size: 14px;
+				top: 1px;
+			}
+
+			.outline-expander:hover:before,
+			.outline-item-open>.outline-item>.outline-expander:before {
+				content: "\f0d7";
+			}
+
+			.modal-content {
+				background-color: #f3f2ee;
+			}
+
+			.auto-suggest-container ul li {
+				list-style-type: none;
+			}
+
+			/** UI for electron */
+
+			.megamenu-menu,
+			#top-titlebar,
+			#top-titlebar *,
+			.megamenu-content {
+				background: #f3f2ee;
+				color: #1f0909;
+			}
+
+			.megamenu-menu-header {
+				border-bottom: 1px dashed #202B33;
+			}
+
+			.megamenu-menu {
+				box-shadow: none;
+				border-right: 1px dashed;
+			}
+
+			header,
+			.context-menu,
+			.megamenu-content,
+			footer {
+				font-family: "PT Serif", 'Times New Roman', Times, serif;
+				color: #1f0909;
+			}
+
+			#megamenu-back-btn {
+				color: #1f0909;
+				border-color: #1f0909;
+			}
+
+			.megamenu-menu-header #megamenu-menu-header-title:before {
+				color: #1f0909;
+			}
+
+			.megamenu-menu-list li a:hover,
+			.megamenu-menu-list li a.active {
+				color: inherit;
+				background-color: #e8e7df;
+			}
+
+			.long-btn:hover {
+				background-color: #e8e7df;
+			}
+
+			#recent-file-panel tbody tr:nth-child(2n-1) {
+				background-color: transparent !important;
+			}
+
+			.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+				color: inherit;
+			}
+
+			.megamenu-menu-panel .btn {
+				background-color: #D2D1D1;
+			}
+
+			.btn-default {
+				background-color: transparent;
+			}
+
+			.typora-sourceview-on #toggle-sourceview-btn,
+			.ty-show-word-count #footer-word-count {
+				background: #c7c5c5;
+			}
+
+			#typora-quick-open {
+				background-color: inherit;
+			}
+
+			.md-diagram-panel {
+				margin-top: 8px;
+			}
+
+			.file-list-item-file-name {
+				font-weight: initial;
+			}
+
+			.file-list-item-summary {
+				opacity: 1;
+			}
+
+			.file-list-item {
+				color: #777;
+			}
+
+			.file-list-item.active {
+				background-color: inherit;
+				color: black;
+			}
+
+			.ty-side-sort-btn.active {
+				background-color: inherit;
+			}
+
+			.file-list-item.active .file-list-item-file-name {
+				font-weight: bold;
+			}
+
+			.file-list-item {
+				opacity: 1 !important;
+			}
+
+			.file-library-node.active>.file-node-background {
+				background-color: rgba(32, 43, 51, 0.63);
+				background-color: var(--active-file-bg-color);
+			}
+
+			.file-tree-node.active>.file-node-content {
+				color: white;
+				color: var(--active-file-text-color);
+			}
+
+			.md-task-list-item>input {
+				margin-left: -1.7em;
+				margin-top: calc(1rem - 12px);
+				-webkit-appearance: button;
+			}
+
+			input {
+				border: 1px solid #aaa;
+			}
+
+			.megamenu-menu-header #megamenu-menu-header-title,
+			.megamenu-menu-header:hover,
+			.megamenu-menu-header:focus {
+				color: inherit;
+			}
+
+			.dropdown-menu .divider {
+				border-color: #e5e5e5;
+				opacity: 1;
+			}
+
+			/* https://github.com/typora/typora-issues/issues/2046 */
+			.os-windows-7 strong,
+			.os-windows-7 strong {
+				font-weight: 760;
+			}
+
+			.ty-preferences .btn-default {
+				background: transparent;
+			}
+
+			.ty-preferences .window-header {
+				border-bottom: 1px dashed #202B33;
+				box-shadow: none;
+			}
+
+			#sidebar-loading-template,
+			#sidebar-loading-template.file-list-item {
+				color: #777;
+			}
+
+			.searchpanel-search-option-btn.active {
+				background: #777;
+				color: white;
+			}
+
+			.export-detail,
+			.light .export-detail,
+			.light .export-item.active,
+			.light .export-items-list-control {
+				background: #e0e0e0;
+				border-radius: 2px;
+				font-weight: 700;
+				color: inherit
+			}
+
+
+			mjx-container[jax="SVG"] {
+				direction: ltr;
+			}
+
+			mjx-container[jax="SVG"]>svg {
+				overflow: visible;
+				min-height: 1px;
+				min-width: 1px;
+			}
+
+			mjx-container[jax="SVG"]>svg a {
+				fill: blue;
+				stroke: blue;
+			}
+
+			mjx-assistive-mml {
+				position: absolute !important;
+				top: 0px;
+				left: 0px;
+				clip: rect(1px, 1px, 1px, 1px);
+				padding: 1px 0px 0px 0px !important;
+				border: 0px !important;
+				display: block !important;
+				width: auto !important;
+				overflow: hidden !important;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			mjx-assistive-mml[display="block"] {
+				width: 100% !important;
+			}
+
+			mjx-container[jax="SVG"][display="true"] {
+				display: block;
+				text-align: center;
+				margin: 1em 0;
+			}
+
+			mjx-container[jax="SVG"][display="true"][width="full"] {
+				display: flex;
+			}
+
+			mjx-container[jax="SVG"][justify="left"] {
+				text-align: left;
+			}
+
+			mjx-container[jax="SVG"][justify="right"] {
+				text-align: right;
+			}
+
+			g[data-mml-node="merror"]>g {
+				fill: red;
+				stroke: red;
+			}
+
+			g[data-mml-node="merror"]>rect[data-background] {
+				fill: yellow;
+				stroke: none;
+			}
+
+			g[data-mml-node="mtable"]>line[data-line],
+			svg[data-table]>g>line[data-line] {
+				stroke-width: 70px;
+				fill: none;
+			}
+
+			g[data-mml-node="mtable"]>rect[data-frame],
+			svg[data-table]>g>rect[data-frame] {
+				stroke-width: 70px;
+				fill: none;
+			}
+
+			g[data-mml-node="mtable"]>.mjx-dashed,
+			svg[data-table]>g>.mjx-dashed {
+				stroke-dasharray: 140;
+			}
+
+			g[data-mml-node="mtable"]>.mjx-dotted,
+			svg[data-table]>g>.mjx-dotted {
+				stroke-linecap: round;
+				stroke-dasharray: 0, 140;
+			}
+
+			g[data-mml-node="mtable"]>g>svg {
+				overflow: visible;
+			}
+
+			[jax="SVG"] mjx-tool {
+				display: inline-block;
+				position: relative;
+				width: 0;
+				height: 0;
+			}
+
+			[jax="SVG"] mjx-tool>mjx-tip {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			mjx-tool>mjx-tip {
+				display: inline-block;
+				padding: .2em;
+				border: 1px solid #888;
+				font-size: 70%;
+				background-color: #F8F8F8;
+				color: black;
+				box-shadow: 2px 2px 5px #AAAAAA;
+			}
+
+			g[data-mml-node="maction"][data-toggle] {
+				cursor: pointer;
+			}
+
+			mjx-status {
+				display: block;
+				position: fixed;
+				left: 1em;
+				bottom: 1em;
+				min-width: 25%;
+				padding: .2em .4em;
+				border: 1px solid #888;
+				font-size: 90%;
+				background-color: #F8F8F8;
+				color: black;
+			}
+
+			foreignObject[data-mjx-xml] {
+				font-family: initial;
+				line-height: normal;
+				overflow: visible;
+			}
+
+			mjx-container[jax="SVG"] path[data-c],
+			mjx-container[jax="SVG"] use[data-c] {
+				stroke-width: 3;
+			}
+
+			g[data-mml-node="xypic"] path {
+				stroke-width: inherit;
+			}
+
+			.MathJax g[data-mml-node="xypic"] path {
+				stroke-width: inherit;
+			}
+
+			mjx-container[jax="SVG"] path[data-c],
+			mjx-container[jax="SVG"] use[data-c] {
+				stroke-width: 0;
+			}
+		</style>
+		<title>6虚拟存储器</title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+		</script>
+		<link rel="stylesheet" href="../assets/css/left_catalogue.css">
+		<script src="../assets/js/left_catalogue.js"></script>
+		
+		<!--返回顶部-->
+		<button onclick="topFunction()" id="topButton">TOP↑</button>
+		<button onclick="showOrCloseCategory()" id="foldOrUnfold">目录</button>
+		
+		<!--文章主体部分-->
+		<div class="book-body" id="book_body"> </div>
+		<!--目录栏-->
+		<div class="book-summary" id="category" style="display:none"></div>
+	</head>
+	<body class='typora-export os-windows'>
+		<div class='typora-export-content'>
+			<div id='write' class=''>
+				<p>
+					<a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
+					<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
+					<a href="3处理机调度与死锁.html"><span>第三章 处理机调度与死锁</span></a>
+					<a href="4进程同步.html"><span>第四章 进程同步</span></a>
+					<a href="5存储器管理.html"><span>第五章 存储器管理</span></a>
+					<a href="6虚拟存储器.html"><span style="color: red;">第六章 虚拟存储器</span></a>
+					<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
+					<a href="8文件管理.html"><span>第八章 文件管理</span></a>
+					<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a>
+				</p>
+				
+				<h1 id='1-虚拟存储器概述'><span>1 虚拟存储器概述</span></h1>
+				<h2 id='11-常规存储器管理方式的特征'><span>1.1 常规存储器管理方式的特征</span></h2>
+				<p><span>常规存储管理共同特点--要求把进程全部装入内存才能运行</span></p>
+				<ul>
+					<li><span>大作业＞内存 无法运行</span></li>
+					<li><span>多作业＞内存 部分运行，效率低</span></li>
+				</ul>
+				<p><span>两种解决方案</span></p>
+				<ul>
+					<li><span>物理增加内存容量，但受到机器寻址能力限制，且增加成本</span></li>
+					<li><span>逻辑扩充内存容量，“虚拟存储”管理技术</span></li>
+				</ul>
+				<p><span>虚拟存储管理要研究的问题</span></p>
+				<ol start=''>
+					<li><span>作业信息不全部装入主存，能否保证作业的正确运行？</span>
+						<span>回答是肯定的，1968年P.Denning发现程序执行时的</span><strong><span>局部性原理</span></strong><span>。</span>
+					</li>
+					<li><span>以CPU时间和外存空间换取昂贵内存空间，如何进行动态调度？</span>
+						<span>置换算法</span>
+					</li>
+				</ol>
+				<h2 id='12-局部性原理'><span>1.2 局部性原理</span></h2>
+				<p><span>程序的局部性原理：指程序在执行过程中的一个较短时间内，所执行的指令地址或操作数地址分别局限于一定的存储区域中。</span></p>
+				<p><span>时间局部性：程序的循环操作导致指令、数据的重复执行、访问</span>
+					<span>空间局部性：程序的顺序执行导致某段时间访问地址集中在一定范围</span>
+				</p>
+				<h2 id='13-虚拟存储器的基本思想'><span>1.3 虚拟存储器的基本思想</span></h2>
+				<p><span>虚拟存储器是指具有请求调入功能和置换功能，能</span><strong><span>从逻辑上对内存容量进行扩充的一种存储系统</span></strong><span>。虚存的实质：</span><strong><span>以时间换空间</span></strong><span>，但时间牺牲不大。</span>
+				</p>
+				<p><span>基本思想：</span></p>
+				<ul>
+					<li><strong><span>超越限制</span></strong><span>：程序、数据大小可以超过内存的大小</span></li>
+					<li><strong><span>部分载入</span></strong><span>：在程序装入时，不必将其全部读入到内存，而只需将当前需要执行的部分页或段读入到内存，就可让程序开始执行</span>
+					</li>
+					<li><strong><span>缺页调入</span></strong><span>：在程序执行中，如访问数据未在内存（称为缺页或缺段），则由CPU通知OS将相应页/段调入内存，然后继续执行程序</span>
+					</li>
+					<li><strong><span>闲页调出</span></strong><span>：将内存中暂时不使用的页/段调出到外存上，从而腾出空间</span></li>
+					<li><span>把内存与外存有机的结合起来，得到一个容量很大的“内存”，这就是</span><strong><span>虚存</span></strong><span>。
+							（即虚存=内存+部分外存）</span></li>
+				</ul>
+				<p><span>虚拟存储器的实现方法：</span></p>
+				<ul>
+					<li><span>请求分页存储管理（动态页式管理）</span></li>
+					<li><span>请求分段存储管理（动态段式管理）</span></li>
+					<li><span>段页式虚拟存储器</span></li>
+				</ul>
+				<h2 id='14-虚拟存储器的特征'><span>1.4 虚拟存储器的特征</span></h2>
+				<ol start=''>
+					<li><strong><span>多次性</span></strong><span>：一个作业被分成多次调入内存运行</span></li>
+					<li><strong><span>对换性</span></strong><span>：允许在作业的运行过程中进行换进、换出，亦即，在进程运行期间，允许将那些暂时不使用的程序和数据，从内存调至外存的对换区（换出），待以后需要时再将它们从外存调至内存（换进），能有效提高内存利用率。</span>
+					</li>
+					<li><strong><span>虚拟性</span></strong><span>：能够从逻辑上扩充内存容量，使用户所看到的内存容量远大于实际内存容量。</span><strong><span>虚拟性是以多次性和对换性为基础的</span></strong><span>，而多次性和对换性又必须建立在离散分配的基础上。</span>
+					</li>
+				</ol>
+				<h1 id='2-请求分页存储管理方式'><span>2 请求分页存储管理方式</span></h1>
+				<h2 id='21-请求分页基本原理'><span>2.1 请求分页基本原理</span></h2>
+				<p><span>基本原理：在请求分页式存储管理系统中，进程运行之前将一部分页面装入内存，另外一部分页面则装入外存。在进程运行过程中，如果所访问的页面不在内存中，则发生</span><strong><span>缺页中断</span></strong><span>，进入操作系统，由操作系统进行页面的动态调度。</span>
+				</p>
+				<h2 id='22-请求页表机制'><span>2.2 请求页表机制</span></h2>
+				<p><img src="Images/6-1请求页表机制.png" referrerpolicy="no-referrer" alt="6-1请求页表机制">
+					<img src="Images/6-1请求页表机制示意图.png" referrerpolicy="no-referrer" alt="6-1请求页表机制示意图">
+				</p>
+				<h2 id='23-缺页中断机构'><span>2.3 缺页中断机构</span></h2>
+				<p><span>每当访问页不在内存时，便产生</span><strong><span>缺页中断</span></strong><span>，请求OS将所缺页调入内存。缺页中断与一般中断有相同点，也有着显著的区别：</span>
+					<span>（1）</span><strong><span>在指令执行期间产生和处理中断信号</span></strong><span>。通常，CPU都是在一条指令执行完后，才检查是否有中断请求到达。而缺页中断是在指令执行期间，发现所要访问的指令或数据不在内存时所产生和处理的。</span>
+					<span>（2）</span><strong><span>一条指令在执行期间可能产生多次缺页中断</span></strong><span>。基于这些特征，系统中的硬件机构应能保存多次中断时的状态，并保证最后能返回到中断前产生缺页中断的指令处继续执行。</span>
+				</p>
+				<h2 id='24-地址变换机构'><span>2.4 地址变换机构</span></h2>
+				<p><img src="Images/6-2地址变换机构.png" referrerpolicy="no-referrer" alt="6-2地址变换机构"></p>
+				<h2 id='25-请求分页中的内存分配'><span>2.5 请求分页中的内存分配</span></h2>
+				<p><span>最小物理块数的确定：保证进程正常运行所需的最小物理块数。</span></p>
+				<p><span>物理块的分配策略：</span></p>
+				<ul>
+					<li><span>固定分配局部置换</span></li>
+					<li><span>可变分配全局置换</span></li>
+					<li><span>可变分配局部置换</span></li>
+				</ul>
+				<p><span>物理块分配算法：</span></p>
+				<ul>
+					<li><span>平均分配算法</span></li>
+					<li><span>按比例分配算法</span></li>
+					<li><span>考虑优先权的分配算法</span></li>
+				</ul>
+				<h2 id='26-页面调入策略'><span>2.6 页面调入策略</span></h2>
+				<h3 id='何时调入页面'><span>何时调入页面？</span></h3>
+				<p><span>预调页策略：预先调入一些页面到内存</span>
+					<span>请求调页策略：需要访问的页面不在内存时，调入内存</span>
+				</p>
+				<h3 id='从何处调入页面'><span>从何处调入页面？</span></h3>
+				<p><span>如系统拥有足够对换区空间，全部从对换区调入所需页面；如缺少足够对换区空间，凡是不会被修改的文件，都直接从文件区调入。</span></p>
+				<h3 id='如何调入页面'><span>如何调入页面？</span></h3>
+				<p><span>页面调入方法：</span>
+					<span>①查找所需页在磁盘上的位置；</span>
+					<span>②查找一内存空闲块：如果有空闲块，就直接使用它；若没有空闲块，使用页面置换算法选择一个“牺牲”内存块；将“牺牲”块的内容写到磁盘上，更新页表和物理块表；</span>
+					<span>③将所需页读入（新）空闲块，更新页表；</span>
+					<span>④重启用户进程</span>
+				</p>
+				<p><span>缺页率：</span>
+					<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+							xmlns="http://www.w3.org/2000/svg" width="22.307ex" height="2.262ex" role="img"
+							focusable="false" viewBox="0 -750 9859.6 1000" xmlns:xlink="http://www.w3.org/1999/xlink"
+							aria-hidden="true" style="vertical-align: -0.566ex;">
+							<defs>
+								<path id="MJX-6-TEX-I-1D453"
+									d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z">
+								</path>
+								<path id="MJX-6-TEX-N-3D"
+									d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+								</path>
+								<path id="MJX-6-TEX-I-1D439"
+									d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z">
+								</path>
+								<path id="MJX-6-TEX-N-2F"
+									d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z">
+								</path>
+								<path id="MJX-6-TEX-I-1D434"
+									d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z">
+								</path>
+								<path id="MJX-6-TEX-N-28"
+									d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z">
+								</path>
+								<path id="MJX-6-TEX-I-1D446"
+									d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z">
+								</path>
+								<path id="MJX-6-TEX-N-2B"
+									d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+								</path>
+								<path id="MJX-6-TEX-N-29"
+									d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z">
+								</path>
+							</defs>
+							<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+								<g data-mml-node="math">
+									<g data-mml-node="mi">
+										<use data-c="1D453" xlink:href="#MJX-6-TEX-I-1D453"></use>
+									</g>
+									<g data-mml-node="mo" transform="translate(827.8,0)">
+										<use data-c="3D" xlink:href="#MJX-6-TEX-N-3D"></use>
+									</g>
+									<g data-mml-node="mi" transform="translate(1883.6,0)">
+										<use data-c="1D439" xlink:href="#MJX-6-TEX-I-1D439"></use>
+									</g>
+									<g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2632.6,0)">
+										<g data-mml-node="mo">
+											<use data-c="2F" xlink:href="#MJX-6-TEX-N-2F"></use>
+										</g>
+									</g>
+									<g data-mml-node="mi" transform="translate(3132.6,0)">
+										<use data-c="1D434" xlink:href="#MJX-6-TEX-I-1D434"></use>
+									</g>
+									<g data-mml-node="mo" transform="translate(4160.3,0)">
+										<use data-c="3D" xlink:href="#MJX-6-TEX-N-3D"></use>
+									</g>
+									<g data-mml-node="mi" transform="translate(5216.1,0)">
+										<use data-c="1D439" xlink:href="#MJX-6-TEX-I-1D439"></use>
+									</g>
+									<g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(5965.1,0)">
+										<g data-mml-node="mo">
+											<use data-c="2F" xlink:href="#MJX-6-TEX-N-2F"></use>
+										</g>
+									</g>
+									<g data-mml-node="mo" transform="translate(6465.1,0)">
+										<use data-c="28" xlink:href="#MJX-6-TEX-N-28"></use>
+									</g>
+									<g data-mml-node="mi" transform="translate(6854.1,0)">
+										<use data-c="1D446" xlink:href="#MJX-6-TEX-I-1D446"></use>
+									</g>
+									<g data-mml-node="mo" transform="translate(7721.3,0)">
+										<use data-c="2B" xlink:href="#MJX-6-TEX-N-2B"></use>
+									</g>
+									<g data-mml-node="mi" transform="translate(8721.6,0)">
+										<use data-c="1D439" xlink:href="#MJX-6-TEX-I-1D439"></use>
+									</g>
+									<g data-mml-node="mo" transform="translate(9470.6,0)">
+										<use data-c="29" xlink:href="#MJX-6-TEX-N-29"></use>
+									</g>
+								</g>
+							</g>
+						</svg>
+						<mjx-assistive-mml unselectable="on" display="inline"><math
+								xmlns="http://www.w3.org/1998/Math/MathML">
+								<mi>f</mi>
+								<mo>=</mo>
+								<mi>F</mi>
+								<mrow data-mjx-texclass="ORD">
+									<mo>/</mo>
+								</mrow>
+								<mi>A</mi>
+								<mo>=</mo>
+								<mi>F</mi>
+								<mrow data-mjx-texclass="ORD">
+									<mo>/</mo>
+								</mrow>
+								<mo stretchy="false">(</mo>
+								<mi>S</mi>
+								<mo>+</mo>
+								<mi>F</mi>
+								<mo stretchy="false">)</mo>
+							</math></mjx-assistive-mml>
+					</mjx-container>
+					<script type="math/tex">f=F/A=F/(S+F)</script>
+					<span>，其中S为访问页面成功（在内存）的次数，F为访问页面失败（不在内存）的次数，总访问次数为A=S+F。</span>
+				</p>
+				<h1 id='3-页面置换算法'><span>3 页面置换算法</span></h1>
+				<h2 id='31-概述'><span>3.1 概述</span></h2>
+				<p><span>页面置换过程</span></p>
+				<p><img src="Images/6-3页面置换过程.png" referrerpolicy="no-referrer"></p>
+				<p><span>两个问题：</span>
+					<span>（1）置换哪些页面？--未来不再使用的或最近较少使用的页面</span>
+					<span>（2）如何判断？--在局部性原理下依据过去的统计数据进行预测</span>
+				</p>
+				<p><span>具体算法有</span><strong><span>最佳页面置换算法</span></strong><span>(OPT,optimal replacement
+						algorithm)、</span><strong><span>先进先出置换算法</span></strong><span>(FIFO)、</span><strong><span>最近最久未使用置换算法</span></strong><span>(LRU,Least
+						Recently Used)、时钟页面置换算法(Clock)、最近未使用页面淘汰算法(NRU,Not Recently Used)、页面缓冲算法(PBA,page buffering
+						algorithm)</span></p>
+				<h2 id='32-最佳页面置换算法opt'><span>3.2 最佳页面置换算法(OPT)</span></h2>
+				<p><span>淘汰将来</span><strong><span>再也不会出现</span></strong><span>或</span><strong><span>在最远位置出现</span></strong><span>的页。OPT算法是一种理想情况，因为实际执行中无法预知页面顺序，故无法实现，但可用作性能评价的依据。</span>
+				</p>
+				<p><img src="Images/6-4OPT算法.png" referrerpolicy="no-referrer">
+					<span>缺页率：7/12=58.3%</span>
+				</p>
+				<h2 id='33-先进先出算法fifo'><span>3.3 先进先出算法(FIFO)</span></h2>
+				<p><span>淘汰建立</span><strong><span>时间最早</span></strong><span>的页面，可以通过链表或队列来表示各页的建立时间先(队首)后(队尾)。</span>
+				</p>
+				<p><img src="Images/6-5FIFO算法.png" referrerpolicy="no-referrer">
+					<span>缺页率：9/12=75%</span>
+				</p>
+				<p><span>Belady现象：在FIFO算法下，当内存块增加时，反而出现缺页率也增加的异常现象。</span>
+					<img src="Images/6-5FIFO算法下的Belady现象.png" referrerpolicy="no-referrer"
+						alt="6-5FIFO算法下的Belady现象"><span>缺页率：10/12=83.8%</span>
+				</p>
+				<h2 id='34-最近最久未使用置换算法lru'><span>3.4 最近最久未使用置换算法(LRU)</span></h2>
+				<p><span>淘汰</span><strong><span>最长时间内没有被访问过</span></strong><span>的页面，利用了局部性原理</span></p>
+				<p><img src="Images/6-6LRU算法.png" referrerpolicy="no-referrer"></p>
+				<h2 id='35-内存有效访问时间eat'><span>3.5 内存有效访问时间EAT</span></h2>
+				<p><span>内存有效访问时间（EAT,effective access
+						time)：是指给定</span><strong><span>逻辑地址</span></strong><span>找到内存中对应</span><strong><span>物理地址</span></strong><span>单元中的数据所用的总时间。</span>
+				</p>
+				<ol start=''>
+					<li><span>被访问页在内存，且对应页表在快表中</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="12.937ex" height="1.805ex" role="img"
+								focusable="false" viewBox="0 -716 5718 798" xmlns:xlink="http://www.w3.org/1999/xlink"
+								aria-hidden="true" style="vertical-align: -0.186ex;">
+								<defs>
+									<path id="MJX-7-TEX-I-1D438"
+										d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z">
+									</path>
+									<path id="MJX-7-TEX-I-1D434"
+										d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z">
+									</path>
+									<path id="MJX-7-TEX-I-1D447"
+										d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z">
+									</path>
+									<path id="MJX-7-TEX-N-3D"
+										d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+									</path>
+									<path id="MJX-7-TEX-I-1D706"
+										d="M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z">
+									</path>
+									<path id="MJX-7-TEX-N-2B"
+										d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+									</path>
+									<path id="MJX-7-TEX-I-1D461"
+										d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="mi">
+											<use data-c="1D438" xlink:href="#MJX-7-TEX-I-1D438"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(764,0)">
+											<use data-c="1D434" xlink:href="#MJX-7-TEX-I-1D434"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(1514,0)">
+											<use data-c="1D447" xlink:href="#MJX-7-TEX-I-1D447"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(2495.8,0)">
+											<use data-c="3D" xlink:href="#MJX-7-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(3551.6,0)">
+											<use data-c="1D706" xlink:href="#MJX-7-TEX-I-1D706"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(4356.8,0)">
+											<use data-c="2B" xlink:href="#MJX-7-TEX-N-2B"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(5357,0)">
+											<use data-c="1D461" xlink:href="#MJX-7-TEX-I-1D461"></use>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<mi>E</mi>
+									<mi>A</mi>
+									<mi>T</mi>
+									<mo>=</mo>
+									<mi>λ</mi>
+									<mo>+</mo>
+									<mi>t</mi>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">EAT=\lambda+t</script><span>，其中设访问快表的时间为λ，访存一次时间为t</span>
+					</li>
+					<li><span>被访问页在内存，但对应页表不在快表中</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="15.828ex" height="2.262ex" role="img"
+								focusable="false" viewBox="0 -750 6996 1000" xmlns:xlink="http://www.w3.org/1999/xlink"
+								aria-hidden="true" style="vertical-align: -0.566ex;">
+								<defs>
+									<path id="MJX-8-TEX-I-1D438"
+										d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z">
+									</path>
+									<path id="MJX-8-TEX-I-1D434"
+										d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z">
+									</path>
+									<path id="MJX-8-TEX-I-1D447"
+										d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z">
+									</path>
+									<path id="MJX-8-TEX-N-3D"
+										d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+									</path>
+									<path id="MJX-8-TEX-N-32"
+										d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z">
+									</path>
+									<path id="MJX-8-TEX-N-28"
+										d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z">
+									</path>
+									<path id="MJX-8-TEX-I-1D461"
+										d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z">
+									</path>
+									<path id="MJX-8-TEX-N-2B"
+										d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+									</path>
+									<path id="MJX-8-TEX-I-1D706"
+										d="M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z">
+									</path>
+									<path id="MJX-8-TEX-N-29"
+										d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="mi">
+											<use data-c="1D438" xlink:href="#MJX-8-TEX-I-1D438"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(764,0)">
+											<use data-c="1D434" xlink:href="#MJX-8-TEX-I-1D434"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(1514,0)">
+											<use data-c="1D447" xlink:href="#MJX-8-TEX-I-1D447"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(2495.8,0)">
+											<use data-c="3D" xlink:href="#MJX-8-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="mn" transform="translate(3551.6,0)">
+											<use data-c="32" xlink:href="#MJX-8-TEX-N-32"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(4051.6,0)">
+											<use data-c="28" xlink:href="#MJX-8-TEX-N-28"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(4440.6,0)">
+											<use data-c="1D461" xlink:href="#MJX-8-TEX-I-1D461"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(5023.8,0)">
+											<use data-c="2B" xlink:href="#MJX-8-TEX-N-2B"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(6024,0)">
+											<use data-c="1D706" xlink:href="#MJX-8-TEX-I-1D706"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(6607,0)">
+											<use data-c="29" xlink:href="#MJX-8-TEX-N-29"></use>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<mi>E</mi>
+									<mi>A</mi>
+									<mi>T</mi>
+									<mo>=</mo>
+									<mn>2</mn>
+									<mo stretchy="false">(</mo>
+									<mi>t</mi>
+									<mo>+</mo>
+									<mi>λ</mi>
+									<mo stretchy="false">)</mo>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">EAT=2(t+\lambda)</script>
+					</li>
+					<li><span>被访问页不在内存</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="19.512ex" height="2.262ex" role="img"
+								focusable="false" viewBox="0 -750 8624.4 1000"
+								xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+								style="vertical-align: -0.566ex;">
+								<defs>
+									<path id="MJX-9-TEX-I-1D438"
+										d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z">
+									</path>
+									<path id="MJX-9-TEX-I-1D434"
+										d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z">
+									</path>
+									<path id="MJX-9-TEX-I-1D447"
+										d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z">
+									</path>
+									<path id="MJX-9-TEX-N-3D"
+										d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+									</path>
+									<path id="MJX-9-TEX-I-1D716"
+										d="M227 -11Q149 -11 95 41T40 174Q40 262 87 322Q121 367 173 396T287 430Q289 431 329 431H367Q382 426 382 411Q382 385 341 385H325H312Q191 385 154 277L150 265H327Q340 256 340 246Q340 228 320 219H138V217Q128 187 128 143Q128 77 160 52T231 26Q258 26 284 36T326 57T343 68Q350 68 354 58T358 39Q358 36 357 35Q354 31 337 21T289 0T227 -11Z">
+									</path>
+									<path id="MJX-9-TEX-N-2B"
+										d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+									</path>
+									<path id="MJX-9-TEX-N-32"
+										d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z">
+									</path>
+									<path id="MJX-9-TEX-N-28"
+										d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z">
+									</path>
+									<path id="MJX-9-TEX-I-1D461"
+										d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z">
+									</path>
+									<path id="MJX-9-TEX-I-1D706"
+										d="M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z">
+									</path>
+									<path id="MJX-9-TEX-N-29"
+										d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="mi">
+											<use data-c="1D438" xlink:href="#MJX-9-TEX-I-1D438"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(764,0)">
+											<use data-c="1D434" xlink:href="#MJX-9-TEX-I-1D434"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(1514,0)">
+											<use data-c="1D447" xlink:href="#MJX-9-TEX-I-1D447"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(2495.8,0)">
+											<use data-c="3D" xlink:href="#MJX-9-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(3551.6,0)">
+											<use data-c="1D716" xlink:href="#MJX-9-TEX-I-1D716"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(4179.8,0)">
+											<use data-c="2B" xlink:href="#MJX-9-TEX-N-2B"></use>
+										</g>
+										<g data-mml-node="mn" transform="translate(5180,0)">
+											<use data-c="32" xlink:href="#MJX-9-TEX-N-32"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(5680,0)">
+											<use data-c="28" xlink:href="#MJX-9-TEX-N-28"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(6069,0)">
+											<use data-c="1D461" xlink:href="#MJX-9-TEX-I-1D461"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(6652.2,0)">
+											<use data-c="2B" xlink:href="#MJX-9-TEX-N-2B"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(7652.4,0)">
+											<use data-c="1D706" xlink:href="#MJX-9-TEX-I-1D706"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(8235.4,0)">
+											<use data-c="29" xlink:href="#MJX-9-TEX-N-29"></use>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<mi>E</mi>
+									<mi>A</mi>
+									<mi>T</mi>
+									<mo>=</mo>
+									<mi>ϵ</mi>
+									<mo>+</mo>
+									<mn>2</mn>
+									<mo stretchy="false">(</mo>
+									<mi>t</mi>
+									<mo>+</mo>
+									<mi>λ</mi>
+									<mo stretchy="false">)</mo>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">EAT=\epsilon+2(t+\lambda)</script><span>，其中</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="0.919ex" height="1ex" role="img"
+								focusable="false" viewBox="0 -431 406 442" xmlns:xlink="http://www.w3.org/1999/xlink"
+								aria-hidden="true" style="vertical-align: -0.025ex;">
+								<defs>
+									<path id="MJX-10-TEX-I-1D716"
+										d="M227 -11Q149 -11 95 41T40 174Q40 262 87 322Q121 367 173 396T287 430Q289 431 329 431H367Q382 426 382 411Q382 385 341 385H325H312Q191 385 154 277L150 265H327Q340 256 340 246Q340 228 320 219H138V217Q128 187 128 143Q128 77 160 52T231 26Q258 26 284 36T326 57T343 68Q350 68 354 58T358 39Q358 36 357 35Q354 31 337 21T289 0T227 -11Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="mi">
+											<use data-c="1D716" xlink:href="#MJX-10-TEX-I-1D716"></use>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<mi>ϵ</mi>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">\epsilon</script><span>为缺页中断处理时间</span>
+					</li>
+				</ol>
+				<h1 id='4-抖动与工作集'><span>4 抖动与工作集</span></h1>
+				<h2 id='41-抖动'><span>4.1 抖动</span></h2>
+				<p><span>如果一个进程没有足够的页，那么缺页率将很高，这将导致：</span></p>
+				<ul>
+					<li><span>CPU利用率低下</span></li>
+					<li><span>操作系统认为需要增加多道程序设计的道数</span></li>
+					<li><span>系统中将加入一个新的进程</span></li>
+				</ul>
+				<p><span>抖动（Thrashing）：一个进程的页面经常换入换出</span></p>
+				<p><img src="Images/6-7处理机的利用率.png" referrerpolicy="no-referrer" alt="处理机的利用率"></p>
+				<p><span>产生抖动的根本原因是，</span><strong><span>同时在系统中运行的进程太多，由此分配给每一个进程的物理块太少，频繁地出现缺页中断</span></strong><span>。页面在内存与外存之间频繁调度，以至于调度页面所需时间比进程实际运行的时间还多，此时系统效率急剧下降，甚至导致系统崩溃，这种现象称为“抖动”。</span>
+				</p>
+				<p><span>OS要选择一个适当的进程数和置换算法，以在并发水平和缺页（段）率之间达到一个平衡。Denning提出了“工作集”的概念。</span></p>
+				<p><img src="Images/6-8缺页率与物理块数之间的关系.png" referrerpolicy="no-referrer" alt="6-8缺页率与物理块数之间的关系"></p>
+				<p><span>进程发生缺页的时间间隔与所获得的物理块数有关。根据程序运行的局部性原理，如果能够预知某段时间内程序要访问的页面，并将它们预先调入内存，将会大大降低缺页率。</span></p>
+				<h2 id='42-工作集'><span>4.2 工作集</span></h2>
+				<p><span>工作集是指在某段时间间隔里，进程实际所要访问页面的集合。Denning指出为了较少产生缺页，应将</span><strong><span>程序全部工作集装入内存</span></strong><span>中。然而无法事先预知程序在不同时刻即将访问哪些页面，故仍只有像置换算法那样，</span><strong><span>用程序的过去某段时间内的行为作为程序在将来某段时间内行为的近似</span></strong><span>。</span>
+				</p>
+				<h2 id='43-抖动的预防方法'><span>4.3 抖动的预防方法</span></h2>
+				<ol start=''>
+					<li><span>采取局部置换策略</span></li>
+					<li><span>把工作集算法融入到处理机调度中</span></li>
+					<li><span>利用“L=S”准则调节缺页率：L是缺页之间的平均时间，S是平均缺页服务时间。如 L &gt;&gt; S ，说明很少发生缺页，磁盘利用率不高；如 L &lt;&lt; S
+							,说明频繁发生缺页，超过磁盘处理能力；只有当 L ≈ S 接近时，磁盘和处理机利用率均最佳。</span></li>
+					<li><span>选择暂停的进程</span></li>
+				</ol>
+				<h1 id='5-请求分段存储管理方式'><span>5 请求分段存储管理方式</span></h1>
+				<h2 id='51-基本原理'><span>5.1 基本原理</span></h2>
+				<p><span>在请求分段式存储管理系统中，进程运行之前一部分段装入内存，另外一部分段则装入外存。在进程运行过程中，如果所访问的段不在内存中，则发生</span><strong><span>缺段中断</span></strong><span>，进入操作系统，由操作系统进行段的动态调度。</span>
+				</p>
+				<h2 id='52-段表'><span>5.2 段表</span></h2>
+				<p><img src="Images/6-9段表.png" referrerpolicy="no-referrer" alt="6-9段表"></p>
+				<p><img src="Images/6-9段表示意图.png" referrerpolicy="no-referrer" alt="6-9段表示意图"></p>
+				<h2 id='53-缺段中断机构'><span>5.3 缺段中断机构</span></h2>
+				<p><span>每当发现要访问的段尚未调入内存时，便由缺段中断机构产生缺段中断信号，进入OS后由缺段中断处理程序将所需的段调入内存。</span></p>
+				<p><span>缺段中断机构与缺页中断机构类似：</span></p>
+				<ul>
+					<li><span>它同样需要在一条指令的执行期间，产生和处理中断，以及在一条指令执行期间，可能产生多次缺段中断</span></li>
+					<li><span>但由于分段是信息的逻辑单位，因而不可能出现一条指令被分割在两个分段中和一组信息被分割在两个分段中的情况</span></li>
+					<li><span>由于段不是定长的，缺段中断处理要比对缺页中断处理要复杂。</span></li>
+				</ul>
+				<p><span>请求分段的中断处理过程：</span>
+					<img src="Images/6-10请求分段的中断处理过程.png" referrerpolicy="no-referrer" alt="请求分段的中断处理过程">
+				</p>
+			</div>
+		</div>
+	</body>
 </html>

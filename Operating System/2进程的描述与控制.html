@@ -1,247 +1,1081 @@
 <!doctype html>
 <html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+	<head>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
-.mac-os-11 { --title-bar-height:28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-.typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li blockquote { margin: 1rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
-@media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  .typora-export #write { break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  .is-mac table { break-inside: avoid; }
-  .typora-export-show-outline .typora-export-sidebar { display: none; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-.MathJax_ref { fill: currentcolor; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-.md-expand mark .md-meta { opacity: 0.3 !important; }
-mark .md-meta { color: rgb(0, 0, 0); }
-@media print {
-  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
-}
-.md-diagram-panel .messageText { stroke: none !important; }
-.md-diagram-panel .start-state { fill: var(--node-fill); }
-.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-fences.md-fences-math { font-size: 1em; }
-.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background: inherit; }
-.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
-@media screen and (max-width: 1024px) {
-  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
-}
-@media screen and (max-width: 800px) {
-  .typora-export-sidebar { display: none; }
-}
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
-.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
-.outline-content strong { font-weight: 400; }
-.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
-.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ""; }
-.outline-h1 > .outline-item { padding-left: 0px; }
-.outline-h2 > .outline-item { padding-left: 1em; }
-.outline-h3 > .outline-item { padding-left: 2em; }
-.outline-h4 > .outline-item { padding-left: 3em; }
-.outline-h5 > .outline-item { padding-left: 4em; }
-.outline-h6 > .outline-item { padding-left: 5em; }
-.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
-.outline-label:hover { text-decoration: underline; }
-.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
-.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
-.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
-.outline-children { display: none; }
-.info-panel-tab-wrapper { display: none; }
-.outline-item-open > .outline-children { display: block; }
-.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
-.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
-.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
-.typora-export-collapse-outline .outline-children { display: none; }
-.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
-.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
-.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
-.md-inline-math-container mjx-container { zoom: 0.95; }
+		<link
+			href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext'
+			rel='stylesheet' type='text/css' />
+		<style type='text/css'>
+			html {
+				overflow-x: initial !important;
+			}
+
+			:root {
+				--bg-color: #ffffff;
+				--text-color: #333333;
+				--select-text-bg-color: #B5D6FC;
+				--select-text-font-color: auto;
+				--monospace: "Lucida Console", Consolas, "Courier", monospace;
+				--title-bar-height: 20px;
+			}
+
+			.mac-os-11 {
+				--title-bar-height: 28px;
+			}
+
+			html {
+				font-size: 14px;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			body {
+				margin: 0px;
+				padding: 0px;
+				height: auto;
+				inset: 0px;
+				font-size: 1rem;
+				line-height: 1.42857;
+				overflow-x: hidden;
+				background: inherit;
+				tab-size: 4;
+			}
+
+			iframe {
+				margin: auto;
+			}
+
+			a.url {
+				word-break: break-all;
+			}
+
+			a:active,
+			a:hover {
+				outline: 0px;
+			}
+
+			.in-text-selection,
+			::selection {
+				text-shadow: none;
+				background: var(--select-text-bg-color);
+				color: var(--select-text-font-color);
+			}
+
+			#write {
+				margin: 0px auto;
+				height: auto;
+				width: inherit;
+				word-break: normal;
+				overflow-wrap: break-word;
+				position: relative;
+				white-space: normal;
+				overflow-x: visible;
+				padding-top: 36px;
+			}
+
+			#write.first-line-indent p {
+				text-indent: 2em;
+			}
+
+			#write.first-line-indent li p,
+			#write.first-line-indent p * {
+				text-indent: 0px;
+			}
+
+			#write.first-line-indent li {
+				margin-left: 2em;
+			}
+
+			.for-image #write {
+				padding-left: 8px;
+				padding-right: 8px;
+			}
+
+			body.typora-export {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			.typora-export .footnote-line,
+			.typora-export li,
+			.typora-export p {
+				white-space: pre-wrap;
+			}
+
+			.typora-export .task-list-item input {
+				pointer-events: none;
+			}
+
+			@media screen and (max-width: 500px) {
+				body.typora-export {
+					padding-left: 0px;
+					padding-right: 0px;
+				}
+
+				#write {
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+
+				.CodeMirror-sizer {
+					margin-left: 0px !important;
+				}
+
+				.CodeMirror-gutters {
+					display: none !important;
+				}
+			}
+
+			#write li>figure:last-child {
+				margin-bottom: 0.5rem;
+			}
+
+			#write ol,
+			#write ul {
+				position: relative;
+			}
+
+			img {
+				max-width: 100%;
+				vertical-align: middle;
+				image-orientation: from-image;
+			}
+
+			button,
+			input,
+			select,
+			textarea {
+				color: inherit;
+				font: inherit;
+			}
+
+			input[type="checkbox"],
+			input[type="radio"] {
+				line-height: normal;
+				padding: 0px;
+			}
+
+			*,
+			::after,
+			::before {
+				box-sizing: border-box;
+			}
+
+			#write h1,
+			#write h2,
+			#write h3,
+			#write h4,
+			#write h5,
+			#write h6,
+			#write p,
+			#write pre {
+				width: inherit;
+			}
+
+			#write h1,
+			#write h2,
+			#write h3,
+			#write h4,
+			#write h5,
+			#write h6,
+			#write p {
+				position: relative;
+			}
+
+			p {
+				line-height: inherit;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				break-after: avoid-page;
+				break-inside: avoid;
+				orphans: 4;
+			}
+
+			p {
+				orphans: 4;
+			}
+
+			h1 {
+				font-size: 2rem;
+			}
+
+			h2 {
+				font-size: 1.8rem;
+			}
+
+			h3 {
+				font-size: 1.6rem;
+			}
+
+			h4 {
+				font-size: 1.4rem;
+			}
+
+			h5 {
+				font-size: 1.2rem;
+			}
+
+			h6 {
+				font-size: 1rem;
+			}
+
+			.md-math-block,
+			.md-rawblock,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p {
+				margin-top: 1rem;
+				margin-bottom: 1rem;
+			}
+
+			.hidden {
+				display: none;
+			}
+
+			.md-blockmeta {
+				color: rgb(204, 204, 204);
+				font-weight: 700;
+				font-style: italic;
+			}
+
+			a {
+				cursor: pointer;
+			}
+
+			sup.md-footnote {
+				padding: 2px 4px;
+				background-color: rgba(238, 238, 238, 0.7);
+				color: rgb(85, 85, 85);
+				border-radius: 4px;
+				cursor: pointer;
+			}
+
+			sup.md-footnote a,
+			sup.md-footnote a:hover {
+				color: inherit;
+				text-transform: inherit;
+				text-decoration: inherit;
+			}
+
+			#write input[type="checkbox"] {
+				cursor: pointer;
+				width: inherit;
+				height: inherit;
+			}
+
+			figure {
+				overflow-x: auto;
+				margin: 1.2em 0px;
+				max-width: calc(100% + 16px);
+				padding: 0px;
+			}
+
+			figure>table {
+				margin: 0px;
+			}
+
+			tr {
+				break-inside: avoid;
+				break-after: auto;
+			}
+
+			thead {
+				display: table-header-group;
+			}
+
+			table {
+				border-collapse: collapse;
+				border-spacing: 0px;
+				width: 100%;
+				overflow: auto;
+				break-inside: auto;
+				text-align: left;
+			}
+
+			table.md-table td {
+				min-width: 32px;
+			}
+
+			.CodeMirror-gutters {
+				border-right: 0px;
+				background-color: inherit;
+			}
+
+			.CodeMirror-linenumber {
+				user-select: none;
+			}
+
+			.CodeMirror {
+				text-align: left;
+			}
+
+			.CodeMirror-placeholder {
+				opacity: 0.3;
+			}
+
+			.CodeMirror pre {
+				padding: 0px 4px;
+			}
+
+			.CodeMirror-lines {
+				padding: 0px;
+			}
+
+			div.hr:focus {
+				cursor: none;
+			}
+
+			#write pre {
+				white-space: pre-wrap;
+			}
+
+			#write.fences-no-line-wrapping pre {
+				white-space: pre;
+			}
+
+			#write pre.ty-contain-cm {
+				white-space: normal;
+			}
+
+			.CodeMirror-gutters {
+				margin-right: 4px;
+			}
+
+			.md-fences {
+				font-size: 0.9rem;
+				display: block;
+				break-inside: avoid;
+				text-align: left;
+				overflow: visible;
+				white-space: pre;
+				background: inherit;
+				position: relative !important;
+			}
+
+			.md-fences-adv-panel {
+				width: 100%;
+				margin-top: 10px;
+				text-align: center;
+				padding-top: 0px;
+				padding-bottom: 8px;
+				overflow-x: auto;
+			}
+
+			#write .md-fences.mock-cm {
+				white-space: pre-wrap;
+			}
+
+			.md-fences.md-fences-with-lineno {
+				padding-left: 0px;
+			}
+
+			#write.fences-no-line-wrapping .md-fences.mock-cm {
+				white-space: pre;
+				overflow-x: auto;
+			}
+
+			.md-fences.mock-cm.md-fences-with-lineno {
+				padding-left: 8px;
+			}
+
+			.CodeMirror-line,
+			twitterwidget {
+				break-inside: avoid;
+			}
+
+			.footnotes {
+				opacity: 0.8;
+				font-size: 0.9rem;
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+
+			.footnotes+.footnotes {
+				margin-top: 0px;
+			}
+
+			.md-reset {
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				outline: 0px;
+				vertical-align: top;
+				background: 0px 0px;
+				text-decoration: none;
+				text-shadow: none;
+				float: none;
+				position: static;
+				width: auto;
+				height: auto;
+				white-space: nowrap;
+				cursor: inherit;
+				-webkit-tap-highlight-color: transparent;
+				line-height: normal;
+				font-weight: 400;
+				text-align: left;
+				box-sizing: content-box;
+				direction: ltr;
+			}
+
+			li div {
+				padding-top: 0px;
+			}
+
+			blockquote {
+				margin: 1rem 0px;
+			}
+
+			li .mathjax-block,
+			li p {
+				margin: 0.5rem 0px;
+			}
+
+			li blockquote {
+				margin: 1rem 0px;
+			}
+
+			li {
+				margin: 0px;
+				position: relative;
+			}
+
+			blockquote> :last-child {
+				margin-bottom: 0px;
+			}
+
+			blockquote> :first-child,
+			li> :first-child {
+				margin-top: 0px;
+			}
+
+			.footnotes-area {
+				color: rgb(136, 136, 136);
+				margin-top: 0.714rem;
+				padding-bottom: 0.143rem;
+				white-space: normal;
+			}
+
+			#write .footnote-line {
+				white-space: pre-wrap;
+			}
+
+			@media print {
+
+				body,
+				html {
+					border: 1px solid transparent;
+					height: 99%;
+					break-after: avoid;
+					break-before: avoid;
+					font-variant-ligatures: no-common-ligatures;
+				}
+
+				#write {
+					margin-top: 0px;
+					padding-top: 0px;
+					border-color: transparent !important;
+				}
+
+				.typora-export * {
+					-webkit-print-color-adjust: exact;
+				}
+
+				.typora-export #write {
+					break-after: avoid;
+				}
+
+				.typora-export #write::after {
+					height: 0px;
+				}
+
+				.is-mac table {
+					break-inside: avoid;
+				}
+
+				.typora-export-show-outline .typora-export-sidebar {
+					display: none;
+				}
+			}
+
+			.footnote-line {
+				margin-top: 0.714em;
+				font-size: 0.7em;
+			}
+
+			a img,
+			img a {
+				cursor: pointer;
+			}
+
+			pre.md-meta-block {
+				font-size: 0.8rem;
+				min-height: 0.8rem;
+				white-space: pre-wrap;
+				background: rgb(204, 204, 204);
+				display: block;
+				overflow-x: hidden;
+			}
+
+			p>.md-image:only-child:not(.md-img-error) img,
+			p>img:only-child {
+				display: block;
+				margin: auto;
+			}
+
+			#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+				left: -2em;
+				position: relative;
+			}
+
+			p>.md-image:only-child {
+				display: inline-block;
+				width: 100%;
+			}
+
+			#write .MathJax_Display {
+				margin: 0.8em 0px 0px;
+			}
+
+			.md-math-block {
+				width: 100%;
+			}
+
+			.md-math-block:not(:empty)::after {
+				display: none;
+			}
+
+			.MathJax_ref {
+				fill: currentcolor;
+			}
+
+			[contenteditable="true"]:active,
+			[contenteditable="true"]:focus,
+			[contenteditable="false"]:active,
+			[contenteditable="false"]:focus {
+				outline: 0px;
+				box-shadow: none;
+			}
+
+			.md-task-list-item {
+				position: relative;
+				list-style-type: none;
+			}
+
+			.task-list-item.md-task-list-item {
+				padding-left: 0px;
+			}
+
+			.md-task-list-item>input {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				margin-left: -1.2em;
+				margin-top: calc(1em - 10px);
+				border: none;
+			}
+
+			.math {
+				font-size: 1rem;
+			}
+
+			.md-toc {
+				min-height: 3.58rem;
+				position: relative;
+				font-size: 0.9rem;
+				border-radius: 10px;
+			}
+
+			.md-toc-content {
+				position: relative;
+				margin-left: 0px;
+			}
+
+			.md-toc-content::after,
+			.md-toc::after {
+				display: none;
+			}
+
+			.md-toc-item {
+				display: block;
+				color: rgb(65, 131, 196);
+			}
+
+			.md-toc-item a {
+				text-decoration: none;
+			}
+
+			.md-toc-inner:hover {
+				text-decoration: underline;
+			}
+
+			.md-toc-inner {
+				display: inline-block;
+				cursor: pointer;
+			}
+
+			.md-toc-h1 .md-toc-inner {
+				margin-left: 0px;
+				font-weight: 700;
+			}
+
+			.md-toc-h2 .md-toc-inner {
+				margin-left: 2em;
+			}
+
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 4em;
+			}
+
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 6em;
+			}
+
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 8em;
+			}
+
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 10em;
+			}
+
+			@media screen and (max-width: 48em) {
+				.md-toc-h3 .md-toc-inner {
+					margin-left: 3.5em;
+				}
+
+				.md-toc-h4 .md-toc-inner {
+					margin-left: 5em;
+				}
+
+				.md-toc-h5 .md-toc-inner {
+					margin-left: 6.5em;
+				}
+
+				.md-toc-h6 .md-toc-inner {
+					margin-left: 8em;
+				}
+			}
+
+			a.md-toc-inner {
+				font-size: inherit;
+				font-style: inherit;
+				font-weight: inherit;
+				line-height: inherit;
+			}
+
+			.footnote-line a:not(.reversefootnote) {
+				color: inherit;
+			}
+
+			.md-attr {
+				display: none;
+			}
+
+			.md-fn-count::after {
+				content: ".";
+			}
+
+			code,
+			pre,
+			samp,
+			tt {
+				font-family: var(--monospace);
+			}
+
+			kbd {
+				margin: 0px 0.1em;
+				padding: 0.1em 0.6em;
+				font-size: 0.8em;
+				color: rgb(36, 39, 41);
+				background: rgb(255, 255, 255);
+				border: 1px solid rgb(173, 179, 185);
+				border-radius: 3px;
+				box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+				white-space: nowrap;
+				vertical-align: middle;
+			}
+
+			.md-comment {
+				color: rgb(162, 127, 3);
+				opacity: 0.6;
+				font-family: var(--monospace);
+			}
+
+			code {
+				text-align: left;
+				vertical-align: initial;
+			}
+
+			a.md-print-anchor {
+				white-space: pre !important;
+				border-width: initial !important;
+				border-style: none !important;
+				border-color: initial !important;
+				display: inline-block !important;
+				position: absolute !important;
+				width: 1px !important;
+				right: 0px !important;
+				outline: 0px !important;
+				background: 0px 0px !important;
+				text-decoration: initial !important;
+				text-shadow: initial !important;
+			}
+
+			.os-windows.monocolor-emoji .md-emoji {
+				font-family: "Segoe UI Symbol", sans-serif;
+			}
+
+			.md-diagram-panel>svg {
+				max-width: 100%;
+			}
+
+			[lang="flow"] svg,
+			[lang="mermaid"] svg {
+				max-width: 100%;
+				height: auto;
+			}
+
+			[lang="mermaid"] .node text {
+				font-size: 1rem;
+			}
+
+			table tr th {
+				border-bottom: 0px;
+			}
+
+			video {
+				max-width: 100%;
+				display: block;
+				margin: 0px auto;
+			}
+
+			iframe {
+				max-width: 100%;
+				width: 100%;
+				border: none;
+			}
+
+			.highlight td,
+			.highlight tr {
+				border: 0px;
+			}
+
+			mark {
+				background: rgb(255, 255, 0);
+				color: rgb(0, 0, 0);
+			}
+
+			.md-html-inline .md-plain,
+			.md-html-inline strong,
+			mark .md-inline-math,
+			mark strong {
+				color: inherit;
+			}
+
+			.md-expand mark .md-meta {
+				opacity: 0.3 !important;
+			}
+
+			mark .md-meta {
+				color: rgb(0, 0, 0);
+			}
+
+			@media print {
+
+				.typora-export h1,
+				.typora-export h2,
+				.typora-export h3,
+				.typora-export h4,
+				.typora-export h5,
+				.typora-export h6 {
+					break-inside: avoid;
+				}
+			}
+
+			.md-diagram-panel .messageText {
+				stroke: none !important;
+			}
+
+			.md-diagram-panel .start-state {
+				fill: var(--node-fill);
+			}
+
+			.md-diagram-panel .edgeLabel rect {
+				opacity: 1 !important;
+			}
+
+			.md-fences.md-fences-math {
+				font-size: 1em;
+			}
+
+			.md-fences-advanced:not(.md-focus) {
+				padding: 0px;
+				white-space: nowrap;
+				border: 0px;
+			}
+
+			.md-fences-advanced:not(.md-focus) {
+				background: inherit;
+			}
+
+			.typora-export-show-outline .typora-export-content {
+				max-width: 1440px;
+				margin: auto;
+				display: flex;
+				flex-direction: row;
+			}
+
+			.typora-export-sidebar {
+				width: 300px;
+				font-size: 0.8rem;
+				margin-top: 80px;
+				margin-right: 18px;
+			}
+
+			.typora-export-show-outline #write {
+				--webkit-flex: 2;
+				flex: 2 1 0%;
+			}
+
+			.typora-export-sidebar .outline-content {
+				position: fixed;
+				top: 0px;
+				max-height: 100%;
+				overflow: hidden auto;
+				padding-bottom: 30px;
+				padding-top: 60px;
+				width: 300px;
+			}
+
+			@media screen and (max-width: 1024px) {
+
+				.typora-export-sidebar,
+				.typora-export-sidebar .outline-content {
+					width: 240px;
+				}
+			}
+
+			@media screen and (max-width: 800px) {
+				.typora-export-sidebar {
+					display: none;
+				}
+			}
+
+			.outline-content li,
+			.outline-content ul {
+				margin-left: 0px;
+				margin-right: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				list-style: none;
+			}
+
+			.outline-content ul {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+
+			.outline-content strong {
+				font-weight: 400;
+			}
+
+			.outline-expander {
+				width: 1rem;
+				height: 1.42857rem;
+				position: relative;
+				display: table-cell;
+				vertical-align: middle;
+				cursor: pointer;
+				padding-left: 4px;
+			}
+
+			.outline-expander::before {
+				content: "";
+				position: relative;
+				font-family: Ionicons;
+				display: inline-block;
+				font-size: 8px;
+				vertical-align: middle;
+			}
+
+			.outline-item {
+				padding-top: 3px;
+				padding-bottom: 3px;
+				cursor: pointer;
+			}
+
+			.outline-expander:hover::before {
+				content: "";
+			}
+
+			.outline-h1>.outline-item {
+				padding-left: 0px;
+			}
+
+			.outline-h2>.outline-item {
+				padding-left: 1em;
+			}
+
+			.outline-h3>.outline-item {
+				padding-left: 2em;
+			}
+
+			.outline-h4>.outline-item {
+				padding-left: 3em;
+			}
+
+			.outline-h5>.outline-item {
+				padding-left: 4em;
+			}
+
+			.outline-h6>.outline-item {
+				padding-left: 5em;
+			}
+
+			.outline-label {
+				cursor: pointer;
+				display: table-cell;
+				vertical-align: middle;
+				text-decoration: none;
+				color: inherit;
+			}
+
+			.outline-label:hover {
+				text-decoration: underline;
+			}
+
+			.outline-item:hover {
+				border-color: rgb(245, 245, 245);
+				background-color: var(--item-hover-bg-color);
+			}
+
+			.outline-item:hover {
+				margin-left: -28px;
+				margin-right: -28px;
+				border-left: 28px solid transparent;
+				border-right: 28px solid transparent;
+			}
+
+			.outline-item-single .outline-expander::before,
+			.outline-item-single .outline-expander:hover::before {
+				display: none;
+			}
+
+			.outline-item-open>.outline-item>.outline-expander::before {
+				content: "";
+			}
+
+			.outline-children {
+				display: none;
+			}
+
+			.info-panel-tab-wrapper {
+				display: none;
+			}
+
+			.outline-item-open>.outline-children {
+				display: block;
+			}
+
+			.typora-export .outline-item {
+				padding-top: 1px;
+				padding-bottom: 1px;
+			}
+
+			.typora-export .outline-item:hover {
+				margin-right: -8px;
+				border-right: 8px solid transparent;
+			}
+
+			.typora-export .outline-expander::before {
+				content: "+";
+				font-family: inherit;
+				top: -1px;
+			}
+
+			.typora-export .outline-expander:hover::before,
+			.typora-export .outline-item-open>.outline-item>.outline-expander::before {
+				content: "−";
+			}
+
+			.typora-export-collapse-outline .outline-children {
+				display: none;
+			}
+
+			.typora-export-collapse-outline .outline-item-open>.outline-children,
+			.typora-export-no-collapse-outline .outline-children {
+				display: block;
+			}
+
+			.typora-export-no-collapse-outline .outline-expander::before {
+				content: "" !important;
+			}
+
+			.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+				font-weight: 700;
+			}
+
+			.md-inline-math-container mjx-container {
+				zoom: 0.95;
+			}
 
 
-/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+			/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
 
-@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+			@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
 
-/* =========== */
+			/* =========== */
 
-/* pt-serif-regular - latin */
-/* pt-serif-italic - latin */
-/* pt-serif-700 - latin */
-/* pt-serif-700italic - latin */
-:root {
-	--active-file-bg-color: #dadada;
-	--active-file-bg-color: rgba(32, 43, 51, 0.63);
-	--active-file-text-color: white;
-	--bg-color: #f3f2ee;
-	--text-color: #1f0909;
-	--control-text-color: #444;
-	--rawblock-edit-panel-bd: #e5e5e5;
+			/* pt-serif-regular - latin */
+			/* pt-serif-italic - latin */
+			/* pt-serif-700 - latin */
+			/* pt-serif-700italic - latin */
+			:root {
+				--active-file-bg-color: #dadada;
+				--active-file-bg-color: rgba(32, 43, 51, 0.63);
+				--active-file-text-color: white;
+				--bg-color: #f3f2ee;
+				--text-color: #1f0909;
+				--control-text-color: #444;
+				--rawblock-edit-panel-bd: #e5e5e5;
 
-	--select-text-bg-color: rgba(32, 43, 51, 0.63);
-  --select-text-font-color: white;
-}
+				--select-text-bg-color: rgba(32, 43, 51, 0.63);
+				--select-text-font-color: white;
+			}
 
-pre {
-	--select-text-bg-color: #36284e;
-	--select-text-font-color: #fff;
-}
+			pre {
+				--select-text-bg-color: #36284e;
+				--select-text-font-color: #fff;
+			}
 
-html {
-	font-size: 16px;
-	-webkit-font-smoothing: antialiased;
-}
+			html {
+				font-size: 16px;
+				-webkit-font-smoothing: antialiased;
+			}
 
-html, body {
-	background-color: #f3f2ee;
-	font-family: "PT Serif", 'Times New Roman', Times, serif;
-	color: #1f0909;
-	line-height: 1.5em;
-}
+			html,
+			body {
+				background-color: #f3f2ee;
+				font-family: "PT Serif", 'Times New Roman', Times, serif;
+				color: #1f0909;
+				line-height: 1.5em;
+			}
 
-/*#write {
+			/*#write {
 	overflow-x: auto;
     max-width: initial;
 	padding-left: calc(50% - 17em);
@@ -255,745 +1089,1789 @@ html, body {
  	}
 }*/
 
-#write {
-	max-width: 40em;
-}
-
-@media only screen and (min-width: 1400px) {
-	#write {
-			max-width: 914px;
-	}
-}
-
-ol li {
-	list-style-type: decimal;
-	list-style-position: outside;
-}
-ul li {
-	list-style-type: disc;
-	list-style-position: outside;
-}
-
-ol,
-ul {
-	list-style: none;
-}
-
-blockquote,
-q {
-	quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* styles */
-
-/* ====== */
-
-/* headings */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: bold;
-}
-h1 {
-	font-size: 1.875em;
-	/*30 / 16*/
-	line-height: 1.6em;
-	/* 48 / 30*/
-	margin-top: 2em;
-}
-h2,
-h3 {
-	font-size: 1.3125em;
-	/*21 / 16*/
-	line-height: 1.15;
-	/*24 / 21*/
-	margin-top: 2.285714em;
-	/*48 / 21*/
-	margin-bottom: 1.15em;
-	/*24 / 21*/
-}
-h3 {
-	font-weight: normal;
-}
-h4 {
-	font-size: 1.125em;
-	/*18 / 16*/
-	margin-top: 2.67em;
-	/*48 / 18*/
-}
-h5,
-h6 {
-	font-size: 1em;
-	/*16*/
-}
-h1 {
-	border-bottom: 1px solid;
-	margin-bottom: 1.875em;
-	padding-bottom: 0.8125em;
-}
-/* links */
-
-a {
-	text-decoration: none;
-	color: #065588;
-}
-a:hover,
-a:active {
-	text-decoration: underline;
-}
-/* block spacing */
-
-p,
-blockquote,
-.md-fences {
-	margin-bottom: 1.5em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: 1.5em;
-}
-/* blockquote */
-
-blockquote {
-	font-style: italic;
-	border-left: 5px solid;
-	margin-left: 2em;
-	padding-left: 1em;
-}
-/* lists */
-
-ul,
-ol {
-	margin: 0 0 1.5em 1.5em;
-}
-/* tables */
-.md-meta,.md-before, .md-after {
-	color:#999;
-}
-
-table {
-	margin-bottom: 1.5em;
-	/*24 / 16*/
-	font-size: 1em;
-	/* width: 100%; */
-}
-thead th,
-tfoot th {
-	padding: .25em .25em .25em .4em;
-	text-transform: uppercase;
-}
-th {
-	text-align: left;
-}
-td {
-	vertical-align: top;
-	padding: .25em .25em .25em .4em;
-}
-
-code,
-.md-fences {
-	background-color: #dadada;
-}
-
-code {
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.md-fences {
-	margin-left: 2em;
-	margin-bottom: 3em;
-	padding-left: 1ch;
-	padding-right: 1ch;
-}
-
-pre,
-code,
-tt {
-	font-size: .875em;
-	line-height: 1.714285em;
-}
-/* some fixes */
-
-h1 {
-	line-height: 1.3em;
-	font-weight: normal;
-	margin-bottom: 0.5em;
-}
-
-p + ul,
-p + ol{
-	margin-top: .5em;
-}
-
-h3 + ul,
-h4 + ul,
-h5 + ul,
-h6 + ul,
-h3 + ol,
-h4 + ol,
-h5 + ol,
-h6 + ol {
-	margin-top: .5em;
-}
-
-li > ul,
-li > ol {
-	margin-top: inherit;
-	margin-bottom: 0;
-}
-
-li ol>li {
-	list-style-type: lower-alpha;
-}
-
-li li ol>li{
-	list-style-type: lower-roman;
-}
-
-h2,
-h3 {
-	margin-bottom: .75em;
-}
-hr {
-	border-top: none;
-	border-right: none;
-	border-bottom: 1px solid;
-	border-left: none;
-}
-h1 {
-	border-color: #c5c5c5;
-}
-blockquote {
-	border-color: #bababa;
-	color: #656565;
-}
-
-blockquote ul,
-blockquote ol {
-	margin-left:0;
-}
-
-.ty-table-edit {
-	background-color: transparent;
-}
-thead {
-	background-color: #dadada;
-}
-tr:nth-child(even) {
-	background: #e8e7e7;
-}
-hr {
-	border-color: #c5c5c5;
-}
-.task-list{
-	padding-left: 1rem;
-}
-
-.md-task-list-item {
-	padding-left: 1.5rem;
-	list-style-type: none;
-}
-
-.md-task-list-item > input:before {
-	content: '\221A';
-	display: inline-block;
-	width: 1.25rem;
-  	height: 1.6rem;
-	vertical-align: middle;
-	text-align: center;
-	color: #ddd;
-	background-color: #F3F2EE;
-}
-
-.md-task-list-item > input:checked:before,
-.md-task-list-item > input[checked]:before{
-	color: inherit;
-}
-
-#write pre.md-meta-block {
-	min-height: 1.875rem;
-	color: #555;
-	border: 0px;
-	background: transparent;
-	margin-top: -4px;
-	margin-left: 1em;
-	margin-top: 1em;
-}
-
-.md-image>.md-meta {
-	color: #9B5146;
-}
-
-.md-image>.md-meta{
-	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
-}
-
-
-#write>h3.md-focus:before{
-	left: -1.5rem;
-	color:#999;
-	border-color:#999;
-}
-#write>h4.md-focus:before{
-	left: -1.5rem;
-	top: .25rem;
-	color:#999;
-	border-color:#999;
-}
-#write>h5.md-focus:before{
-	left: -1.5rem;
-	top: .0.3125rem;
-	color:#999;
-	border-color:#999;
-}
-#write>h6.md-focus:before{
-	left: -1.5rem;
-	top: 0.3125rem;
-	color:#999;
-	border-color:#999;
-}
-
-.md-toc:focus .md-toc-content{
-	margin-top: 19px;
-}
-
-.md-toc-content:empty:before{
-	color: #065588;
-}
-.md-toc-item {
-	color: #065588;
-}
-#write div.md-toc-tooltip {
-	background-color: #f3f2ee;
-}
-
-#typora-sidebar {
-	background-color: #f3f2ee;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
-  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
-}
-
-.pin-outline #typora-sidebar {
-	background: inherit;
-	box-shadow: none;
-	border-right: 1px dashed;
-}
-
-.pin-outline #typora-sidebar:hover .outline-title-wrapper {
-	border-left:1px dashed;
-}
-
-.outline-item:hover {
-  background-color: #dadada;
-  border-left: 28px solid #dadada;
-  border-right: 18px solid #dadada;
-}
-
-.typora-node .outline-item:hover {
-  	border-right: 28px solid #dadada;
-}
-
-.outline-expander:before {
-  content: "\f0da";
-  font-family: FontAwesome;
-  font-size:14px;
-  top: 1px;
-}
-
-.outline-expander:hover:before,
-.outline-item-open>.outline-item>.outline-expander:before {
-  content: "\f0d7";
-}
-
-.modal-content {
-	background-color: #f3f2ee;
-}
-
-.auto-suggest-container ul li {
-	list-style-type: none;
-}
-
-/** UI for electron */
-
-.megamenu-menu,
-#top-titlebar, #top-titlebar *,
-.megamenu-content {
-	background: #f3f2ee;
-	color: #1f0909;
-}
-
-.megamenu-menu-header {
-	border-bottom: 1px dashed #202B33;
-}
-
-.megamenu-menu {
-	box-shadow: none;
-	border-right: 1px dashed;
-}
-
-header, .context-menu, .megamenu-content, footer {
-	font-family: "PT Serif", 'Times New Roman', Times, serif;
-    color: #1f0909;
-}
-
-#megamenu-back-btn {
-	color: #1f0909;
-	border-color: #1f0909;
-}
-
-.megamenu-menu-header #megamenu-menu-header-title:before {
-	color: #1f0909;
-}
-
-.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
-	color: inherit;
-	background-color: #e8e7df;
-}
-
-.long-btn:hover {
-	background-color: #e8e7df;
-}
-
-#recent-file-panel tbody tr:nth-child(2n-1) {
-    background-color: transparent !important;
-}
-
-.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
-    color: inherit;
-}
-
-.megamenu-menu-panel .btn {
-	background-color: #D2D1D1;
-}
-
-.btn-default {
-	background-color: transparent;
-}
-
-.typora-sourceview-on #toggle-sourceview-btn,
-.ty-show-word-count #footer-word-count {
-	background: #c7c5c5;
-}
-
-#typora-quick-open {
-    background-color: inherit;
-}
-
-.md-diagram-panel {
-	margin-top: 8px;
-}
-
-.file-list-item-file-name {
-	font-weight: initial;
-}
-
-.file-list-item-summary {
-	opacity: 1;
-}
-
-.file-list-item {
-	color: #777;
-}
-
-.file-list-item.active {
-	background-color: inherit;
-	color: black;
-}
-
-.ty-side-sort-btn.active {
-	background-color: inherit;
-}
-
-.file-list-item.active .file-list-item-file-name  {
-	font-weight: bold;
-}
-
-.file-list-item{
-    opacity:1 !important;
-}
-
-.file-library-node.active>.file-node-background{
-	background-color: rgba(32, 43, 51, 0.63);
-	background-color: var(--active-file-bg-color);
-}
-
-.file-tree-node.active>.file-node-content{
-	color: white;
-	color: var(--active-file-text-color);
-}
-
-.md-task-list-item>input {
-	margin-left: -1.7em;
-	margin-top: calc(1rem - 12px);
-	-webkit-appearance: button;
-}
-
-input {
-	border: 1px solid #aaa;
-}
-
-.megamenu-menu-header #megamenu-menu-header-title,
-.megamenu-menu-header:hover,
-.megamenu-menu-header:focus {
-	color: inherit;
-}
-
-.dropdown-menu .divider {
-	border-color: #e5e5e5;
-	opacity: 1;
-}
-
-/* https://github.com/typora/typora-issues/issues/2046 */
-.os-windows-7 strong,
-.os-windows-7 strong  {
-	font-weight: 760;
-}
-
-.ty-preferences .btn-default {
-	background: transparent;
-}
-
-.ty-preferences .window-header {
-	border-bottom: 1px dashed #202B33;
-	box-shadow: none;
-}
-
-#sidebar-loading-template, #sidebar-loading-template.file-list-item {
-	color: #777;
-}
-
-.searchpanel-search-option-btn.active {
-	background: #777;
-	color: white;
-}
-
-.export-detail, .light .export-detail,
-.light .export-item.active,
-.light .export-items-list-control {
-	background: #e0e0e0;
-	border-radius: 2px;
-	font-weight: 700;
-	color: inherit
-}
-
-
-mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-  min-height: 1px;
-  min-width: 1px;
-}
-
-mjx-container[jax="SVG"] > svg a {
-  fill: blue;
-  stroke: blue;
-}
-
-mjx-assistive-mml {
-  position: absolute !important;
-  top: 0px;
-  left: 0px;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 1px 0px 0px 0px !important;
-  border: 0px !important;
-  display: block !important;
-  width: auto !important;
-  overflow: hidden !important;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-mjx-assistive-mml[display="block"] {
-  width: 100% !important;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][display="true"][width="full"] {
-  display: flex;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > g > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
-  stroke-width: 3;
-}
-
-g[data-mml-node="xypic"] path {
-  stroke-width: inherit;
-}
-
-.MathJax g[data-mml-node="xypic"] path {
-  stroke-width: inherit;
-}
-mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
-							stroke-width: 0;
-						}
-</style><title>3处理机调度与死锁</title>
-</head>
-<body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><p><a href="1操作系统引论.md"><span>第一章 操作系统引论</span></a>
-<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
-<font color="red"><span>第三章 处理机调度与死锁</span></font>
-<a href="4进程同步.html"><span>第四章 进程同步</span></a>
-<a href="5存储器管理.html"><span>第五章 存储器管理</span></a>
-<a href="6虚拟存储器.html"><span>第六章 虚拟存储器</span></a>
-<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
-<a href="8文件管理.html"><span>第八章 文件管理</span></a>
-<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n3"><a class="md-toc-inner" href="#1-处理机调度概述">1 处理机调度概述</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#11-调度层次">1.1 调度层次</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n7"><a class="md-toc-inner" href="#12-作业">1.2 作业</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n13"><a class="md-toc-inner" href="#13-进程调度">1.3 进程调度</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n14"><a class="md-toc-inner" href="#131-进程的调度任务">1.3.1 进程的调度任务</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n16"><a class="md-toc-inner" href="#132-进程调度机制">1.3.2 进程调度机制</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n24"><a class="md-toc-inner" href="#133-进程调度方式">1.3.3 进程调度方式</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n30"><a class="md-toc-inner" href="#134-调度队列模型">1.3.4 调度队列模型</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n32"><a class="md-toc-inner" href="#135-对调度算法的分析">1.3.5 对调度算法的分析</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n39"><a class="md-toc-inner" href="#2-调度算法">2 调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n40"><a class="md-toc-inner" href="#21-概述">2.1 概述</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n43"><a class="md-toc-inner" href="#22-先来先服务调度算法fcfs">2.2 先来先服务调度算法FCFS</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n55"><a class="md-toc-inner" href="#23-最短作业优先sjf">2.3 最短作业优先SJF</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n62"><a class="md-toc-inner" href="#24-优先级调度算法pr">2.4 优先级调度算法PR</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n67"><a class="md-toc-inner" href="#25-高响应比优先调度算法hrrn">2.5 高响应比优先调度算法HRRN</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n71"><a class="md-toc-inner" href="#作业调度算法实例1">作业调度算法实例1</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n95"><a class="md-toc-inner" href="#作业调度算法实例2">作业调度算法实例2</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n98"><a class="md-toc-inner" href="#26-时间片轮转调度算法">2.6 时间片轮转调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n105"><a class="md-toc-inner" href="#27-多级反馈队列调度算法">2.7 多级反馈队列调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n110"><a class="md-toc-inner" href="#3-实时调度">3 实时调度</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n111"><a class="md-toc-inner" href="#31-实时调度算法分类">3.1 实时调度算法分类</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n113"><a class="md-toc-inner" href="#32-调度算法">3.2 调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n114"><a class="md-toc-inner" href="#321-非抢占式">3.2.1 非抢占式</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n115"><a class="md-toc-inner" href="#非抢占式轮转调度算法">非抢占式轮转调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n117"><a class="md-toc-inner" href="#非抢占式优先调度算法">非抢占式优先调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n119"><a class="md-toc-inner" href="#322-抢占式">3.2.2 抢占式</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n120"><a class="md-toc-inner" href="#基于时钟中断的抢占式优先级调度">基于时钟中断的抢占式优先级调度</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n122"><a class="md-toc-inner" href="#立即抢占的优先级调度">立即抢占的优先级调度</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n124"><a class="md-toc-inner" href="#33-最早截止时间优先edf）调度算法">3.3 最早截止时间优先（EDF）调度算法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n126"><a class="md-toc-inner" href="#34-最低松弛度优先llf算法">3.4 最低松弛度优先LLF算法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n129"><a class="md-toc-inner" href="#优先级倒置现象">优先级倒置现象</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n132"><a class="md-toc-inner" href="#4-linux进程调度">4 Linux进程调度</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n158"><a class="md-toc-inner" href="#5-死锁概述">5 死锁概述</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n167"><a class="md-toc-inner" href="#51-死锁的定义">5.1 死锁的定义</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n179"><a class="md-toc-inner" href="#52-产生死锁的四个必要条件">5.2 产生死锁的四个必要条件</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n190"><a class="md-toc-inner" href="#53-处理死锁的基本方法">5.3 处理死锁的基本方法</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n198"><a class="md-toc-inner" href="#531-预防死锁">5.3.1 预防死锁</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n226"><a class="md-toc-inner" href="#532-避免死锁">5.3.2 避免死锁</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n229"><a class="md-toc-inner" href="#系统的安全状态">系统的安全状态</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n231"><a class="md-toc-inner" href="#著名避免死锁算法-银行家算法">著名避免死锁算法-银行家算法</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n249"><a class="md-toc-inner" href="#实例">实例</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n251"><a class="md-toc-inner" href="#533-死锁的检测与解除">5.3.3 死锁的检测与解除</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n254"><a class="md-toc-inner" href="#资源分配图">资源分配图</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n269"><a class="md-toc-inner" href="#资源分配图化简">资源分配图化简</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n272"><a class="md-toc-inner" href="#死锁定理">死锁定理</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n275"><a class="md-toc-inner" href="#死锁解除">死锁解除</a></span></p></div><h1 id='1-处理机调度概述'><span>1 处理机调度概述</span></h1><p><span>处理机调度问题就是对处理机如何分配的问题</span></p><h2 id='11-调度层次'><span>1.1 调度层次</span></h2><p><img src="Images/3处理机调度层次.png" referrerpolicy="no-referrer"></p><h2 id='12-作业'><span>1.2 作业</span></h2><p><strong><span>作业</span></strong><span>(job)=程序+数据+作业说明书</span>
-<strong><span>作业步</span></strong><span>(Job step)：作业加工的步骤</span>
-<strong><span>作业控制块JCB</span></strong><span>(Job control block)：作业标识、用户名称、作业类型、作业状态、调度信息、资源需求等</span></p><blockquote><p><span>为管理和调度作业，在多道批处理系统中，为每个作业设置了一个作业控制块JCB，它是作业在系统中存在的标志，其中保存了系统对作业进行管理和调度所需的全部信息。通常在JCB中包含的内容有：作业标识、用户名称、用户账号、作业类型（CPU繁忙型、I/O繁忙型、批量型、终端型）、作业状态、调度信息（优先级、作业运行时间）、资源需求（预计运行时间、要求内存大小等）、资源使用情况等。</span></p></blockquote><p><strong><span>作业三阶段/三状态</span></strong><span>：收容/后备、运行、完成</span></p><p><span>作业调度又称为接纳调度(Admission Scheduling)，接纳度表示接纳多少个作业，调度算法决定接纳哪些作业。</span></p><h2 id='13-进程调度'><span>1.3 进程调度</span></h2><h3 id='131-进程的调度任务'><span>1.3.1 进程的调度任务</span></h3><p><strong><span>保护</span></strong><span>处理机的现场信息、按某种算法</span><strong><span>选取</span></strong><span>进程、把处理器</span><strong><span>分配</span></strong><span>给进程。</span></p><h3 id='132-进程调度机制'><span>1.3.2 进程调度机制</span></h3><ul><li><span>排队器：用于将就绪进程插入相应的就绪队列</span></li><li><span>分派器：用于将选定的进程移出就绪队列</span></li><li><span>上下文切换器：进行新旧进程之间的上下文切换</span></li></ul><h3 id='133-进程调度方式'><span>1.3.3 进程调度方式</span></h3><ul><li><strong><span>抢占式</span></strong><span>：允许调度程序根据某种原则，去</span><strong><span>暂停某个正在执行的进程</span></strong><span>，将已分配给该进程的</span><strong><span>处理机重新分配</span></strong><span>给另一进程。（现代OS广泛采用）</span>
-<span>（1）</span><strong><span>优先权原则</span></strong><span>：允许优先权高的新进程抢占当前进程的CPU</span>
-<span>（2）</span><strong><span>短作业优先原则</span></strong><span>：短作业可以抢占当前较长作业的处理机</span>
-<span>（3）</span><strong><span>时间片原则</span></strong><span>：各进程按时间片运行，当一个时间片用完后，重新进行调度。</span></li><li><strong><span>非抢占式</span></strong><span>：一旦把处理机分配给某进程后，便让该进程一直执行，直至该进程完成或发生某事件而被阻塞时，才再把处理机分配给其他进程，</span><strong><span>决不允许某进程抢占已经分配出去的处理机</span></strong><span>。</span></li></ul><h3 id='134-调度队列模型'><span>1.3.4 调度队列模型</span></h3><p><span>单级调度队列模型：进程调度</span>
-<span>二级调度队列模型：进程调度+作业调度</span>
-<span>三级调度队列模型：进程调度+作业调度+内存调度</span></p><h3 id='135-对调度算法的分析'><span>1.3.5 对调度算法的分析</span></h3><p><span>处理机调度算法的共同目标：资源利用率（CPU利用率=CPU有效工作时间 / (CPU有效工作时间+CPU空闲时间)）、公平性、平衡性、策略强制执行</span></p><p><strong><span>批处理系统的目标</span></strong><span>：平均周转时间短（周转时间、平均周转时间、带权周转时间、平均带权周转时间）、系统吞吐率要高</span></p><blockquote><p><span>周转时间T</span><sub><span>i</span></sub><span>：是指作业提交给系统开始，到作业完成为止的这段时间间隔。即：T</span><sub><span>i</span></sub><span> = 完成时间 - 提交时间</span>
-<span>平均周转时间：</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="14.554ex" height="2.755ex" role="img" focusable="false" viewBox="0 -864.9 6432.7 1217.7" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.798ex;"><defs><path id="MJX-14-TEX-I-1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path id="MJX-14-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-14-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-14-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-14-TEX-SO-2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"></path><path id="MJX-14-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-14-TEX-I-1D447"></use></g><g data-mml-node="mo" transform="translate(981.8,0)"><use data-c="3D" xlink:href="#MJX-14-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(2037.6,0)"><g data-mml-node="mn" transform="translate(255.4,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-14-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(220,-345) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-14-TEX-I-1D45B"></use></g><rect width="624.3" height="60" x="120" y="220"></rect></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2901.8,0)"></g><g data-mml-node="munderover" transform="translate(3068.5,0)"><g data-mml-node="mo"><use data-c="2211" xlink:href="#MJX-14-TEX-SO-2211"></use></g><g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-14-TEX-I-1D45B"></use></g></g><g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use></g><g data-mml-node="mo" transform="translate(345,0)"><use data-c="3D" xlink:href="#MJX-14-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1123,0)"><use data-c="31" xlink:href="#MJX-14-TEX-N-31"></use></g></g></g><g data-mml-node="msub" transform="translate(5521.8,0)"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-14-TEX-I-1D447"></use></g><g data-mml-node="mi" transform="translate(617,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mrow data-mjx-texclass="ORD"></mrow><munderover><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow data-mjx-texclass="ORD"><mi>n</mi></mrow></munderover><msub><mi>T</mi><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container><script type="math/tex">T=\frac{1}{n}{}\sum_{i=1}^{n}T_i</script>
-<span>带权周转时间：</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="11.344ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5014.1 1000" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-15-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path id="MJX-15-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-15-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-15-TEX-I-1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path id="MJX-15-TEX-N-2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path><path id="MJX-15-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D44A" xlink:href="#MJX-15-TEX-I-1D44A"></use></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-15-TEX-I-1D456"></use></g></g><g data-mml-node="mo" transform="translate(1548.7,0)"><use data-c="3D" xlink:href="#MJX-15-TEX-N-3D"></use></g><g data-mml-node="msub" transform="translate(2604.5,0)"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-15-TEX-I-1D447"></use></g><g data-mml-node="mi" transform="translate(617,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-15-TEX-I-1D456"></use></g></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3515.5,0)"><g data-mml-node="mo"><use data-c="2F" xlink:href="#MJX-15-TEX-N-2F"></use></g></g><g data-mml-node="msub" transform="translate(4015.5,0)"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-15-TEX-I-1D447"></use></g><g data-mml-node="mi" transform="translate(617,-150) scale(0.707)"><use data-c="1D460" xlink:href="#MJX-15-TEX-I-1D460"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>W</mi><mi>i</mi></msub><mo>=</mo><msub><mi>T</mi><mi>i</mi></msub><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>T</mi><mi>s</mi></msub></math></mjx-assistive-mml></mjx-container><script type="math/tex">W_i=T_i/T_s</script>
-<span>平均带权周转时间：</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="29.64ex" height="3.137ex" role="img" focusable="false" viewBox="0 -930.3 13100.7 1386.3" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.032ex;"><defs><path id="MJX-16-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path id="MJX-16-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-16-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-16-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-16-TEX-SO-2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"></path><path id="MJX-16-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-16-TEX-I-1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path id="MJX-16-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44A" xlink:href="#MJX-16-TEX-I-1D44A"></use></g><g data-mml-node="mo" transform="translate(1325.8,0)"><use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(2381.6,0)"><g data-mml-node="mn" transform="translate(255.4,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(220,-345) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use></g><rect width="624.3" height="60" x="120" y="220"></rect></g><g data-mml-node="munderover" transform="translate(3412.5,0)"><g data-mml-node="mo"><use data-c="2211" xlink:href="#MJX-16-TEX-SO-2211"></use></g><g data-mml-node="mi" transform="translate(1089,477.1) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use></g><g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use></g><g data-mml-node="mo" transform="translate(345,0)"><use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1123,0)"><use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use></g></g></g><g data-mml-node="msub" transform="translate(5865.8,0)"><g data-mml-node="mi"><use data-c="1D44A" xlink:href="#MJX-16-TEX-I-1D44A"></use></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use></g></g><g data-mml-node="mo" transform="translate(7414.5,0)"><use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(8470.3,0)"><g data-mml-node="mn" transform="translate(255.4,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use></g><g data-mml-node="mi" transform="translate(220,-345) scale(0.707)"><use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use></g><rect width="624.3" height="60" x="120" y="220"></rect></g><g data-mml-node="munderover" transform="translate(9501.2,0)"><g data-mml-node="mo"><use data-c="2211" xlink:href="#MJX-16-TEX-SO-2211"></use></g><g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use></g></g><g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use></g><g data-mml-node="mo" transform="translate(345,0)"><use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1123,0)"><use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use></g></g></g><g data-mml-node="mfrac" transform="translate(11954.5,0)"><g data-mml-node="msub" transform="translate(251,451.6) scale(0.707)"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-16-TEX-I-1D447"></use></g><g data-mml-node="mi" transform="translate(617,-150) scale(0.707)"><use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use></g></g><g data-mml-node="msub" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-16-TEX-I-1D447"></use></g><g data-mml-node="mi" transform="translate(617,-150) scale(0.707)"><use data-c="1D460" xlink:href="#MJX-16-TEX-I-1D460"></use></g></g><rect width="906.1" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>W</mi><mi>i</mi></msub><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow data-mjx-texclass="ORD"><mi>n</mi></mrow></munderover><mfrac><msub><mi>T</mi><mi>i</mi></msub><msub><mi>T</mi><mi>s</mi></msub></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">W=\frac{1}{n}\sum_{i=1}^nW_i=\frac{1}{n}\sum_{i=1}^{n}\frac{T_i}{T_s}</script></p></blockquote><p><span>分时系统的目标：响应时间快、均衡性</span></p><p><span>实时系统的目标：保证截止时间、保证</span></p><h1 id='2-调度算法'><span>2 调度算法</span></h1><h2 id='21-概述'><span>2.1 概述</span></h2><p><strong><span>作业调度算法</span></strong><span>：先来先服务调度算法(FCFS)、短作业优先调度算法(SJF)、优先权调度算法(PR)、高响应比优先调度算法(HRRN)</span></p><p><strong><span>进程调度算法</span></strong><span>：先来先服务调度算法(FCFS)、短作业优先调度算法(SJF)、优先权调度算法(PR)、时间片轮转调度算法(RR)、多级队列调度算法、多级反馈队列调度算法、基于公平原则的调度算法</span></p><h2 id='22-先来先服务调度算法fcfs'><span>2.2 先来先服务调度算法FCFS</span></h2><p><span>是最简单的一种调度算法，即可用于作业调度，也可以用于进程调度。</span></p><p><span>算法特征：</span></p><ul><li><span>按照作业提交/进程就绪的</span><strong><span>先后次序</span></strong><span>，分派CPU；</span></li><li><span>当前作业占用CPU，直到执行完或阻塞才出让CPU；</span></li><li><span>在作业或进程唤醒后（如I/O完成），并不立即恢复执行，通常等到当前作业或进程出让CPU。</span></li><li><span>最简单的算法，有利于长作业和CPU繁忙的作业，很少单独使用。常作为一种辅助调度算法与其他算法配合使用较多。</span></li></ul><h2 id='23-最短作业优先sjf'><span>2.3 最短作业优先SJF</span></h2><p><span>按作业估计</span><strong><span>运行时间长短</span></strong><span>来组织后备作业调度，优先分派处理机。但通常后来的短作业</span>
-<span>正在执行的作业。</span></p><ul><li><span>优点：比FCFS降低了</span><strong><span>周转时间</span></strong><span>，缩短作业的等待时间；提高系统的</span><strong><span>吞吐量</span></strong></li><li><span>缺点：</span><strong><span>对长作业不利</span></strong><span>；未能考虑作业的</span><strong><span>紧迫程度</span></strong><span>；</span><strong><span>难以准确</span></strong><span>估计作业的执行时间。</span></li></ul><h2 id='24-优先级调度算法pr'><span>2.4 优先级调度算法PR</span></h2><p><span>基于作业/进程的</span><strong><span>紧迫程度</span></strong><span>，由外部赋予作业相应的优先级，调度算法根据优先级进行调度。每个进程都有一个优先数（整数），小的优先数具有高优先级。是目前主流的操作系统调度算法。</span></p><p><span>优先级类型分为两种：</span>
-<strong><span>静态优先级</span></strong><span>：创建进程时确定优先级，在进程的整个运行期间保持不变，简单易行，系统开销小。不够精确，可能会出现优先级低的进程长期没有被调度的情况。</span>
-<strong><span>动态优先级</span></strong><span>：创建进程时先赋予优先级，随</span><strong><span>进程推进或等待时间</span></strong><span>增加而改变。</span></p><blockquote><p><span>高响应比优先调度算法(HRRN)是一种优先级调度算法，用于作业调度。</span></p></blockquote><h2 id='25-高响应比优先调度算法hrrn'><span>2.5 高响应比优先调度算法HRRN</span></h2><p><span>这里的优先权是响应比R</span><sub><span>p</span></sub></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="51.002ex" height="3.447ex" role="img" focusable="false" viewBox="0 -1011.8 22542.7 1523.5" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.158ex;"><defs><path id="MJX-17-TEX-I-1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path><path id="MJX-17-TEX-I-1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path id="MJX-17-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-17-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-17-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D445" xlink:href="#MJX-17-TEX-I-1D445"></use></g><g data-mml-node="mi" transform="translate(792,-150) scale(0.707)"><use data-c="1D45D" xlink:href="#MJX-17-TEX-I-1D45D"></use></g></g><g data-mml-node="mo" transform="translate(1475.5,0)"><use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(2531.2,0)"><g data-mml-node="mrow" transform="translate(220,481.4) scale(0.707)"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">等</text></g><g data-mml-node="mtext" transform="translate(884,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">待</text></g><g data-mml-node="mtext" transform="translate(1768,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(2652,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g><g data-mml-node="mo" transform="translate(3536,0)"><use data-c="2B" xlink:href="#MJX-17-TEX-N-2B"></use></g><g data-mml-node="mtext" transform="translate(4314,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">要</text></g><g data-mml-node="mtext" transform="translate(5198,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">求</text></g><g data-mml-node="mtext" transform="translate(6082,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">服</text></g><g data-mml-node="mtext" transform="translate(6966,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">务</text></g><g data-mml-node="mtext" transform="translate(7850,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(8734,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g></g><g data-mml-node="mrow" transform="translate(1745.2,-370.3) scale(0.707)"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">要</text></g><g data-mml-node="mtext" transform="translate(884,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">求</text></g><g data-mml-node="mtext" transform="translate(1768,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">服</text></g><g data-mml-node="mtext" transform="translate(2652,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">务</text></g><g data-mml-node="mtext" transform="translate(3536,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(4420,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g></g><rect width="7001" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(10050,0)"><use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(11105.7,0)"><g data-mml-node="mrow" transform="translate(845.1,481.4) scale(0.707)"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">响</text></g><g data-mml-node="mtext" transform="translate(884,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">应</text></g><g data-mml-node="mtext" transform="translate(1768,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(2652,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g></g><g data-mml-node="mrow" transform="translate(220,-370.3) scale(0.707)"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">要</text></g><g data-mml-node="mtext" transform="translate(884,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">求</text></g><g data-mml-node="mtext" transform="translate(1768,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">服</text></g><g data-mml-node="mtext" transform="translate(2652,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">务</text></g><g data-mml-node="mtext" transform="translate(3536,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(4420,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g></g><rect width="3950.5" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(15574,0)"><use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(16629.8,0)"><use data-c="31" xlink:href="#MJX-17-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(17352,0)"><use data-c="2B" xlink:href="#MJX-17-TEX-N-2B"></use></g><g data-mml-node="mfrac" transform="translate(18352.2,0)"><g data-mml-node="mrow" transform="translate(845.1,481.4) scale(0.707)"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">等</text></g><g data-mml-node="mtext" transform="translate(884,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">待</text></g><g data-mml-node="mtext" transform="translate(1768,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(2652,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g></g><g data-mml-node="mrow" transform="translate(220,-370.3) scale(0.707)"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">要</text></g><g data-mml-node="mtext" transform="translate(884,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">求</text></g><g data-mml-node="mtext" transform="translate(1768,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">服</text></g><g data-mml-node="mtext" transform="translate(2652,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">务</text></g><g data-mml-node="mtext" transform="translate(3536,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(4420,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">间</text></g></g><rect width="3950.5" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>R</mi><mi>p</mi></msub><mo>=</mo><mfrac><mrow><mtext>等</mtext><mtext>待</mtext><mtext>时</mtext><mtext>间</mtext><mo>+</mo><mtext>要</mtext><mtext>求</mtext><mtext>服</mtext><mtext>务</mtext><mtext>时</mtext><mtext>间</mtext></mrow><mrow><mtext>要</mtext><mtext>求</mtext><mtext>服</mtext><mtext>务</mtext><mtext>时</mtext><mtext>间</mtext></mrow></mfrac><mo>=</mo><mfrac><mrow><mtext>响</mtext><mtext>应</mtext><mtext>时</mtext><mtext>间</mtext></mrow><mrow><mtext>要</mtext><mtext>求</mtext><mtext>服</mtext><mtext>务</mtext><mtext>时</mtext><mtext>间</mtext></mrow></mfrac><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><mrow><mtext>等</mtext><mtext>待</mtext><mtext>时</mtext><mtext>间</mtext></mrow><mrow><mtext>要</mtext><mtext>求</mtext><mtext>服</mtext><mtext>务</mtext><mtext>时</mtext><mtext>间</mtext></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">R_p=\frac{等待时间+要求服务时间}{要求服务时间}=\frac{响应时间}{要求服务时间}=1+\frac{等待时间}{要求服务时间}</script></p><p><span>HRRN是FCFS和SJF两种算法的一种折中算法，比较好的满足了短作业用户和长作业用户的要求。但吞吐量比SJF小，计算 R</span><sub><span>p</span></sub><span> 会增加系统开销。</span></p><h2 id='作业调度算法实例1'><span>作业调度算法实例1</span></h2><p><img src="Images/3作业调度算法实例1.png" referrerpolicy="no-referrer"></p><p><span>FCFS调度算法结果:</span>
-<img src="Images/3作业调度算法实例1-1.png" referrerpolicy="no-referrer"></p><p><span>SJF调度算法结果：</span>
-<img src="Images/3作业调度算法实例1-2.png" referrerpolicy="no-referrer"></p><p><span>HRRN调度算法计算结果：</span>
-<img src="Images/3作业调度算法实例1-3.png" referrerpolicy="no-referrer"></p><p><span>三种算法的比较：</span></p><figure><table><thead><tr><th><span>算法</span></th><th><span>平均周转时间</span></th><th><span>代权平均周转时间</span></th></tr></thead><tbody><tr><td><span>FCFS</span></td><td><span>112.5</span></td><td><span>4.975</span></td></tr><tr><td><span>SJF</span></td><td><span>95</span></td><td><span>3.25</span></td></tr><tr><td><span>HRRN</span></td><td><span>102.5</span></td><td><span>3.775</span></td></tr></tbody></table></figure><p><span>分析：SJF算法平均周转时间最短，但可能使长时间长作业等待；HRRN算法，既考虑时间长短，又考虑等待时间，在长、短作业之间进行了适当的均衡，其平均周转时间介于FCFS和SJF之间。</span></p><h2 id='作业调度算法实例2'><span>作业调度算法实例2</span></h2><p><img src="Images/3作业调度算法实例2.png" referrerpolicy="no-referrer"></p><p><img src="Images/3作业调度算法实例2-1.png" referrerpolicy="no-referrer"></p><h2 id='26-时间片轮转调度算法'><span>2.6 时间片轮转调度算法</span></h2><p><span>把CPU划分成若干时间片，并且按顺序赋给就绪队列中的每一个进程，进程</span><strong><span>轮流占用CPU</span></strong><span>。通过时间片轮转，提高进程并发性和响应时间特性，从而提高资源利用率。</span></p><p><span>时间片选择问题：固定时间片、可变时间片</span></p><p><span>简单循环轮转调度算法：时间片：</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="7.363ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3254.6 1000" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-18-TEX-I-1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path id="MJX-18-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-18-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-18-TEX-N-2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path><path id="MJX-18-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D45E" xlink:href="#MJX-18-TEX-I-1D45E"></use></g><g data-mml-node="mo" transform="translate(737.8,0)"><use data-c="3D" xlink:href="#MJX-18-TEX-N-3D"></use></g><g data-mml-node="mi" transform="translate(1793.6,0)"><use data-c="1D461" xlink:href="#MJX-18-TEX-I-1D461"></use></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2154.6,0)"><g data-mml-node="mo"><use data-c="2F" xlink:href="#MJX-18-TEX-N-2F"></use></g></g><g data-mml-node="mi" transform="translate(2654.6,0)"><use data-c="1D45B" xlink:href="#MJX-18-TEX-I-1D45B"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi><mo>=</mo><mi>t</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container><script type="math/tex">q=t/n</script><span> ( t为响应时间，n为系统进程数目)</span></p><p><span>时间片大小从几个ms~几百ms</span></p><p><span>时间片轮转调度算法实例（时间片=1）</span></p><p><span>时间片轮转调度算法实例（时间片=5）</span>
-<img src="Images/3时间片轮转调度算法实例（时间片=5）.png" referrerpolicy="no-referrer"></p><h2 id='27-多级反馈队列调度算法'><span>2.7 多级反馈队列调度算法</span></h2><p><span>多级反馈队列算法是</span><strong><span>时间片轮转算法</span></strong><span>和</span><strong><span>优先级算法</span></strong><span>的总和和发展。</span></p><p><img src="Images/3多级反馈队列调度算法.png" referrerpolicy="no-referrer"></p><p><span>设置多个就绪队列：每个就绪队列分配给不同时间片，优先级高的为第一级队列，时间片最小，随队列级别的降低，时间片加大；当第一级队列空时，就调度第二级队列，如此类推；各个队列按照先进先出调度算法，最后一级采用时间片轮转。一个新进程就绪后进入第一级队列，进程由于等待而放弃CPU后，进入等待队列，一旦等待的事件发生，则回到原来的就绪队列；当时间片到后，进程放弃CPU，进入下一级队列；当有一个优先级更高的进程就绪时，可以抢占CPU，被抢占的进程回到原来一级的就绪队列末尾。</span></p><p><span>优点：</span><strong><span>照顾短进程、照顾I/O型进程、不必估计进程的执行时间</span></strong></p><h1 id='3-实时调度'><span>3 实时调度</span></h1><h2 id='31-实时调度算法分类'><span>3.1 实时调度算法分类</span></h2><p><span>根据实时任务性质：HRT调度算法、SRT调度算法</span>
-<span>根据调度方式：非抢占式调度算法、抢占式调度算法</span></p><h2 id='32-调度算法'><span>3.2 调度算法</span></h2><h3 id='321-非抢占式'><span>3.2.1 非抢占式</span></h3><h4 id='非抢占式轮转调度算法'><span>非抢占式轮转调度算法</span></h4><p><span>响应时间：数秒至数十秒</span>
-<span>要求不太严格的实时系统</span></p><h4 id='非抢占式优先调度算法'><span>非抢占式优先调度算法</span></h4><p><span>响应时间：数秒至数百毫秒</span>
-<span>对时间有一定要求的实时系统</span></p><h3 id='322-抢占式'><span>3.2.2 抢占式</span></h3><h4 id='基于时钟中断的抢占式优先级调度'><span>基于时钟中断的抢占式优先级调度</span></h4><p><span>响应时间：几十毫秒至几毫秒</span>
-<span>可用于大多数实时系统</span></p><h4 id='立即抢占的优先级调度'><span>立即抢占的优先级调度</span></h4><p><span>响应时间：几毫秒至几百微秒</span>
-<span>有严格时间要求的实时系统</span></p><h2 id='33-最早截止时间优先edf）调度算法'><span>3.3 最早截止时间优先（EDF）调度算法</span></h2><p><span>EDF根据任务的截止时间确定优先级，截止时间越早，优先级越高；既可用于抢占式调度（周期实时任务），也可用于非抢占式调度（用于非周期实时任务）。</span></p><h2 id='34-最低松弛度优先llf算法'><span>3.4 最低松弛度优先LLF算法</span></h2><p><span>根据任务的紧急程度（松弛度）确定任务优先级，紧急程度越高（松弛度越低），优先级越高；松弛度=必须完成时间-其本身的运行时间-当前时间</span></p><p><span>主要用在抢占式调度方式中。</span></p><h2 id='优先级倒置现象'><span>优先级倒置现象</span></h2><p><span>采用优先级调度和抢占方式，可能产生优先级倒置。现象：高优先级进程被低优先级进程延迟或阻塞。</span></p><p><span>解决办法：制定一些规定，如规定低优先级进程执行后，其所占用的处理机不允许被抢占；建立动态优先级继承。</span></p><h1 id='4-linux进程调度'><span>4 Linux进程调度</span></h1><p><span>默认调度算法：完全公平调度CFS算法。</span></p><p><span>基于调度器类：允许不同的可动态添加的调度算法并存，每个类都有一个特定的优先级。</span></p><ul><li><span>总调度器：根据调度器类的优先顺序，依次对调度器类中的进程进行调度。</span></li><li><span>调度器类：使用所选的调度器类算法（调度策略）进行内部的调度。</span></li><li><span>调度器类的默认优先级顺序为：Stop_Task &gt; Real_Time &gt; Fair &gt; Idle_Task</span></li></ul><p><span>普通进程调度：</span></p><ul><li><span>采用SCHED_NORMAL调度策略</span></li><li><span>分配优先级、挑选进程并允许、计算使其运行多久</span></li><li><span>CPU运行时间与友好值（-20~+19）有关，数值越低优先级越高。</span></li></ul><p><span>实时进程调度：</span></p><ul><li><span>实时调度的进程比普通进程具有更高的优先级。</span></li><li><span>SCHED_FIFO：进程若处于可执行的状态，就会一直执行，直到它自己被阻塞或者主动放弃CPU。</span></li><li><span>SCHED_RR：与SCHED_FIFO大致相同，只是进程在耗尽其时间片后，不能再执行，而是需要接受CPU的调度。</span></li></ul><h1 id='5-死锁概述'><span>5 死锁概述</span></h1><p><span>引起死锁的原因：</span></p><ul><li><span>竞争不可抢占资源引起死锁</span></li><li><span>竞争可消耗资源引起死锁</span></li><li><span>进程推进不当引起的死锁</span></li></ul><h2 id='51-死锁的定义'><span>5.1 死锁的定义</span></h2><p><span>一组并发进程彼此</span><strong><span>无休止地等待</span></strong><span>对方占用的资源，从而造成不能继续向前推进的状态，称为进程</span><strong><span>死锁(Deadlock)</span></strong><span>，这一组进程就称为</span><strong><span>死锁进程</span></strong><span>。</span></p><p><span>分析：</span></p><ul><li><span>参与死锁的进程至少有两个，即两个以上的进程才会出现死锁</span></li><li><span>参与死锁的进程至少有两个已经占有资源</span></li><li><span>参与死锁的所有进程都在等待资源</span></li><li><span>参与死锁的进程是当前系统中所有进程的子集</span>
-<span>注：死锁发生，会浪费大量资源，甚至导致系统崩溃。</span></li></ul><h2 id='52-产生死锁的四个必要条件'><span>5.2 产生死锁的四个必要条件</span></h2><ul><li><span>互斥条件</span></li><li><span>不可抢占(不可剥夺)条件</span></li><li><span>请求和保持条件</span></li><li><span>循环等待条件</span></li></ul><p><span>说明：上述四个条件只要有一个不满足，就可排除死锁。但必要条件成立，系统未必一定发生死锁。</span></p><h2 id='53-处理死锁的基本方法'><span>5.3 处理死锁的基本方法</span></h2><ul><li><span>确保系统永远不会进入死锁状态（死锁预防、死锁避免）</span></li><li><span>允许系统进入死锁状态，然后恢复系统（死锁检测、死锁恢复）</span></li><li><span>忽略这个问题，假装不会出现死锁，这个方法被大部分OS采用。</span></li></ul><h3 id='531-预防死锁'><span>5.3.1 预防死锁</span></h3><p><span>破坏死锁的四个必要条件中的一个或几个。</span></p><ol start='' ><li><span>互斥：互斥条件是共享资源必须的，不仅不能改变，还应加以保证</span></li><li><span>请求和保持：必须保证进程申请资源的时候没有占有其他资源。</span></li></ol><ul><li><span>要求进程在执行前一次性申请全部的资源，只有没有占有资源时才可以分配资源</span></li><li><span>资源利用率低，可能出现饥饿</span></li><li><span>改进：进程只获得运行初期所需的资源后，便开始运行；其后在运行过程中逐步释放已分配的且用毕的全部资源，然后再请求新资源。</span></li></ul><ol start='3' ><li><span>非抢占：如果一个进程的申请没有实现，它要释放所有占有的资源；先占的资源放入进程等待资源列表中；进程在重新得到旧的资源的时候可以重新开始。</span></li><li><span>循环等待：对所有的资源类型进行线性排序，并赋予不同的序号，要求进程按照递增顺序申请资源。</span></li></ol><ul><li><span>如何规定每种资源的序号是十分重要的</span></li><li><span>限制新类型设备的增加</span></li><li><span>作业使用资源的顺序与系统规定的顺序不同</span></li><li><span>限制用户简单、自主的编程</span></li></ul><h3 id='532-避免死锁'><span>5.3.2 避免死锁</span></h3><p><span>在资源动态分配时，防止系统进入不安全状态。</span></p><p><span>方法：</span>
-<span>设一个简单而有效的模型，要求每一个进程</span><strong><span>声明它所需要的资源的最大数</span></strong><span>；</span><strong><span>死锁避免算法</span></strong><span>动态检查资源分配状态以确保不会出现循环等待的情况；资源分配状态定义为可用的与</span><strong><span>已分配的资源数</span></strong><span>，和</span><strong><span>进程所需的最大资源量</span></strong><span>。</span></p><h4 id='系统的安全状态'><span>系统的安全状态</span></h4><p><span>在“避免死锁”的方法中的判断条件。</span>
-<span>安全状态：按某种顺序所有进程都能达到获得最大资源而顺序完成的序列为</span><strong><span>安全序列</span></strong><span>，能找到安全序列的状态为</span><strong><span>安全状态</span></strong><span>。</span>
-<img src="Images/3安全状态实例.png" referrerpolicy="no-referrer"></p><h4 id='著名避免死锁算法-银行家算法'><span>著名避免死锁算法-银行家算法</span></h4><p><span>由Dijkstra于1965年首先提出并解决。</span>
-<span>问题：如何将其总数一定的现金，安全地借给若干个顾客，使这些顾客既能满足对资金的要求，又能完成其交易，也使银行家可以收回自己的全部现金而不至于破产。这类似于OS中的资源分配问题：在若干个并发进程间分配单位数量一定的某共享资源。</span></p><ol start='' ><li><span>单资源银行家算法</span>
-<img src="Images/3单资源银行家算法.png" referrerpolicy="no-referrer"></li><li><span>多资源银行家算法数据结构</span>
-<span>假定系统中有n个进程P1，...，Pn，m类资源R1，...，Rm</span></li></ol><ul><li><span>系统资源向量R=R1，...，Rm）表示系统中拥有每类资源的数量；</span></li><li><span>可用资源向量Available=（V1，V2，…，Vm）表示系统中尚未分给进程的每类资源的数量；</span></li><li><span>最大需求矩阵Max是一个n×m矩阵，表示系统中n个进程对m类资源的最大需求。</span></li><li><span>需求矩阵Need，是一个n×m矩阵，表示每一个进程还需要的各类资源数目。</span></li><li><span>资源分配矩阵Allocate，是一个n×m矩阵，A</span>[<span>i</span>][j]<span>表示进程i已分得j类资源的数量。</span></li></ul><h4 id='实例'><span>实例</span></h4><p><img src="Images/3避免死锁实例.png" referrerpolicy="no-referrer"></p><h3 id='533-死锁的检测与解除'><span>5.3.3 死锁的检测与解除</span></h3><p><strong><span>检测死锁</span></strong><span>：事先不采取任何措施，允许死锁发生，但及时检测死锁发生。</span></p><p><strong><span>解除死锁</span></strong><span>：检测到死锁发生时，采取相应措施，将进程从死锁状态中解脱出来。</span>
-<span>死锁的预防策略是非常保守的，通过</span><strong><span>限制访问资源和在进程上强加约束</span></strong><span>来解决死锁问题。</span>
-<span>死锁检测（deadlock detection)策略则完全相反，不限制资源访问或约束进程行为，OS周期性地执行一个算法检测死锁发生的四个必要条件。即：允许死锁发生，OS不断监视系统进展情况，判断并以最小的代价恢复操作系统运行。</span></p><h4 id='资源分配图'><span>资源分配图</span></h4><p><span>节点</span></p><ul><li><span>资源类：用方框表示（资源实例：用方框中的黑圆点表示）</span></li><li><span>进程：用圆圈中加进程名表示</span></li></ul><p><span>边</span></p><ul><li><span>分配边：资源实例→进程</span></li><li><span>申请边：进程→资源类</span>
-<img src="Images/3资源分配图1.png" referrerpolicy="no-referrer"></li></ul><p><img src="Images/3资源分配图2.png" referrerpolicy="no-referrer"></p><p><img src="Images/3资源分配图3.png" referrerpolicy="no-referrer"></p><h4 id='资源分配图化简'><span>资源分配图化简</span></h4><p><span>在一个资源分配图中，若某进程的资源申请都能被满足，完成任务，释放所占有的全部资源，则称该图可以被该进程化简。若该图可被其所有进程化简，则称</span><strong><span>该图是可化简的</span></strong><span>。</span></p><p><span>资源分配图化简方法：</span>
-<span>（1）找到一个既</span><strong><span>非阻塞又非孤立</span></strong><span>的进程节点Pi，去掉请求边和分配边，将其变为孤立节点；</span>
-<span>（2）把Pi释放的资源分配给申请等待该资源的进程，即将某进程的申请边变为分配边。</span>
-<span>（3）重复1，2，直到找不到符合条件的进程节点。经过简化后，若能消去图的所有边，使</span><strong><span>所有进程都成为孤立点</span></strong><span>，则该图是可完全化简的。</span>
-<img src="Images/3资源分配图化简.png" referrerpolicy="no-referrer"></p><h4 id='死锁定理'><span>死锁定理</span></h4><p><span>如果</span><strong><span>资源分配图中没有环路，则系统中没有死锁</span></strong><span>，如果图中存在环路则系统中</span><strong><span>可能</span></strong><span>存在死锁。如果每个资源类中只包含一个资源实例，则环路是死锁存在的充分必要条件。</span></p><p><strong><span>死锁定理</span></strong><span>：死锁状态的充分条件，是资源分配图不可完全化简。</span></p><h4 id='死锁解除'><span>死锁解除</span></h4><p><span>（1）</span><strong><span>重新启动</span></strong>
-<span>（2）</span><strong><span>进程回退</span></strong><span>：将死锁进程退回到前一个检查点，并重新从该检查点启动这些进程（需系统提供检查点和重新启动机制）。有可能使原来的死锁再次发生，但由于并发处理系统的不确定性，通常死锁有可能不发生。</span>
-<span>（3）</span><strong><span>剥夺资源</span></strong><span>：使用挂起/激活机制挂起一些进程，剥夺他们占有的资源给死锁进程，以解除死锁，待以后条件满足时再激活被挂起的进程。</span>
-<span>（4）</span><strong><span>撤销进程</span></strong><span>：撤销死锁进程，将它们占有的资源分配给另一些死锁进程，直到死锁解除。</span></p></div></div>
-</body>
+			#write {
+				max-width: 40em;
+			}
+
+			@media only screen and (min-width: 1400px) {
+				#write {
+					max-width: 914px;
+				}
+			}
+
+			ol li {
+				list-style-type: decimal;
+				list-style-position: outside;
+			}
+
+			ul li {
+				list-style-type: disc;
+				list-style-position: outside;
+			}
+
+			ol,
+			ul {
+				list-style: none;
+			}
+
+			blockquote,
+			q {
+				quotes: none;
+			}
+
+			blockquote:before,
+			blockquote:after,
+			q:before,
+			q:after {
+				content: '';
+				content: none;
+			}
+
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+
+			/* styles */
+
+			/* ====== */
+
+			/* headings */
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-weight: bold;
+			}
+
+			h1 {
+				font-size: 1.875em;
+				/*30 / 16*/
+				line-height: 1.6em;
+				/* 48 / 30*/
+				margin-top: 2em;
+			}
+
+			h2,
+			h3 {
+				font-size: 1.3125em;
+				/*21 / 16*/
+				line-height: 1.15;
+				/*24 / 21*/
+				margin-top: 2.285714em;
+				/*48 / 21*/
+				margin-bottom: 1.15em;
+				/*24 / 21*/
+			}
+
+			h3 {
+				font-weight: normal;
+			}
+
+			h4 {
+				font-size: 1.125em;
+				/*18 / 16*/
+				margin-top: 2.67em;
+				/*48 / 18*/
+			}
+
+			h5,
+			h6 {
+				font-size: 1em;
+				/*16*/
+			}
+
+			h1 {
+				border-bottom: 1px solid;
+				margin-bottom: 1.875em;
+				padding-bottom: 0.8125em;
+			}
+
+			/* links */
+
+			a {
+				text-decoration: none;
+				color: #065588;
+			}
+
+			a:hover,
+			a:active {
+				text-decoration: underline;
+			}
+
+			/* block spacing */
+
+			p,
+			blockquote,
+			.md-fences {
+				margin-bottom: 1.5em;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				margin-bottom: 1.5em;
+			}
+
+			/* blockquote */
+
+			blockquote {
+				font-style: italic;
+				border-left: 5px solid;
+				margin-left: 2em;
+				padding-left: 1em;
+			}
+
+			/* lists */
+
+			ul,
+			ol {
+				margin: 0 0 1.5em 1.5em;
+			}
+
+			/* tables */
+			.md-meta,
+			.md-before,
+			.md-after {
+				color: #999;
+			}
+
+			table {
+				margin-bottom: 1.5em;
+				/*24 / 16*/
+				font-size: 1em;
+				/* width: 100%; */
+			}
+
+			thead th,
+			tfoot th {
+				padding: .25em .25em .25em .4em;
+				text-transform: uppercase;
+			}
+
+			th {
+				text-align: left;
+			}
+
+			td {
+				vertical-align: top;
+				padding: .25em .25em .25em .4em;
+			}
+
+			code,
+			.md-fences {
+				background-color: #dadada;
+			}
+
+			code {
+				padding-left: 2px;
+				padding-right: 2px;
+			}
+
+			.md-fences {
+				margin-left: 2em;
+				margin-bottom: 3em;
+				padding-left: 1ch;
+				padding-right: 1ch;
+			}
+
+			pre,
+			code,
+			tt {
+				font-size: .875em;
+				line-height: 1.714285em;
+			}
+
+			/* some fixes */
+
+			h1 {
+				line-height: 1.3em;
+				font-weight: normal;
+				margin-bottom: 0.5em;
+			}
+
+			p+ul,
+			p+ol {
+				margin-top: .5em;
+			}
+
+			h3+ul,
+			h4+ul,
+			h5+ul,
+			h6+ul,
+			h3+ol,
+			h4+ol,
+			h5+ol,
+			h6+ol {
+				margin-top: .5em;
+			}
+
+			li>ul,
+			li>ol {
+				margin-top: inherit;
+				margin-bottom: 0;
+			}
+
+			li ol>li {
+				list-style-type: lower-alpha;
+			}
+
+			li li ol>li {
+				list-style-type: lower-roman;
+			}
+
+			h2,
+			h3 {
+				margin-bottom: .75em;
+			}
+
+			hr {
+				border-top: none;
+				border-right: none;
+				border-bottom: 1px solid;
+				border-left: none;
+			}
+
+			h1 {
+				border-color: #c5c5c5;
+			}
+
+			blockquote {
+				border-color: #bababa;
+				color: #656565;
+			}
+
+			blockquote ul,
+			blockquote ol {
+				margin-left: 0;
+			}
+
+			.ty-table-edit {
+				background-color: transparent;
+			}
+
+			thead {
+				background-color: #dadada;
+			}
+
+			tr:nth-child(even) {
+				background: #e8e7e7;
+			}
+
+			hr {
+				border-color: #c5c5c5;
+			}
+
+			.task-list {
+				padding-left: 1rem;
+			}
+
+			.md-task-list-item {
+				padding-left: 1.5rem;
+				list-style-type: none;
+			}
+
+			.md-task-list-item>input:before {
+				content: '\221A';
+				display: inline-block;
+				width: 1.25rem;
+				height: 1.6rem;
+				vertical-align: middle;
+				text-align: center;
+				color: #ddd;
+				background-color: #F3F2EE;
+			}
+
+			.md-task-list-item>input:checked:before,
+			.md-task-list-item>input[checked]:before {
+				color: inherit;
+			}
+
+			#write pre.md-meta-block {
+				min-height: 1.875rem;
+				color: #555;
+				border: 0px;
+				background: transparent;
+				margin-top: -4px;
+				margin-left: 1em;
+				margin-top: 1em;
+			}
+
+			.md-image>.md-meta {
+				color: #9B5146;
+			}
+
+			.md-image>.md-meta {
+				font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+			}
+
+
+			#write>h3.md-focus:before {
+				left: -1.5rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			#write>h4.md-focus:before {
+				left: -1.5rem;
+				top: .25rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			#write>h5.md-focus:before {
+				left: -1.5rem;
+				top: .0.3125rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			#write>h6.md-focus:before {
+				left: -1.5rem;
+				top: 0.3125rem;
+				color: #999;
+				border-color: #999;
+			}
+
+			.md-toc:focus .md-toc-content {
+				margin-top: 19px;
+			}
+
+			.md-toc-content:empty:before {
+				color: #065588;
+			}
+
+			.md-toc-item {
+				color: #065588;
+			}
+
+			#write div.md-toc-tooltip {
+				background-color: #f3f2ee;
+			}
+
+			#typora-sidebar {
+				background-color: #f3f2ee;
+				-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+			}
+
+			.pin-outline #typora-sidebar {
+				background: inherit;
+				box-shadow: none;
+				border-right: 1px dashed;
+			}
+
+			.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+				border-left: 1px dashed;
+			}
+
+			.outline-item:hover {
+				background-color: #dadada;
+				border-left: 28px solid #dadada;
+				border-right: 18px solid #dadada;
+			}
+
+			.typora-node .outline-item:hover {
+				border-right: 28px solid #dadada;
+			}
+
+			.outline-expander:before {
+				content: "\f0da";
+				font-family: FontAwesome;
+				font-size: 14px;
+				top: 1px;
+			}
+
+			.outline-expander:hover:before,
+			.outline-item-open>.outline-item>.outline-expander:before {
+				content: "\f0d7";
+			}
+
+			.modal-content {
+				background-color: #f3f2ee;
+			}
+
+			.auto-suggest-container ul li {
+				list-style-type: none;
+			}
+
+			/** UI for electron */
+
+			.megamenu-menu,
+			#top-titlebar,
+			#top-titlebar *,
+			.megamenu-content {
+				background: #f3f2ee;
+				color: #1f0909;
+			}
+
+			.megamenu-menu-header {
+				border-bottom: 1px dashed #202B33;
+			}
+
+			.megamenu-menu {
+				box-shadow: none;
+				border-right: 1px dashed;
+			}
+
+			header,
+			.context-menu,
+			.megamenu-content,
+			footer {
+				font-family: "PT Serif", 'Times New Roman', Times, serif;
+				color: #1f0909;
+			}
+
+			#megamenu-back-btn {
+				color: #1f0909;
+				border-color: #1f0909;
+			}
+
+			.megamenu-menu-header #megamenu-menu-header-title:before {
+				color: #1f0909;
+			}
+
+			.megamenu-menu-list li a:hover,
+			.megamenu-menu-list li a.active {
+				color: inherit;
+				background-color: #e8e7df;
+			}
+
+			.long-btn:hover {
+				background-color: #e8e7df;
+			}
+
+			#recent-file-panel tbody tr:nth-child(2n-1) {
+				background-color: transparent !important;
+			}
+
+			.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+				color: inherit;
+			}
+
+			.megamenu-menu-panel .btn {
+				background-color: #D2D1D1;
+			}
+
+			.btn-default {
+				background-color: transparent;
+			}
+
+			.typora-sourceview-on #toggle-sourceview-btn,
+			.ty-show-word-count #footer-word-count {
+				background: #c7c5c5;
+			}
+
+			#typora-quick-open {
+				background-color: inherit;
+			}
+
+			.md-diagram-panel {
+				margin-top: 8px;
+			}
+
+			.file-list-item-file-name {
+				font-weight: initial;
+			}
+
+			.file-list-item-summary {
+				opacity: 1;
+			}
+
+			.file-list-item {
+				color: #777;
+			}
+
+			.file-list-item.active {
+				background-color: inherit;
+				color: black;
+			}
+
+			.ty-side-sort-btn.active {
+				background-color: inherit;
+			}
+
+			.file-list-item.active .file-list-item-file-name {
+				font-weight: bold;
+			}
+
+			.file-list-item {
+				opacity: 1 !important;
+			}
+
+			.file-library-node.active>.file-node-background {
+				background-color: rgba(32, 43, 51, 0.63);
+				background-color: var(--active-file-bg-color);
+			}
+
+			.file-tree-node.active>.file-node-content {
+				color: white;
+				color: var(--active-file-text-color);
+			}
+
+			.md-task-list-item>input {
+				margin-left: -1.7em;
+				margin-top: calc(1rem - 12px);
+				-webkit-appearance: button;
+			}
+
+			input {
+				border: 1px solid #aaa;
+			}
+
+			.megamenu-menu-header #megamenu-menu-header-title,
+			.megamenu-menu-header:hover,
+			.megamenu-menu-header:focus {
+				color: inherit;
+			}
+
+			.dropdown-menu .divider {
+				border-color: #e5e5e5;
+				opacity: 1;
+			}
+
+			/* https://github.com/typora/typora-issues/issues/2046 */
+			.os-windows-7 strong,
+			.os-windows-7 strong {
+				font-weight: 760;
+			}
+
+			.ty-preferences .btn-default {
+				background: transparent;
+			}
+
+			.ty-preferences .window-header {
+				border-bottom: 1px dashed #202B33;
+				box-shadow: none;
+			}
+
+			#sidebar-loading-template,
+			#sidebar-loading-template.file-list-item {
+				color: #777;
+			}
+
+			.searchpanel-search-option-btn.active {
+				background: #777;
+				color: white;
+			}
+
+			.export-detail,
+			.light .export-detail,
+			.light .export-item.active,
+			.light .export-items-list-control {
+				background: #e0e0e0;
+				border-radius: 2px;
+				font-weight: 700;
+				color: inherit
+			}
+
+
+			mjx-container[jax="SVG"] {
+				direction: ltr;
+			}
+
+			mjx-container[jax="SVG"]>svg {
+				overflow: visible;
+				min-height: 1px;
+				min-width: 1px;
+			}
+
+			mjx-container[jax="SVG"]>svg a {
+				fill: blue;
+				stroke: blue;
+			}
+
+			mjx-assistive-mml {
+				position: absolute !important;
+				top: 0px;
+				left: 0px;
+				clip: rect(1px, 1px, 1px, 1px);
+				padding: 1px 0px 0px 0px !important;
+				border: 0px !important;
+				display: block !important;
+				width: auto !important;
+				overflow: hidden !important;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			mjx-assistive-mml[display="block"] {
+				width: 100% !important;
+			}
+
+			mjx-container[jax="SVG"][display="true"] {
+				display: block;
+				text-align: center;
+				margin: 1em 0;
+			}
+
+			mjx-container[jax="SVG"][display="true"][width="full"] {
+				display: flex;
+			}
+
+			mjx-container[jax="SVG"][justify="left"] {
+				text-align: left;
+			}
+
+			mjx-container[jax="SVG"][justify="right"] {
+				text-align: right;
+			}
+
+			g[data-mml-node="merror"]>g {
+				fill: red;
+				stroke: red;
+			}
+
+			g[data-mml-node="merror"]>rect[data-background] {
+				fill: yellow;
+				stroke: none;
+			}
+
+			g[data-mml-node="mtable"]>line[data-line],
+			svg[data-table]>g>line[data-line] {
+				stroke-width: 70px;
+				fill: none;
+			}
+
+			g[data-mml-node="mtable"]>rect[data-frame],
+			svg[data-table]>g>rect[data-frame] {
+				stroke-width: 70px;
+				fill: none;
+			}
+
+			g[data-mml-node="mtable"]>.mjx-dashed,
+			svg[data-table]>g>.mjx-dashed {
+				stroke-dasharray: 140;
+			}
+
+			g[data-mml-node="mtable"]>.mjx-dotted,
+			svg[data-table]>g>.mjx-dotted {
+				stroke-linecap: round;
+				stroke-dasharray: 0, 140;
+			}
+
+			g[data-mml-node="mtable"]>g>svg {
+				overflow: visible;
+			}
+
+			[jax="SVG"] mjx-tool {
+				display: inline-block;
+				position: relative;
+				width: 0;
+				height: 0;
+			}
+
+			[jax="SVG"] mjx-tool>mjx-tip {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			mjx-tool>mjx-tip {
+				display: inline-block;
+				padding: .2em;
+				border: 1px solid #888;
+				font-size: 70%;
+				background-color: #F8F8F8;
+				color: black;
+				box-shadow: 2px 2px 5px #AAAAAA;
+			}
+
+			g[data-mml-node="maction"][data-toggle] {
+				cursor: pointer;
+			}
+
+			mjx-status {
+				display: block;
+				position: fixed;
+				left: 1em;
+				bottom: 1em;
+				min-width: 25%;
+				padding: .2em .4em;
+				border: 1px solid #888;
+				font-size: 90%;
+				background-color: #F8F8F8;
+				color: black;
+			}
+
+			foreignObject[data-mjx-xml] {
+				font-family: initial;
+				line-height: normal;
+				overflow: visible;
+			}
+
+			mjx-container[jax="SVG"] path[data-c],
+			mjx-container[jax="SVG"] use[data-c] {
+				stroke-width: 3;
+			}
+
+			g[data-mml-node="xypic"] path {
+				stroke-width: inherit;
+			}
+
+			.MathJax g[data-mml-node="xypic"] path {
+				stroke-width: inherit;
+			}
+
+			mjx-container[jax="SVG"] path[data-c],
+			mjx-container[jax="SVG"] use[data-c] {
+				stroke-width: 0;
+			}
+		</style>
+		<title>3处理机调度与死锁</title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+		</script>
+		<link rel="stylesheet" href="../assets/css/left_catalogue.css">
+		<script src="../assets/js/left_catalogue.js"></script>
+		
+		<!--返回顶部-->
+		<button onclick="topFunction()" id="topButton">TOP↑</button>
+		<button onclick="showOrCloseCategory()" id="foldOrUnfold">目录</button>
+		
+		<!--文章主体部分-->
+		<div class="book-body" id="book_body"> </div>
+		<!--目录栏-->
+		<div class="book-summary" id="category" style="display:none"></div>
+	</head>
+	<body class='typora-export os-windows'>
+		<div class='typora-export-content'>
+			<div id='write' class=''>
+				<p>
+					<a href="1操作系统引论.html"><span>第一章 操作系统引论</span></a>
+					<a href="2进程的描述与控制.html"><span>第二章 进程的描述与控制</span></a>
+					<font color="red"><span>第三章 处理机调度与死锁</span></font>
+					<a href="4进程同步.html"><span>第四章 进程同步</span></a>
+					<a href="5存储器管理.html"><span>第五章 存储器管理</span></a>
+					<a href="6虚拟存储器.html"><span>第六章 虚拟存储器</span></a>
+					<a href="7输入/输出系统.html"><span>第七章 输入/输出系统</span></a>
+					<a href="8文件管理.html"><span>第八章 文件管理</span></a>
+					<a href="9磁盘存储器管理.html"><span>第九章 磁盘存储器管理</span></a>
+				</p>
+				
+				<h1 id='1-处理机调度概述'><span>1 处理机调度概述</span></h1>
+				<p><span>处理机调度问题就是对处理机如何分配的问题</span></p>
+				<h2 id='11-调度层次'><span>1.1 调度层次</span></h2>
+				<p><img src="Images/3处理机调度层次.png" referrerpolicy="no-referrer"></p>
+				<h2 id='12-作业'><span>1.2 作业</span></h2>
+				<p><strong><span>作业</span></strong><span>(job)=程序+数据+作业说明书</span>
+					<strong><span>作业步</span></strong><span>(Job step)：作业加工的步骤</span>
+					<strong><span>作业控制块JCB</span></strong><span>(Job control
+						block)：作业标识、用户名称、作业类型、作业状态、调度信息、资源需求等</span>
+				</p>
+				<blockquote>
+					<p><span>为管理和调度作业，在多道批处理系统中，为每个作业设置了一个作业控制块JCB，它是作业在系统中存在的标志，其中保存了系统对作业进行管理和调度所需的全部信息。通常在JCB中包含的内容有：作业标识、用户名称、用户账号、作业类型（CPU繁忙型、I/O繁忙型、批量型、终端型）、作业状态、调度信息（优先级、作业运行时间）、资源需求（预计运行时间、要求内存大小等）、资源使用情况等。</span>
+					</p>
+				</blockquote>
+				<p><strong><span>作业三阶段/三状态</span></strong><span>：收容/后备、运行、完成</span></p>
+				<p><span>作业调度又称为接纳调度(Admission Scheduling)，接纳度表示接纳多少个作业，调度算法决定接纳哪些作业。</span></p>
+				<h2 id='13-进程调度'><span>1.3 进程调度</span></h2>
+				<h3 id='131-进程的调度任务'><span>1.3.1 进程的调度任务</span></h3>
+				<p><strong><span>保护</span></strong><span>处理机的现场信息、按某种算法</span><strong><span>选取</span></strong><span>进程、把处理器</span><strong><span>分配</span></strong><span>给进程。</span>
+				</p>
+				<h3 id='132-进程调度机制'><span>1.3.2 进程调度机制</span></h3>
+				<ul>
+					<li><span>排队器：用于将就绪进程插入相应的就绪队列</span></li>
+					<li><span>分派器：用于将选定的进程移出就绪队列</span></li>
+					<li><span>上下文切换器：进行新旧进程之间的上下文切换</span></li>
+				</ul>
+				<h3 id='133-进程调度方式'><span>1.3.3 进程调度方式</span></h3>
+				<ul>
+					<li><strong><span>抢占式</span></strong><span>：允许调度程序根据某种原则，去</span><strong><span>暂停某个正在执行的进程</span></strong><span>，将已分配给该进程的</span><strong><span>处理机重新分配</span></strong><span>给另一进程。（现代OS广泛采用）</span>
+						<span>（1）</span><strong><span>优先权原则</span></strong><span>：允许优先权高的新进程抢占当前进程的CPU</span>
+						<span>（2）</span><strong><span>短作业优先原则</span></strong><span>：短作业可以抢占当前较长作业的处理机</span>
+						<span>（3）</span><strong><span>时间片原则</span></strong><span>：各进程按时间片运行，当一个时间片用完后，重新进行调度。</span>
+					</li>
+					<li><strong><span>非抢占式</span></strong><span>：一旦把处理机分配给某进程后，便让该进程一直执行，直至该进程完成或发生某事件而被阻塞时，才再把处理机分配给其他进程，</span><strong><span>决不允许某进程抢占已经分配出去的处理机</span></strong><span>。</span>
+					</li>
+				</ul>
+				<h3 id='134-调度队列模型'><span>1.3.4 调度队列模型</span></h3>
+				<p><span>单级调度队列模型：进程调度</span>
+					<span>二级调度队列模型：进程调度+作业调度</span>
+					<span>三级调度队列模型：进程调度+作业调度+内存调度</span>
+				</p>
+				<h3 id='135-对调度算法的分析'><span>1.3.5 对调度算法的分析</span></h3>
+				<p><span>处理机调度算法的共同目标：资源利用率（CPU利用率=CPU有效工作时间 / (CPU有效工作时间+CPU空闲时间)）、公平性、平衡性、策略强制执行</span></p>
+				<p><strong><span>批处理系统的目标</span></strong><span>：平均周转时间短（周转时间、平均周转时间、带权周转时间、平均带权周转时间）、系统吞吐率要高</span></p>
+				<blockquote>
+					<p><span>周转时间T</span><sub><span>i</span></sub><span>：是指作业提交给系统开始，到作业完成为止的这段时间间隔。即：T</span><sub><span>i</span></sub><span>
+							= 完成时间 - 提交时间</span>
+						<span>平均周转时间：</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="14.554ex" height="2.755ex" role="img"
+								focusable="false" viewBox="0 -864.9 6432.7 1217.7"
+								xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+								style="vertical-align: -0.798ex;">
+								<defs>
+									<path id="MJX-14-TEX-I-1D447"
+										d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z">
+									</path>
+									<path id="MJX-14-TEX-N-3D"
+										d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+									</path>
+									<path id="MJX-14-TEX-N-31"
+										d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z">
+									</path>
+									<path id="MJX-14-TEX-I-1D45B"
+										d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z">
+									</path>
+									<path id="MJX-14-TEX-SO-2211"
+										d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z">
+									</path>
+									<path id="MJX-14-TEX-I-1D456"
+										d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="mi">
+											<use data-c="1D447" xlink:href="#MJX-14-TEX-I-1D447"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(981.8,0)">
+											<use data-c="3D" xlink:href="#MJX-14-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="mfrac" transform="translate(2037.6,0)">
+											<g data-mml-node="mn" transform="translate(255.4,394) scale(0.707)">
+												<use data-c="31" xlink:href="#MJX-14-TEX-N-31"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(220,-345) scale(0.707)">
+												<use data-c="1D45B" xlink:href="#MJX-14-TEX-I-1D45B"></use>
+											</g>
+											<rect width="624.3" height="60" x="120" y="220"></rect>
+										</g>
+										<g data-mml-node="TeXAtom" data-mjx-texclass="ORD"
+											transform="translate(2901.8,0)"></g>
+										<g data-mml-node="munderover" transform="translate(3068.5,0)">
+											<g data-mml-node="mo">
+												<use data-c="2211" xlink:href="#MJX-14-TEX-SO-2211"></use>
+											</g>
+											<g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)"
+												data-mjx-texclass="ORD">
+												<g data-mml-node="mi">
+													<use data-c="1D45B" xlink:href="#MJX-14-TEX-I-1D45B"></use>
+												</g>
+											</g>
+											<g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)"
+												data-mjx-texclass="ORD">
+												<g data-mml-node="mi">
+													<use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use>
+												</g>
+												<g data-mml-node="mo" transform="translate(345,0)">
+													<use data-c="3D" xlink:href="#MJX-14-TEX-N-3D"></use>
+												</g>
+												<g data-mml-node="mn" transform="translate(1123,0)">
+													<use data-c="31" xlink:href="#MJX-14-TEX-N-31"></use>
+												</g>
+											</g>
+										</g>
+										<g data-mml-node="msub" transform="translate(5521.8,0)">
+											<g data-mml-node="mi">
+												<use data-c="1D447" xlink:href="#MJX-14-TEX-I-1D447"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(617,-150) scale(0.707)">
+												<use data-c="1D456" xlink:href="#MJX-14-TEX-I-1D456"></use>
+											</g>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<mi>T</mi>
+									<mo>=</mo>
+									<mfrac>
+										<mn>1</mn>
+										<mi>n</mi>
+									</mfrac>
+									<mrow data-mjx-texclass="ORD"></mrow>
+									<munderover>
+										<mo data-mjx-texclass="OP">∑</mo>
+										<mrow data-mjx-texclass="ORD">
+											<mi>i</mi>
+											<mo>=</mo>
+											<mn>1</mn>
+										</mrow>
+										<mrow data-mjx-texclass="ORD">
+											<mi>n</mi>
+										</mrow>
+									</munderover>
+									<msub>
+										<mi>T</mi>
+										<mi>i</mi>
+									</msub>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">T=\frac{1}{n}{}\sum_{i=1}^{n}T_i</script>
+						<span>带权周转时间：</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="11.344ex" height="2.262ex" role="img"
+								focusable="false" viewBox="0 -750 5014.1 1000"
+								xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+								style="vertical-align: -0.566ex;">
+								<defs>
+									<path id="MJX-15-TEX-I-1D44A"
+										d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z">
+									</path>
+									<path id="MJX-15-TEX-I-1D456"
+										d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z">
+									</path>
+									<path id="MJX-15-TEX-N-3D"
+										d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+									</path>
+									<path id="MJX-15-TEX-I-1D447"
+										d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z">
+									</path>
+									<path id="MJX-15-TEX-N-2F"
+										d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z">
+									</path>
+									<path id="MJX-15-TEX-I-1D460"
+										d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="msub">
+											<g data-mml-node="mi">
+												<use data-c="1D44A" xlink:href="#MJX-15-TEX-I-1D44A"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(977,-150) scale(0.707)">
+												<use data-c="1D456" xlink:href="#MJX-15-TEX-I-1D456"></use>
+											</g>
+										</g>
+										<g data-mml-node="mo" transform="translate(1548.7,0)">
+											<use data-c="3D" xlink:href="#MJX-15-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="msub" transform="translate(2604.5,0)">
+											<g data-mml-node="mi">
+												<use data-c="1D447" xlink:href="#MJX-15-TEX-I-1D447"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(617,-150) scale(0.707)">
+												<use data-c="1D456" xlink:href="#MJX-15-TEX-I-1D456"></use>
+											</g>
+										</g>
+										<g data-mml-node="TeXAtom" data-mjx-texclass="ORD"
+											transform="translate(3515.5,0)">
+											<g data-mml-node="mo">
+												<use data-c="2F" xlink:href="#MJX-15-TEX-N-2F"></use>
+											</g>
+										</g>
+										<g data-mml-node="msub" transform="translate(4015.5,0)">
+											<g data-mml-node="mi">
+												<use data-c="1D447" xlink:href="#MJX-15-TEX-I-1D447"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(617,-150) scale(0.707)">
+												<use data-c="1D460" xlink:href="#MJX-15-TEX-I-1D460"></use>
+											</g>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<msub>
+										<mi>W</mi>
+										<mi>i</mi>
+									</msub>
+									<mo>=</mo>
+									<msub>
+										<mi>T</mi>
+										<mi>i</mi>
+									</msub>
+									<mrow data-mjx-texclass="ORD">
+										<mo>/</mo>
+									</mrow>
+									<msub>
+										<mi>T</mi>
+										<mi>s</mi>
+									</msub>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">W_i=T_i/T_s</script>
+						<span>平均带权周转时间：</span>
+						<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+								xmlns="http://www.w3.org/2000/svg" width="29.64ex" height="3.137ex" role="img"
+								focusable="false" viewBox="0 -930.3 13100.7 1386.3"
+								xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+								style="vertical-align: -1.032ex;">
+								<defs>
+									<path id="MJX-16-TEX-I-1D44A"
+										d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z">
+									</path>
+									<path id="MJX-16-TEX-N-3D"
+										d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+									</path>
+									<path id="MJX-16-TEX-N-31"
+										d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z">
+									</path>
+									<path id="MJX-16-TEX-I-1D45B"
+										d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z">
+									</path>
+									<path id="MJX-16-TEX-SO-2211"
+										d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z">
+									</path>
+									<path id="MJX-16-TEX-I-1D456"
+										d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z">
+									</path>
+									<path id="MJX-16-TEX-I-1D447"
+										d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z">
+									</path>
+									<path id="MJX-16-TEX-I-1D460"
+										d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z">
+									</path>
+								</defs>
+								<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+									<g data-mml-node="math">
+										<g data-mml-node="mi">
+											<use data-c="1D44A" xlink:href="#MJX-16-TEX-I-1D44A"></use>
+										</g>
+										<g data-mml-node="mo" transform="translate(1325.8,0)">
+											<use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="mfrac" transform="translate(2381.6,0)">
+											<g data-mml-node="mn" transform="translate(255.4,394) scale(0.707)">
+												<use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(220,-345) scale(0.707)">
+												<use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use>
+											</g>
+											<rect width="624.3" height="60" x="120" y="220"></rect>
+										</g>
+										<g data-mml-node="munderover" transform="translate(3412.5,0)">
+											<g data-mml-node="mo">
+												<use data-c="2211" xlink:href="#MJX-16-TEX-SO-2211"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(1089,477.1) scale(0.707)">
+												<use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use>
+											</g>
+											<g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)"
+												data-mjx-texclass="ORD">
+												<g data-mml-node="mi">
+													<use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use>
+												</g>
+												<g data-mml-node="mo" transform="translate(345,0)">
+													<use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use>
+												</g>
+												<g data-mml-node="mn" transform="translate(1123,0)">
+													<use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use>
+												</g>
+											</g>
+										</g>
+										<g data-mml-node="msub" transform="translate(5865.8,0)">
+											<g data-mml-node="mi">
+												<use data-c="1D44A" xlink:href="#MJX-16-TEX-I-1D44A"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(977,-150) scale(0.707)">
+												<use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use>
+											</g>
+										</g>
+										<g data-mml-node="mo" transform="translate(7414.5,0)">
+											<use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use>
+										</g>
+										<g data-mml-node="mfrac" transform="translate(8470.3,0)">
+											<g data-mml-node="mn" transform="translate(255.4,394) scale(0.707)">
+												<use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use>
+											</g>
+											<g data-mml-node="mi" transform="translate(220,-345) scale(0.707)">
+												<use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use>
+											</g>
+											<rect width="624.3" height="60" x="120" y="220"></rect>
+										</g>
+										<g data-mml-node="munderover" transform="translate(9501.2,0)">
+											<g data-mml-node="mo">
+												<use data-c="2211" xlink:href="#MJX-16-TEX-SO-2211"></use>
+											</g>
+											<g data-mml-node="TeXAtom" transform="translate(1089,477.1) scale(0.707)"
+												data-mjx-texclass="ORD">
+												<g data-mml-node="mi">
+													<use data-c="1D45B" xlink:href="#MJX-16-TEX-I-1D45B"></use>
+												</g>
+											</g>
+											<g data-mml-node="TeXAtom" transform="translate(1089,-285.4) scale(0.707)"
+												data-mjx-texclass="ORD">
+												<g data-mml-node="mi">
+													<use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use>
+												</g>
+												<g data-mml-node="mo" transform="translate(345,0)">
+													<use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use>
+												</g>
+												<g data-mml-node="mn" transform="translate(1123,0)">
+													<use data-c="31" xlink:href="#MJX-16-TEX-N-31"></use>
+												</g>
+											</g>
+										</g>
+										<g data-mml-node="mfrac" transform="translate(11954.5,0)">
+											<g data-mml-node="msub" transform="translate(251,451.6) scale(0.707)">
+												<g data-mml-node="mi">
+													<use data-c="1D447" xlink:href="#MJX-16-TEX-I-1D447"></use>
+												</g>
+												<g data-mml-node="mi" transform="translate(617,-150) scale(0.707)">
+													<use data-c="1D456" xlink:href="#MJX-16-TEX-I-1D456"></use>
+												</g>
+											</g>
+											<g data-mml-node="msub" transform="translate(220,-345) scale(0.707)">
+												<g data-mml-node="mi">
+													<use data-c="1D447" xlink:href="#MJX-16-TEX-I-1D447"></use>
+												</g>
+												<g data-mml-node="mi" transform="translate(617,-150) scale(0.707)">
+													<use data-c="1D460" xlink:href="#MJX-16-TEX-I-1D460"></use>
+												</g>
+											</g>
+											<rect width="906.1" height="60" x="120" y="220"></rect>
+										</g>
+									</g>
+								</g>
+							</svg>
+							<mjx-assistive-mml unselectable="on" display="inline"><math
+									xmlns="http://www.w3.org/1998/Math/MathML">
+									<mi>W</mi>
+									<mo>=</mo>
+									<mfrac>
+										<mn>1</mn>
+										<mi>n</mi>
+									</mfrac>
+									<munderover>
+										<mo data-mjx-texclass="OP">∑</mo>
+										<mrow data-mjx-texclass="ORD">
+											<mi>i</mi>
+											<mo>=</mo>
+											<mn>1</mn>
+										</mrow>
+										<mi>n</mi>
+									</munderover>
+									<msub>
+										<mi>W</mi>
+										<mi>i</mi>
+									</msub>
+									<mo>=</mo>
+									<mfrac>
+										<mn>1</mn>
+										<mi>n</mi>
+									</mfrac>
+									<munderover>
+										<mo data-mjx-texclass="OP">∑</mo>
+										<mrow data-mjx-texclass="ORD">
+											<mi>i</mi>
+											<mo>=</mo>
+											<mn>1</mn>
+										</mrow>
+										<mrow data-mjx-texclass="ORD">
+											<mi>n</mi>
+										</mrow>
+									</munderover>
+									<mfrac>
+										<msub>
+											<mi>T</mi>
+											<mi>i</mi>
+										</msub>
+										<msub>
+											<mi>T</mi>
+											<mi>s</mi>
+										</msub>
+									</mfrac>
+								</math></mjx-assistive-mml>
+						</mjx-container>
+						<script type="math/tex">W=\frac{1}{n}\sum_{i=1}^nW_i=\frac{1}{n}\sum_{i=1}^{n}\frac{T_i}{T_s}
+						</script>
+					</p>
+				</blockquote>
+				<p><span>分时系统的目标：响应时间快、均衡性</span></p>
+				<p><span>实时系统的目标：保证截止时间、保证</span></p>
+				<h1 id='2-调度算法'><span>2 调度算法</span></h1>
+				<h2 id='21-概述'><span>2.1 概述</span></h2>
+				<p><strong><span>作业调度算法</span></strong><span>：先来先服务调度算法(FCFS)、短作业优先调度算法(SJF)、优先权调度算法(PR)、高响应比优先调度算法(HRRN)</span>
+				</p>
+				<p><strong><span>进程调度算法</span></strong><span>：先来先服务调度算法(FCFS)、短作业优先调度算法(SJF)、优先权调度算法(PR)、时间片轮转调度算法(RR)、多级队列调度算法、多级反馈队列调度算法、基于公平原则的调度算法</span>
+				</p>
+				<h2 id='22-先来先服务调度算法fcfs'><span>2.2 先来先服务调度算法FCFS</span></h2>
+				<p><span>是最简单的一种调度算法，即可用于作业调度，也可以用于进程调度。</span></p>
+				<p><span>算法特征：</span></p>
+				<ul>
+					<li><span>按照作业提交/进程就绪的</span><strong><span>先后次序</span></strong><span>，分派CPU；</span></li>
+					<li><span>当前作业占用CPU，直到执行完或阻塞才出让CPU；</span></li>
+					<li><span>在作业或进程唤醒后（如I/O完成），并不立即恢复执行，通常等到当前作业或进程出让CPU。</span></li>
+					<li><span>最简单的算法，有利于长作业和CPU繁忙的作业，很少单独使用。常作为一种辅助调度算法与其他算法配合使用较多。</span></li>
+				</ul>
+				<h2 id='23-最短作业优先sjf'><span>2.3 最短作业优先SJF</span></h2>
+				<p><span>按作业估计</span><strong><span>运行时间长短</span></strong><span>来组织后备作业调度，优先分派处理机。但通常后来的短作业</span>
+					<span>正在执行的作业。</span>
+				</p>
+				<ul>
+					<li><span>优点：比FCFS降低了</span><strong><span>周转时间</span></strong><span>，缩短作业的等待时间；提高系统的</span><strong><span>吞吐量</span></strong>
+					</li>
+					<li><span>缺点：</span><strong><span>对长作业不利</span></strong><span>；未能考虑作业的</span><strong><span>紧迫程度</span></strong><span>；</span><strong><span>难以准确</span></strong><span>估计作业的执行时间。</span>
+					</li>
+				</ul>
+				<h2 id='24-优先级调度算法pr'><span>2.4 优先级调度算法PR</span></h2>
+				<p><span>基于作业/进程的</span><strong><span>紧迫程度</span></strong><span>，由外部赋予作业相应的优先级，调度算法根据优先级进行调度。每个进程都有一个优先数（整数），小的优先数具有高优先级。是目前主流的操作系统调度算法。</span>
+				</p>
+				<p><span>优先级类型分为两种：</span>
+					<strong><span>静态优先级</span></strong><span>：创建进程时确定优先级，在进程的整个运行期间保持不变，简单易行，系统开销小。不够精确，可能会出现优先级低的进程长期没有被调度的情况。</span>
+					<strong><span>动态优先级</span></strong><span>：创建进程时先赋予优先级，随</span><strong><span>进程推进或等待时间</span></strong><span>增加而改变。</span>
+				</p>
+				<blockquote>
+					<p><span>高响应比优先调度算法(HRRN)是一种优先级调度算法，用于作业调度。</span></p>
+				</blockquote>
+				<h2 id='25-高响应比优先调度算法hrrn'><span>2.5 高响应比优先调度算法HRRN</span></h2>
+				<p><span>这里的优先权是响应比R</span><sub><span>p</span></sub></p>
+				<p>
+					<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+							xmlns="http://www.w3.org/2000/svg" width="51.002ex" height="3.447ex" role="img"
+							focusable="false" viewBox="0 -1011.8 22542.7 1523.5"
+							xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+							style="vertical-align: -1.158ex;">
+							<defs>
+								<path id="MJX-17-TEX-I-1D445"
+									d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z">
+								</path>
+								<path id="MJX-17-TEX-I-1D45D"
+									d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z">
+								</path>
+								<path id="MJX-17-TEX-N-3D"
+									d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+								</path>
+								<path id="MJX-17-TEX-N-2B"
+									d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+								</path>
+								<path id="MJX-17-TEX-N-31"
+									d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z">
+								</path>
+							</defs>
+							<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+								<g data-mml-node="math">
+									<g data-mml-node="msub">
+										<g data-mml-node="mi">
+											<use data-c="1D445" xlink:href="#MJX-17-TEX-I-1D445"></use>
+										</g>
+										<g data-mml-node="mi" transform="translate(792,-150) scale(0.707)">
+											<use data-c="1D45D" xlink:href="#MJX-17-TEX-I-1D45D"></use>
+										</g>
+									</g>
+									<g data-mml-node="mo" transform="translate(1475.5,0)">
+										<use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use>
+									</g>
+									<g data-mml-node="mfrac" transform="translate(2531.2,0)">
+										<g data-mml-node="mrow" transform="translate(220,481.4) scale(0.707)">
+											<g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)"
+													font-size="884px" font-family="serif">等</text></g>
+											<g data-mml-node="mtext" transform="translate(884,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">待</text></g>
+											<g data-mml-node="mtext" transform="translate(1768,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(2652,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+											<g data-mml-node="mo" transform="translate(3536,0)">
+												<use data-c="2B" xlink:href="#MJX-17-TEX-N-2B"></use>
+											</g>
+											<g data-mml-node="mtext" transform="translate(4314,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">要</text></g>
+											<g data-mml-node="mtext" transform="translate(5198,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">求</text></g>
+											<g data-mml-node="mtext" transform="translate(6082,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">服</text></g>
+											<g data-mml-node="mtext" transform="translate(6966,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">务</text></g>
+											<g data-mml-node="mtext" transform="translate(7850,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(8734,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+										</g>
+										<g data-mml-node="mrow" transform="translate(1745.2,-370.3) scale(0.707)">
+											<g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)"
+													font-size="884px" font-family="serif">要</text></g>
+											<g data-mml-node="mtext" transform="translate(884,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">求</text></g>
+											<g data-mml-node="mtext" transform="translate(1768,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">服</text></g>
+											<g data-mml-node="mtext" transform="translate(2652,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">务</text></g>
+											<g data-mml-node="mtext" transform="translate(3536,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(4420,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+										</g>
+										<rect width="7001" height="60" x="120" y="220"></rect>
+									</g>
+									<g data-mml-node="mo" transform="translate(10050,0)">
+										<use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use>
+									</g>
+									<g data-mml-node="mfrac" transform="translate(11105.7,0)">
+										<g data-mml-node="mrow" transform="translate(845.1,481.4) scale(0.707)">
+											<g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)"
+													font-size="884px" font-family="serif">响</text></g>
+											<g data-mml-node="mtext" transform="translate(884,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">应</text></g>
+											<g data-mml-node="mtext" transform="translate(1768,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(2652,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+										</g>
+										<g data-mml-node="mrow" transform="translate(220,-370.3) scale(0.707)">
+											<g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)"
+													font-size="884px" font-family="serif">要</text></g>
+											<g data-mml-node="mtext" transform="translate(884,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">求</text></g>
+											<g data-mml-node="mtext" transform="translate(1768,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">服</text></g>
+											<g data-mml-node="mtext" transform="translate(2652,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">务</text></g>
+											<g data-mml-node="mtext" transform="translate(3536,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(4420,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+										</g>
+										<rect width="3950.5" height="60" x="120" y="220"></rect>
+									</g>
+									<g data-mml-node="mo" transform="translate(15574,0)">
+										<use data-c="3D" xlink:href="#MJX-17-TEX-N-3D"></use>
+									</g>
+									<g data-mml-node="mn" transform="translate(16629.8,0)">
+										<use data-c="31" xlink:href="#MJX-17-TEX-N-31"></use>
+									</g>
+									<g data-mml-node="mo" transform="translate(17352,0)">
+										<use data-c="2B" xlink:href="#MJX-17-TEX-N-2B"></use>
+									</g>
+									<g data-mml-node="mfrac" transform="translate(18352.2,0)">
+										<g data-mml-node="mrow" transform="translate(845.1,481.4) scale(0.707)">
+											<g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)"
+													font-size="884px" font-family="serif">等</text></g>
+											<g data-mml-node="mtext" transform="translate(884,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">待</text></g>
+											<g data-mml-node="mtext" transform="translate(1768,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(2652,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+										</g>
+										<g data-mml-node="mrow" transform="translate(220,-370.3) scale(0.707)">
+											<g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)"
+													font-size="884px" font-family="serif">要</text></g>
+											<g data-mml-node="mtext" transform="translate(884,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">求</text></g>
+											<g data-mml-node="mtext" transform="translate(1768,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">服</text></g>
+											<g data-mml-node="mtext" transform="translate(2652,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">务</text></g>
+											<g data-mml-node="mtext" transform="translate(3536,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">时</text></g>
+											<g data-mml-node="mtext" transform="translate(4420,0)"><text
+													data-variant="normal" transform="scale(1,-1)" font-size="884px"
+													font-family="serif">间</text></g>
+										</g>
+										<rect width="3950.5" height="60" x="120" y="220"></rect>
+									</g>
+								</g>
+							</g>
+						</svg>
+						<mjx-assistive-mml unselectable="on" display="inline"><math
+								xmlns="http://www.w3.org/1998/Math/MathML">
+								<msub>
+									<mi>R</mi>
+									<mi>p</mi>
+								</msub>
+								<mo>=</mo>
+								<mfrac>
+									<mrow>
+										<mtext>等</mtext>
+										<mtext>待</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+										<mo>+</mo>
+										<mtext>要</mtext>
+										<mtext>求</mtext>
+										<mtext>服</mtext>
+										<mtext>务</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+									</mrow>
+									<mrow>
+										<mtext>要</mtext>
+										<mtext>求</mtext>
+										<mtext>服</mtext>
+										<mtext>务</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+									</mrow>
+								</mfrac>
+								<mo>=</mo>
+								<mfrac>
+									<mrow>
+										<mtext>响</mtext>
+										<mtext>应</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+									</mrow>
+									<mrow>
+										<mtext>要</mtext>
+										<mtext>求</mtext>
+										<mtext>服</mtext>
+										<mtext>务</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+									</mrow>
+								</mfrac>
+								<mo>=</mo>
+								<mn>1</mn>
+								<mo>+</mo>
+								<mfrac>
+									<mrow>
+										<mtext>等</mtext>
+										<mtext>待</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+									</mrow>
+									<mrow>
+										<mtext>要</mtext>
+										<mtext>求</mtext>
+										<mtext>服</mtext>
+										<mtext>务</mtext>
+										<mtext>时</mtext>
+										<mtext>间</mtext>
+									</mrow>
+								</mfrac>
+							</math></mjx-assistive-mml>
+					</mjx-container>
+					<script type="math/tex">R_p=\frac{等待时间+要求服务时间}{要求服务时间}=\frac{响应时间}{要求服务时间}=1+\frac{等待时间}{要求服务时间}
+					</script>
+				</p>
+				<p><span>HRRN是FCFS和SJF两种算法的一种折中算法，比较好的满足了短作业用户和长作业用户的要求。但吞吐量比SJF小，计算
+						R</span><sub><span>p</span></sub><span> 会增加系统开销。</span></p>
+				<h2 id='作业调度算法实例1'><span>作业调度算法实例1</span></h2>
+				<p><img src="Images/3作业调度算法实例1.png" referrerpolicy="no-referrer"></p>
+				<p><span>FCFS调度算法结果:</span>
+					<img src="Images/3作业调度算法实例1-1.png" referrerpolicy="no-referrer">
+				</p>
+				<p><span>SJF调度算法结果：</span>
+					<img src="Images/3作业调度算法实例1-2.png" referrerpolicy="no-referrer">
+				</p>
+				<p><span>HRRN调度算法计算结果：</span>
+					<img src="Images/3作业调度算法实例1-3.png" referrerpolicy="no-referrer">
+				</p>
+				<p><span>三种算法的比较：</span></p>
+				<figure>
+					<table>
+						<thead>
+							<tr>
+								<th><span>算法</span></th>
+								<th><span>平均周转时间</span></th>
+								<th><span>代权平均周转时间</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>FCFS</span></td>
+								<td><span>112.5</span></td>
+								<td><span>4.975</span></td>
+							</tr>
+							<tr>
+								<td><span>SJF</span></td>
+								<td><span>95</span></td>
+								<td><span>3.25</span></td>
+							</tr>
+							<tr>
+								<td><span>HRRN</span></td>
+								<td><span>102.5</span></td>
+								<td><span>3.775</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</figure>
+				<p><span>分析：SJF算法平均周转时间最短，但可能使长时间长作业等待；HRRN算法，既考虑时间长短，又考虑等待时间，在长、短作业之间进行了适当的均衡，其平均周转时间介于FCFS和SJF之间。</span>
+				</p>
+				<h2 id='作业调度算法实例2'><span>作业调度算法实例2</span></h2>
+				<p><img src="Images/3作业调度算法实例2.png" referrerpolicy="no-referrer"></p>
+				<p><img src="Images/3作业调度算法实例2-1.png" referrerpolicy="no-referrer"></p>
+				<h2 id='26-时间片轮转调度算法'><span>2.6 时间片轮转调度算法</span></h2>
+				<p><span>把CPU划分成若干时间片，并且按顺序赋给就绪队列中的每一个进程，进程</span><strong><span>轮流占用CPU</span></strong><span>。通过时间片轮转，提高进程并发性和响应时间特性，从而提高资源利用率。</span>
+				</p>
+				<p><span>时间片选择问题：固定时间片、可变时间片</span></p>
+				<p><span>简单循环轮转调度算法：时间片：</span>
+					<mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg
+							xmlns="http://www.w3.org/2000/svg" width="7.363ex" height="2.262ex" role="img"
+							focusable="false" viewBox="0 -750 3254.6 1000" xmlns:xlink="http://www.w3.org/1999/xlink"
+							aria-hidden="true" style="vertical-align: -0.566ex;">
+							<defs>
+								<path id="MJX-18-TEX-I-1D45E"
+									d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z">
+								</path>
+								<path id="MJX-18-TEX-N-3D"
+									d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z">
+								</path>
+								<path id="MJX-18-TEX-I-1D461"
+									d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z">
+								</path>
+								<path id="MJX-18-TEX-N-2F"
+									d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z">
+								</path>
+								<path id="MJX-18-TEX-I-1D45B"
+									d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z">
+								</path>
+							</defs>
+							<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+								<g data-mml-node="math">
+									<g data-mml-node="mi">
+										<use data-c="1D45E" xlink:href="#MJX-18-TEX-I-1D45E"></use>
+									</g>
+									<g data-mml-node="mo" transform="translate(737.8,0)">
+										<use data-c="3D" xlink:href="#MJX-18-TEX-N-3D"></use>
+									</g>
+									<g data-mml-node="mi" transform="translate(1793.6,0)">
+										<use data-c="1D461" xlink:href="#MJX-18-TEX-I-1D461"></use>
+									</g>
+									<g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2154.6,0)">
+										<g data-mml-node="mo">
+											<use data-c="2F" xlink:href="#MJX-18-TEX-N-2F"></use>
+										</g>
+									</g>
+									<g data-mml-node="mi" transform="translate(2654.6,0)">
+										<use data-c="1D45B" xlink:href="#MJX-18-TEX-I-1D45B"></use>
+									</g>
+								</g>
+							</g>
+						</svg>
+						<mjx-assistive-mml unselectable="on" display="inline"><math
+								xmlns="http://www.w3.org/1998/Math/MathML">
+								<mi>q</mi>
+								<mo>=</mo>
+								<mi>t</mi>
+								<mrow data-mjx-texclass="ORD">
+									<mo>/</mo>
+								</mrow>
+								<mi>n</mi>
+							</math></mjx-assistive-mml>
+					</mjx-container>
+					<script type="math/tex">q=t/n</script><span> ( t为响应时间，n为系统进程数目)</span>
+				</p>
+				<p><span>时间片大小从几个ms~几百ms</span></p>
+				<p><span>时间片轮转调度算法实例（时间片=1）</span></p>
+				<p><span>时间片轮转调度算法实例（时间片=5）</span>
+					<img src="Images/3时间片轮转调度算法实例（时间片=5）.png" referrerpolicy="no-referrer">
+				</p>
+				<h2 id='27-多级反馈队列调度算法'><span>2.7 多级反馈队列调度算法</span></h2>
+				<p><span>多级反馈队列算法是</span><strong><span>时间片轮转算法</span></strong><span>和</span><strong><span>优先级算法</span></strong><span>的总和和发展。</span>
+				</p>
+				<p><img src="Images/3多级反馈队列调度算法.png" referrerpolicy="no-referrer"></p>
+				<p><span>设置多个就绪队列：每个就绪队列分配给不同时间片，优先级高的为第一级队列，时间片最小，随队列级别的降低，时间片加大；当第一级队列空时，就调度第二级队列，如此类推；各个队列按照先进先出调度算法，最后一级采用时间片轮转。一个新进程就绪后进入第一级队列，进程由于等待而放弃CPU后，进入等待队列，一旦等待的事件发生，则回到原来的就绪队列；当时间片到后，进程放弃CPU，进入下一级队列；当有一个优先级更高的进程就绪时，可以抢占CPU，被抢占的进程回到原来一级的就绪队列末尾。</span>
+				</p>
+				<p><span>优点：</span><strong><span>照顾短进程、照顾I/O型进程、不必估计进程的执行时间</span></strong></p>
+				<h1 id='3-实时调度'><span>3 实时调度</span></h1>
+				<h2 id='31-实时调度算法分类'><span>3.1 实时调度算法分类</span></h2>
+				<p><span>根据实时任务性质：HRT调度算法、SRT调度算法</span>
+					<span>根据调度方式：非抢占式调度算法、抢占式调度算法</span>
+				</p>
+				<h2 id='32-调度算法'><span>3.2 调度算法</span></h2>
+				<h3 id='321-非抢占式'><span>3.2.1 非抢占式</span></h3>
+				<h4 id='非抢占式轮转调度算法'><span>非抢占式轮转调度算法</span></h4>
+				<p><span>响应时间：数秒至数十秒</span>
+					<span>要求不太严格的实时系统</span>
+				</p>
+				<h4 id='非抢占式优先调度算法'><span>非抢占式优先调度算法</span></h4>
+				<p><span>响应时间：数秒至数百毫秒</span>
+					<span>对时间有一定要求的实时系统</span>
+				</p>
+				<h3 id='322-抢占式'><span>3.2.2 抢占式</span></h3>
+				<h4 id='基于时钟中断的抢占式优先级调度'><span>基于时钟中断的抢占式优先级调度</span></h4>
+				<p><span>响应时间：几十毫秒至几毫秒</span>
+					<span>可用于大多数实时系统</span>
+				</p>
+				<h4 id='立即抢占的优先级调度'><span>立即抢占的优先级调度</span></h4>
+				<p><span>响应时间：几毫秒至几百微秒</span>
+					<span>有严格时间要求的实时系统</span>
+				</p>
+				<h2 id='33-最早截止时间优先edf）调度算法'><span>3.3 最早截止时间优先（EDF）调度算法</span></h2>
+				<p><span>EDF根据任务的截止时间确定优先级，截止时间越早，优先级越高；既可用于抢占式调度（周期实时任务），也可用于非抢占式调度（用于非周期实时任务）。</span></p>
+				<h2 id='34-最低松弛度优先llf算法'><span>3.4 最低松弛度优先LLF算法</span></h2>
+				<p><span>根据任务的紧急程度（松弛度）确定任务优先级，紧急程度越高（松弛度越低），优先级越高；松弛度=必须完成时间-其本身的运行时间-当前时间</span></p>
+				<p><span>主要用在抢占式调度方式中。</span></p>
+				<h2 id='优先级倒置现象'><span>优先级倒置现象</span></h2>
+				<p><span>采用优先级调度和抢占方式，可能产生优先级倒置。现象：高优先级进程被低优先级进程延迟或阻塞。</span></p>
+				<p><span>解决办法：制定一些规定，如规定低优先级进程执行后，其所占用的处理机不允许被抢占；建立动态优先级继承。</span></p>
+				<h1 id='4-linux进程调度'><span>4 Linux进程调度</span></h1>
+				<p><span>默认调度算法：完全公平调度CFS算法。</span></p>
+				<p><span>基于调度器类：允许不同的可动态添加的调度算法并存，每个类都有一个特定的优先级。</span></p>
+				<ul>
+					<li><span>总调度器：根据调度器类的优先顺序，依次对调度器类中的进程进行调度。</span></li>
+					<li><span>调度器类：使用所选的调度器类算法（调度策略）进行内部的调度。</span></li>
+					<li><span>调度器类的默认优先级顺序为：Stop_Task &gt; Real_Time &gt; Fair &gt; Idle_Task</span></li>
+				</ul>
+				<p><span>普通进程调度：</span></p>
+				<ul>
+					<li><span>采用SCHED_NORMAL调度策略</span></li>
+					<li><span>分配优先级、挑选进程并允许、计算使其运行多久</span></li>
+					<li><span>CPU运行时间与友好值（-20~+19）有关，数值越低优先级越高。</span></li>
+				</ul>
+				<p><span>实时进程调度：</span></p>
+				<ul>
+					<li><span>实时调度的进程比普通进程具有更高的优先级。</span></li>
+					<li><span>SCHED_FIFO：进程若处于可执行的状态，就会一直执行，直到它自己被阻塞或者主动放弃CPU。</span></li>
+					<li><span>SCHED_RR：与SCHED_FIFO大致相同，只是进程在耗尽其时间片后，不能再执行，而是需要接受CPU的调度。</span></li>
+				</ul>
+				<h1 id='5-死锁概述'><span>5 死锁概述</span></h1>
+				<p><span>引起死锁的原因：</span></p>
+				<ul>
+					<li><span>竞争不可抢占资源引起死锁</span></li>
+					<li><span>竞争可消耗资源引起死锁</span></li>
+					<li><span>进程推进不当引起的死锁</span></li>
+				</ul>
+				<h2 id='51-死锁的定义'><span>5.1 死锁的定义</span></h2>
+				<p><span>一组并发进程彼此</span><strong><span>无休止地等待</span></strong><span>对方占用的资源，从而造成不能继续向前推进的状态，称为进程</span><strong><span>死锁(Deadlock)</span></strong><span>，这一组进程就称为</span><strong><span>死锁进程</span></strong><span>。</span>
+				</p>
+				<p><span>分析：</span></p>
+				<ul>
+					<li><span>参与死锁的进程至少有两个，即两个以上的进程才会出现死锁</span></li>
+					<li><span>参与死锁的进程至少有两个已经占有资源</span></li>
+					<li><span>参与死锁的所有进程都在等待资源</span></li>
+					<li><span>参与死锁的进程是当前系统中所有进程的子集</span>
+						<span>注：死锁发生，会浪费大量资源，甚至导致系统崩溃。</span>
+					</li>
+				</ul>
+				<h2 id='52-产生死锁的四个必要条件'><span>5.2 产生死锁的四个必要条件</span></h2>
+				<ul>
+					<li><span>互斥条件</span></li>
+					<li><span>不可抢占(不可剥夺)条件</span></li>
+					<li><span>请求和保持条件</span></li>
+					<li><span>循环等待条件</span></li>
+				</ul>
+				<p><span>说明：上述四个条件只要有一个不满足，就可排除死锁。但必要条件成立，系统未必一定发生死锁。</span></p>
+				<h2 id='53-处理死锁的基本方法'><span>5.3 处理死锁的基本方法</span></h2>
+				<ul>
+					<li><span>确保系统永远不会进入死锁状态（死锁预防、死锁避免）</span></li>
+					<li><span>允许系统进入死锁状态，然后恢复系统（死锁检测、死锁恢复）</span></li>
+					<li><span>忽略这个问题，假装不会出现死锁，这个方法被大部分OS采用。</span></li>
+				</ul>
+				<h3 id='531-预防死锁'><span>5.3.1 预防死锁</span></h3>
+				<p><span>破坏死锁的四个必要条件中的一个或几个。</span></p>
+				<ol start=''>
+					<li><span>互斥：互斥条件是共享资源必须的，不仅不能改变，还应加以保证</span></li>
+					<li><span>请求和保持：必须保证进程申请资源的时候没有占有其他资源。</span></li>
+				</ol>
+				<ul>
+					<li><span>要求进程在执行前一次性申请全部的资源，只有没有占有资源时才可以分配资源</span></li>
+					<li><span>资源利用率低，可能出现饥饿</span></li>
+					<li><span>改进：进程只获得运行初期所需的资源后，便开始运行；其后在运行过程中逐步释放已分配的且用毕的全部资源，然后再请求新资源。</span></li>
+				</ul>
+				<ol start='3'>
+					<li><span>非抢占：如果一个进程的申请没有实现，它要释放所有占有的资源；先占的资源放入进程等待资源列表中；进程在重新得到旧的资源的时候可以重新开始。</span></li>
+					<li><span>循环等待：对所有的资源类型进行线性排序，并赋予不同的序号，要求进程按照递增顺序申请资源。</span></li>
+				</ol>
+				<ul>
+					<li><span>如何规定每种资源的序号是十分重要的</span></li>
+					<li><span>限制新类型设备的增加</span></li>
+					<li><span>作业使用资源的顺序与系统规定的顺序不同</span></li>
+					<li><span>限制用户简单、自主的编程</span></li>
+				</ul>
+				<h3 id='532-避免死锁'><span>5.3.2 避免死锁</span></h3>
+				<p><span>在资源动态分配时，防止系统进入不安全状态。</span></p>
+				<p><span>方法：</span>
+					<span>设一个简单而有效的模型，要求每一个进程</span><strong><span>声明它所需要的资源的最大数</span></strong><span>；</span><strong><span>死锁避免算法</span></strong><span>动态检查资源分配状态以确保不会出现循环等待的情况；资源分配状态定义为可用的与</span><strong><span>已分配的资源数</span></strong><span>，和</span><strong><span>进程所需的最大资源量</span></strong><span>。</span>
+				</p>
+				<h4 id='系统的安全状态'><span>系统的安全状态</span></h4>
+				<p><span>在“避免死锁”的方法中的判断条件。</span>
+					<span>安全状态：按某种顺序所有进程都能达到获得最大资源而顺序完成的序列为</span><strong><span>安全序列</span></strong><span>，能找到安全序列的状态为</span><strong><span>安全状态</span></strong><span>。</span>
+					<img src="Images/3安全状态实例.png" referrerpolicy="no-referrer">
+				</p>
+				<h4 id='著名避免死锁算法-银行家算法'><span>著名避免死锁算法-银行家算法</span></h4>
+				<p><span>由Dijkstra于1965年首先提出并解决。</span>
+					<span>问题：如何将其总数一定的现金，安全地借给若干个顾客，使这些顾客既能满足对资金的要求，又能完成其交易，也使银行家可以收回自己的全部现金而不至于破产。这类似于OS中的资源分配问题：在若干个并发进程间分配单位数量一定的某共享资源。</span>
+				</p>
+				<ol start=''>
+					<li><span>单资源银行家算法</span>
+						<img src="Images/3单资源银行家算法.png" referrerpolicy="no-referrer">
+					</li>
+					<li><span>多资源银行家算法数据结构</span>
+						<span>假定系统中有n个进程P1，...，Pn，m类资源R1，...，Rm</span>
+					</li>
+				</ol>
+				<ul>
+					<li><span>系统资源向量R=R1，...，Rm）表示系统中拥有每类资源的数量；</span></li>
+					<li><span>可用资源向量Available=（V1，V2，…，Vm）表示系统中尚未分给进程的每类资源的数量；</span></li>
+					<li><span>最大需求矩阵Max是一个n×m矩阵，表示系统中n个进程对m类资源的最大需求。</span></li>
+					<li><span>需求矩阵Need，是一个n×m矩阵，表示每一个进程还需要的各类资源数目。</span></li>
+					<li><span>资源分配矩阵Allocate，是一个n×m矩阵，A</span>[<span>i</span>][j]<span>表示进程i已分得j类资源的数量。</span></li>
+				</ul>
+				<h4 id='实例'><span>实例</span></h4>
+				<p><img src="Images/3避免死锁实例.png" referrerpolicy="no-referrer"></p>
+				<h3 id='533-死锁的检测与解除'><span>5.3.3 死锁的检测与解除</span></h3>
+				<p><strong><span>检测死锁</span></strong><span>：事先不采取任何措施，允许死锁发生，但及时检测死锁发生。</span></p>
+				<p><strong><span>解除死锁</span></strong><span>：检测到死锁发生时，采取相应措施，将进程从死锁状态中解脱出来。</span>
+					<span>死锁的预防策略是非常保守的，通过</span><strong><span>限制访问资源和在进程上强加约束</span></strong><span>来解决死锁问题。</span>
+					<span>死锁检测（deadlock
+						detection)策略则完全相反，不限制资源访问或约束进程行为，OS周期性地执行一个算法检测死锁发生的四个必要条件。即：允许死锁发生，OS不断监视系统进展情况，判断并以最小的代价恢复操作系统运行。</span>
+				</p>
+				<h4 id='资源分配图'><span>资源分配图</span></h4>
+				<p><span>节点</span></p>
+				<ul>
+					<li><span>资源类：用方框表示（资源实例：用方框中的黑圆点表示）</span></li>
+					<li><span>进程：用圆圈中加进程名表示</span></li>
+				</ul>
+				<p><span>边</span></p>
+				<ul>
+					<li><span>分配边：资源实例→进程</span></li>
+					<li><span>申请边：进程→资源类</span>
+						<img src="Images/3资源分配图1.png" referrerpolicy="no-referrer">
+					</li>
+				</ul>
+				<p><img src="Images/3资源分配图2.png" referrerpolicy="no-referrer"></p>
+				<p><img src="Images/3资源分配图3.png" referrerpolicy="no-referrer"></p>
+				<h4 id='资源分配图化简'><span>资源分配图化简</span></h4>
+				<p><span>在一个资源分配图中，若某进程的资源申请都能被满足，完成任务，释放所占有的全部资源，则称该图可以被该进程化简。若该图可被其所有进程化简，则称</span><strong><span>该图是可化简的</span></strong><span>。</span>
+				</p>
+				<p><span>资源分配图化简方法：</span>
+					<span>（1）找到一个既</span><strong><span>非阻塞又非孤立</span></strong><span>的进程节点Pi，去掉请求边和分配边，将其变为孤立节点；</span>
+					<span>（2）把Pi释放的资源分配给申请等待该资源的进程，即将某进程的申请边变为分配边。</span>
+					<span>（3）重复1，2，直到找不到符合条件的进程节点。经过简化后，若能消去图的所有边，使</span><strong><span>所有进程都成为孤立点</span></strong><span>，则该图是可完全化简的。</span>
+					<img src="Images/3资源分配图化简.png" referrerpolicy="no-referrer">
+				</p>
+				<h4 id='死锁定理'><span>死锁定理</span></h4>
+				<p><span>如果</span><strong><span>资源分配图中没有环路，则系统中没有死锁</span></strong><span>，如果图中存在环路则系统中</span><strong><span>可能</span></strong><span>存在死锁。如果每个资源类中只包含一个资源实例，则环路是死锁存在的充分必要条件。</span>
+				</p>
+				<p><strong><span>死锁定理</span></strong><span>：死锁状态的充分条件，是资源分配图不可完全化简。</span></p>
+				<h4 id='死锁解除'><span>死锁解除</span></h4>
+				<p><span>（1）</span><strong><span>重新启动</span></strong>
+					<span>（2）</span><strong><span>进程回退</span></strong><span>：将死锁进程退回到前一个检查点，并重新从该检查点启动这些进程（需系统提供检查点和重新启动机制）。有可能使原来的死锁再次发生，但由于并发处理系统的不确定性，通常死锁有可能不发生。</span>
+					<span>（3）</span><strong><span>剥夺资源</span></strong><span>：使用挂起/激活机制挂起一些进程，剥夺他们占有的资源给死锁进程，以解除死锁，待以后条件满足时再激活被挂起的进程。</span>
+					<span>（4）</span><strong><span>撤销进程</span></strong><span>：撤销死锁进程，将它们占有的资源分配给另一些死锁进程，直到死锁解除。</span>
+				</p>
+			</div>
+		</div>
+	</body>
 </html>
