@@ -137,7 +137,7 @@ ul, ol { list-style: none; }
 
 .quote-content { margin: 30px auto 0;font-size: 22px; }
 
-.quote-author { margin: 10px auto 30px 370px; }
+.quote-author { margin: 10px auto 30px 60%; }
 
 
 /* Links
