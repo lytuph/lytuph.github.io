@@ -20,14 +20,14 @@
 
 	<body>
 		<div class="vi">
-			<h1 class="animate-slide-in-down">Lytuph</h1>
+			<h1 class="" id="ft">&emsp;</h1>
 			<div class="quote">
 				<span class="quote-line quote-line-start animate-slide-in-left"></span>
 				<span class="quote-icon quote-icon-start animate-slide-in-down">
 					<i class="icon icon-quotes-left"></i>
 				</span>
-				<p class="quote-content animate-slide-in-down">不积跬步，无以至千里。不积小流，无以成江海。</p>
-				<p class="quote-author animate-slide-in-down">《劝学篇》—— <em>荀子</em></p>
+				<p class="quote-content animate-slide-in-down">古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。</p>
+				<p class="quote-author animate-slide-in-down">— <em>苏轼</em>《晁错论》</p>
 				<span class="quote-icon quote-icon-end animate-slide-in-up">
 					<i class="icon icon-quotes-right"></i>
 				</span>
@@ -57,6 +57,33 @@
 		</script>
 		<script src="assets/vendors/jquery-3.3.1.min.js"></script>
 		<script>
+			    var content = new Array();
+						content[0] = "Lytuph";
+						content[1] = "";
+						content[2] = "";
+						var i = 0,
+							j = 0;
+						var timer1, timer2;
+						function show() {
+							var temp = content[i];
+							timer2 = setInterval(function() {
+								if(j==temp.length)document.getElementById("ft").innerText = temp.substr(0, j);
+								else document.getElementById("ft").innerText = temp.substr(0, j) + "_";
+								j++;
+								if (j > temp.length) {
+									j = 0;
+									clearInterval(timer2);
+								}
+							}, 300);
+							i++;
+							if (i >= 1) {
+								i = 0;
+								clearInterval(timer1);
+							}
+						}
+						timer1 = setInterval(function() {
+							show();
+						}, 1000);
 			$(function() {
 				var SLIDE_IN_DOWN = {
 					opacity: 1,
