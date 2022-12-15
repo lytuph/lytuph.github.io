@@ -69,7 +69,7 @@ ul, ol { list-style: none; }
   opacity: 0;
 }
 
-.animate-slide-in-down { top: -10px; }
+.animate-slide-in-down { top: -30px; }
 
 .animate-slide-in-up { bottom: -10px; }
 
@@ -90,7 +90,7 @@ ul, ol { list-style: none; }
 /* Headline
 /* ================================================= */
 .vi {
-  margin: 100px auto 0;
+  margin: 120px auto 0;
   max-width: 780px;
 }
 
@@ -105,13 +105,14 @@ ul, ol { list-style: none; }
   position: relative;
   overflow: hidden;
   margin: 40px 20px;
+  margin-top: 80px;
 }
 
 .quote-line {
   display: block;
   position: relative;
   height: 1px;
-  transition: all .3s ease;
+  transition: all 2.5s ease;
 }
 
 .quote cite::before {
@@ -134,15 +135,15 @@ ul, ol { list-style: none; }
 .quote-icon-end.animate-slide-in-up { bottom: -10px; }
 .no-js .quote-icon-end.animate-slide-in-up { bottom: 0; }
 
-.quote-content { margin: 30px auto 0; }
+.quote-content { margin: 30px auto 0;font-size: 22px; }
 
-.quote-author { margin: 10px auto 30px; }
+.quote-author { margin: 10px auto 30px 370px; }
 
 
 /* Links
 /* ================================================= */
 .links {
-  margin-top: 40px;
+  margin-top: 50px;
   font-size: 14px;
 }
 
