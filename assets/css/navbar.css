@@ -24,7 +24,7 @@
 	width: 35px;
 	height: 5px;
 	border-radius: 14px;
-	background-color: #999;
+	background-color: #fb7299;
 	/* 元素永远不会成为鼠标事件的target（目标 */
 	pointer-events: none;
 	transition: transform 0.3s ease-in-out, top 0.3s ease-in-out 0.3s;
@@ -37,9 +37,12 @@
 .navbar ul {
 	margin-left: 20px;
 	justify-content: center;
+	background-color: palevioletred;
 	display: flex;
 	width: 20px;
 	overflow: hidden;
+	border-radius: 10px;
+	padding:5px 5px 3px 25px;
 	white-space: nowrap;
 	transition: all 0.5s;
 }
